@@ -4,29 +4,29 @@ using UnityEngine;
 
 public class NewBehaviourScript : MonoBehaviour
 {
-    private float number;
-    private float maxNumber;
+    [SerializeField] float force;
+    Transform _transform;
+    Rigidbody rb;
 
-    public int Number
-    {
-        get
-        {
-            return (int)number;
-        }
-        private set
-        {
-            number = Mathf.Clamp(value, 0, maxNumber);
-        }
-    }
 
     private void Awake()
     {
-        
+        _transform = GetComponent<Transform>();
+        rb = GetComponent<Rigidbody>();
     }
 
     void Update()
     {
-        GetComponent<Transform>();
-        transform.position = new Vector3(0, 1 + Mathf.Sin(Time.time), 0);
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            Jump();
+        }
+
+        _transform.position += new Vector3(Mathf.Cos(Time.time), Mathf.Sin(Time.time), 0)*Time.deltaTime;
+    }
+
+    private void Jump()
+    {
+        rb.AddForce(new Vector3(0, force, 0));
     }
 }
