@@ -4,16 +4,31 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
+    [SerializeField] float speed;
+    int health;
+
+    
     Transform _transform;
+
     public Transform Transform => _transform;
     // Start is called before the first frame update
     void Start()
     {
         _transform = GetComponent<Transform>();
+        
     }
 
-    // Update is called once per frame
-    void Update() => print("me");
+    private void FixedUpdate()
+    {
+        _transform.position += new Vector3(speed, 0, 0);
+    }
 
-
+    public void TakeDamage(int damage)
+    {
+        health -= damage;
+        if (health <= 0)
+        {
+            Destroy(gameObject);
+        }
+    }
 }
