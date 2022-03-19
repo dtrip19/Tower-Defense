@@ -22,7 +22,8 @@ public class TowerPlacementManager : MonoBehaviour
         if (ghostTower == null) return;
         var ray = camera.ScreenPointToRay(Input.mousePosition);
         Physics.Raycast(ray,out RaycastHit hit, layerMask);
-        if (hit.point!=Vector3.zero){
+        if (hit.collider!=null){
+            print("d");
             ghostTowerTransform.position = hit.point;
         }
 
