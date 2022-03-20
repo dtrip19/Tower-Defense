@@ -21,7 +21,6 @@ public class TowerSlot : MonoBehaviour, IPointerDownHandler, IPointerEnterHandle
 
     public void OnPointerDown(PointerEventData eventData)
     {
-        
         OnSelect?.Invoke(tower);
         print("clicked on the tower slot");
     }

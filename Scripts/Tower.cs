@@ -11,11 +11,13 @@ public class Tower : MonoBehaviour
     int timer = 30;
     int bulletDamage;
 
+    public bool canShoot = false;
+
     // Update is called once per frame
     void FixedUpdate()
     {
         timer++;
-        if (timer >= 30 && target != null)
+        if (timer >= 30 && target != null && canShoot)
         {
             timer = 0;
             Shoot();

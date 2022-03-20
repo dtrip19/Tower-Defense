@@ -7,6 +7,8 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField] GameObject enemy;
     int timer = 0;
 
+    public Vector3[] positions;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -27,6 +29,6 @@ public class EnemySpawner : MonoBehaviour
     void SpawnEnemy()
     {
         var enemyTransform = Instantiate(enemy).transform;
-        enemyTransform.position = new Vector3(-20, 0, 5);
+        enemyTransform.position = new Vector3(-20, 0.5f, 5);
     }
 }
