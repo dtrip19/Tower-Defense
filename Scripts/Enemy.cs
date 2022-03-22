@@ -7,7 +7,6 @@ public class Enemy : MonoBehaviour
     [SerializeField] float speed;
     public Vector3[] positions;
     int health;
-
     
     Transform _transform;
 
