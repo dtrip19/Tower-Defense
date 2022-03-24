@@ -7,9 +7,9 @@ public class Tower : MonoBehaviour
     [SerializeField] GameObject bullet;
     [SerializeField] float bulletSpeed;
     [SerializeField] float bulletLifeTime;
+    [SerializeField] int bulletDamage;
     Enemy target;
     int timer = 30;
-    int bulletDamage;
 
     public bool canShoot = false;
 

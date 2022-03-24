@@ -5,14 +5,14 @@ using UnityEngine;
 public class EnemySpawner : MonoBehaviour
 {
     [SerializeField] GameObject enemy;
-    int timer = 0;
 
     public Vector3[] positions;
+    int timer = 0;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
@@ -28,7 +28,11 @@ public class EnemySpawner : MonoBehaviour
 
     void SpawnEnemy()
     {
+        var enemyComp = enemy.GetComponent<Enemy>();
         var enemyTransform = Instantiate(enemy).transform;
-        enemyTransform.position = new Vector3(-20, 0.5f, 5);
+        enemyTransform.position = positions[0];
+        enemyTransform.GetComponent<Collider>().isTrigger = false;
+        enemyComp.positions = positions;
+        enemyComp.setHealth(Random.Range(1,10));
     }
 }

@@ -13,9 +13,11 @@ public class LineRendererPositionStealer : MonoBehaviour
         positions = new Vector3[lineRenderer.positionCount];
         for(int i =0; i<positions.Length;i++)
         {
-            positions[i] = lineRenderer.GetPosition(i);
+            Vector3 position = lineRenderer.GetPosition(i);
+            positions[i] = new Vector3(position.x,1, position.z);
         }
         enemySpawner.positions = positions;
+        Destroy(gameObject);
     }
 
     // Update is called once per frame

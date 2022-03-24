@@ -22,16 +22,13 @@ public class TowerSlot : MonoBehaviour, IPointerDownHandler, IPointerEnterHandle
     public void OnPointerDown(PointerEventData eventData)
     {
         OnSelect?.Invoke(tower);
-        print("clicked on the tower slot");
     }
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        print("mouse entered the tower slot image");
     }
 
     public void OnPointerExit(PointerEventData eventData)
     {
-        print("mouse exit");
     }
 }
