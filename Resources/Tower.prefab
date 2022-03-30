@@ -113,6 +113,7 @@ MonoBehaviour:
   bulletSpeed: 0.53
   bulletLifeTime: 1.29
   bulletDamage: 1
+  attackSpeed: 30
   canShoot: 0
 --- !u!135 &7761779961491853246
 SphereCollider:

@@ -28,11 +28,10 @@ public class EnemySpawner : MonoBehaviour
 
     void SpawnEnemy()
     {
-        var enemyComp = enemy.GetComponent<Enemy>();
-        var enemyTransform = Instantiate(enemy).transform;
-        enemyTransform.position = positions[0];
-        enemyTransform.GetComponent<Collider>().isTrigger = false;
+        var enemyComp = Instantiate(enemy).GetComponent<Enemy>();
+        enemyComp.Transform.position = positions[0];
+        enemyComp.GetComponent<Collider>().isTrigger = false;
         enemyComp.positions = positions;
-        enemyComp.setHealth(Random.Range(1,10));
+        enemyComp.SetHealth(Random.Range(1,10));
     }
 }

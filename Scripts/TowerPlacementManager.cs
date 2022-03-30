@@ -5,6 +5,7 @@ using UnityEngine;
 public class TowerPlacementManager : MonoBehaviour
 {
 
+    [SerializeField] GameObject towerObject;
     Camera camera;
     GameObject ghostTower;
     int layerMask = 1 << 8;
@@ -35,14 +36,15 @@ public class TowerPlacementManager : MonoBehaviour
         towerCreatedLastFrame = false;
     }
 
-    void CreateGhostTower(GameObject ghostTower)
+    void CreateGhostTower(TowerScriptableObject towerScriptableObject)
     {
         if (this.ghostTower != null)
         {
             Destroy(this.ghostTower);
         }
         towerCreatedLastFrame = true;
-        var newTower = Instantiate(ghostTower);
+        var newTower = Instantiate(towerObject);
+        newTower.GetComponent<Tower>().SetScriptableObject(towerScriptableObject);
         this.ghostTower = newTower;
         ghostTowerTransform = newTower.transform;
     }    

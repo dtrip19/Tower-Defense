@@ -10,7 +10,7 @@ public class Enemy : MonoBehaviour
     Transform _transform;
     int pathPositionIndex = 0;
     int maxHealth;
-    int health;
+    int health = 2;
     public float Speed => .25f+health/8;
     public Transform Transform => _transform;
     public static event Action<int> OnReachEndPath;
@@ -23,6 +23,7 @@ public class Enemy : MonoBehaviour
 
     private void FixedUpdate()
     {
+        
         Vector3 dirToPosition = (positions[pathPositionIndex] - transform.position);
         Vector3 dirToMove = dirToPosition.normalized * Speed;
         _transform.position += dirToMove;
@@ -44,8 +45,9 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    public void setHealth(int health){
-        this.health = health;
-        this.maxHealth = health;
+    public void SetHealth(int health1){
+        health = health1;
+        maxHealth = health1;
+        
     }
 }

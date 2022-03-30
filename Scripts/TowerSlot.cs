@@ -4,24 +4,13 @@ using System;
 public class TowerSlot : MonoBehaviour, IPointerDownHandler, IPointerEnterHandler, IPointerExitHandler
 {
 
-    [SerializeField] GameObject tower;
-    public static event Action<GameObject> OnSelect;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    [SerializeField] TowerScriptableObject towerScriptableObject;
+    public static event Action<TowerScriptableObject> OnSelect;
 
     public void OnPointerDown(PointerEventData eventData)
     {
-        OnSelect?.Invoke(tower);
+        OnSelect?.Invoke(towerScriptableObject);
     }
 
     public void OnPointerEnter(PointerEventData eventData)

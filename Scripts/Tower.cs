@@ -4,12 +4,10 @@ using UnityEngine;
 
 public class Tower : MonoBehaviour
 {
-    [SerializeField] GameObject bullet;
-    [SerializeField] float bulletSpeed;
-    [SerializeField] float bulletLifeTime;
-    [SerializeField] int bulletDamage;
+
+    [SerializeField] TowerScriptableObject towerScriptableObject;
     Enemy target;
-    int timer = 30;
+    int timer = 0;
 
     public bool canShoot = false;
 
@@ -17,7 +15,7 @@ public class Tower : MonoBehaviour
     void FixedUpdate()
     {
         timer++;
-        if (timer >= 30 && target != null && canShoot)
+        if (timer >= towerScriptableObject.attackSpeed && target != null && canShoot)
         {
             timer = 0;
             Shoot();
@@ -52,13 +50,17 @@ public class Tower : MonoBehaviour
 
     void Shoot()
     {
-        var projectile = Instantiate(bullet).GetComponent<Projectile>();
+        var projectile = Instantiate(towerScriptableObject.bullet).GetComponent<Projectile>();
         projectile.Transform.position = transform.position;
         var directionEnemy = target.Transform.position - transform.position;
 
         projectile.direction = directionEnemy.normalized;
-        projectile.speed = bulletSpeed;
-        projectile.damage = bulletDamage;
-        Destroy(projectile.gameObject, bulletLifeTime);
+        projectile.speed = towerScriptableObject.bulletSpeed;
+        projectile.damage = towerScriptableObject.bulletDamage;
+        Destroy(projectile.gameObject, towerScriptableObject.bulletLifeTime);
+    }
+
+    public void SetScriptableObject(TowerScriptableObject towerScriptableObject){
+        this.towerScriptableObject = towerScriptableObject;
     }
 }
