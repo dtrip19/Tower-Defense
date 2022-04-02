@@ -3,11 +3,14 @@ using UnityEngine.EventSystems;
 using System;
 public class TowerSlot : MonoBehaviour, IPointerDownHandler, IPointerEnterHandler, IPointerExitHandler
 {
-
-
     [SerializeField] TowerScriptableObject towerScriptableObject;
     public static event Action<TowerScriptableObject> OnSelect;
 
+    Describable describable;
+
+    private void Awake(){
+        describable = GetComponent<Describable>();
+    }
     public void OnPointerDown(PointerEventData eventData)
     {
         OnSelect?.Invoke(towerScriptableObject);
@@ -15,6 +18,15 @@ public class TowerSlot : MonoBehaviour, IPointerDownHandler, IPointerEnterHandle
 
     public void OnPointerEnter(PointerEventData eventData)
     {
+        var towerData = new TowerData{
+            speed = towerScriptableObject.speed,
+            damage = towerScriptableObject.damage,
+            lifeTime = towerScriptableObject.lifeTime,
+            attackDelay = towerScriptableObject.attackDelay,
+            description = towerScriptableObject.description
+        };
+
+        describable.Inspect(towerData);
     }
 
     public void OnPointerExit(PointerEventData eventData)

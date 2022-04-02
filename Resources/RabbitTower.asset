@@ -12,8 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a5288cbf4bfffe4abb449af8bd02ab9, type: 3}
   m_Name: RabbitTower
   m_EditorClassIdentifier: 
-  bulletSpeed: 0.43
+  speed: 1
   bullet: {fileID: 1317444465190966354, guid: f24bf52a85f00db4eb83b362cf43f268, type: 3}
-  bulletLifeTime: 1.07
-  bulletDamage: 1
-  attackSpeed: 17
+  lifeTime: 0.5
+  damage: 1
+  attackDelay: 15
+  price: 100
+  description: This tower shoiots fast

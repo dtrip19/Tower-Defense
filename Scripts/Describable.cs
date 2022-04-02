@@ -4,9 +4,9 @@ using UnityEngine;
 using System;
 public class Describable : MonoBehaviour
 {
-    public static event Action<string> OnInspect;
+    public static event Action<TowerData> OnInspect;
 
-    public void Inspect(string description){
-        OnInspect?.Invoke(description);
+    public void Inspect(TowerData data){
+        OnInspect?.Invoke(data);
     }
 }

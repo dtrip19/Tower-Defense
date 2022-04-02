@@ -15,7 +15,7 @@ public class Tower : MonoBehaviour
     void FixedUpdate()
     {
         timer++;
-        if (timer >= towerScriptableObject.attackSpeed && target != null && canShoot)
+        if (timer >= towerScriptableObject.attackDelay && target != null && canShoot)
         {
             timer = 0;
             Shoot();
@@ -55,9 +55,9 @@ public class Tower : MonoBehaviour
         var directionEnemy = target.Transform.position - transform.position;
 
         projectile.direction = directionEnemy.normalized;
-        projectile.speed = towerScriptableObject.bulletSpeed;
-        projectile.damage = towerScriptableObject.bulletDamage;
-        Destroy(projectile.gameObject, towerScriptableObject.bulletLifeTime);
+        projectile.speed = towerScriptableObject.speed;
+        projectile.damage = towerScriptableObject.damage;
+        Destroy(projectile.gameObject, towerScriptableObject.lifeTime);
     }
 
     public void SetScriptableObject(TowerScriptableObject towerScriptableObject){
