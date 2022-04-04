@@ -13,6 +13,6 @@ public class DescriptionText : MonoBehaviour
     }
     void FillDescriptionBox(TowerData data){
         //textMesh.text = data.description + "AS: "+ data.attackSpeed + " Da: " + " Sp: " + data.description;
-        textMesh.text = $"{data.description}\n\nAttack Speed: {data.attackDelay} | Damage: {data.damage} \nSpeed: {data.speed}              | LifeTime: {data.lifeTime}";
+        textMesh.text = $"{data.description}\n\nAttack Speed: {data.attackDelay} | Damage: {data.damage} \nSpeed: {data.bulletSpeed}              | LifeTime: {data.lifeTime}";
     }
 }

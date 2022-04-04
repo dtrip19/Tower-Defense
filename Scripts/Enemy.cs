@@ -11,7 +11,7 @@ public class Enemy : MonoBehaviour
     int pathPositionIndex = 0;
     int maxHealth;
     int health = 2;
-    public float Speed => .25f+health/8;
+    public float Speed => .05f+health/16;
     public Transform Transform => _transform;
     public static event Action<int> OnReachEndPath;
     // Start is called before the first frame update

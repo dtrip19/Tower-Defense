@@ -36,7 +36,7 @@ public class Tower : MonoBehaviour
         {
             target = null;
 
-            var colliders = Physics.OverlapSphere(transform.position, 9.84f);
+            var colliders = Physics.OverlapSphere(transform.position, towerScriptableObject.range);
 
             foreach (var collider in colliders)
             {
@@ -55,12 +55,14 @@ public class Tower : MonoBehaviour
         var directionEnemy = target.Transform.position - transform.position;
 
         projectile.direction = directionEnemy.normalized;
-        projectile.speed = towerScriptableObject.speed;
+        projectile.speed = towerScriptableObject.bulletSpeed;
         projectile.damage = towerScriptableObject.damage;
         Destroy(projectile.gameObject, towerScriptableObject.lifeTime);
     }
 
     public void SetScriptableObject(TowerScriptableObject towerScriptableObject){
         this.towerScriptableObject = towerScriptableObject;
+        GetComponent<SphereCollider>().radius = towerScriptableObject.range;
+        transform.GetChild(0).GetComponent<SphereCollider>().radius = towerScriptableObject.colliderSize;
     }
 }

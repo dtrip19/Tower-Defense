@@ -19,7 +19,7 @@ public class TowerSlot : MonoBehaviour, IPointerDownHandler, IPointerEnterHandle
     public void OnPointerEnter(PointerEventData eventData)
     {
         var towerData = new TowerData{
-            speed = towerScriptableObject.speed,
+            bulletSpeed = towerScriptableObject.bulletSpeed,
             damage = towerScriptableObject.damage,
             lifeTime = towerScriptableObject.lifeTime,
             attackDelay = towerScriptableObject.attackDelay,

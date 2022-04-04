@@ -4,13 +4,14 @@ using UnityEngine;
 
 public struct TowerData
 {
-    public float speed;
     public GameObject bullet;
+    public float bulletSpeed;
     public float lifeTime;
     public int damage;
     public int attackDelay;
 
     public int price;
 
+    public float range;
     public string description; 
 }

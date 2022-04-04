@@ -11,6 +11,7 @@ public class TowerPlacementManager : MonoBehaviour
     int layerMask = 1 << 8;
     bool towerCreatedLastFrame = false;
     Transform ghostTowerTransform;
+    float ghostTowerSize;
 
     void Start()
     {
@@ -22,18 +23,24 @@ public class TowerPlacementManager : MonoBehaviour
     void Update()
     {
         if (ghostTower == null) return;
+
         var ray = camera.ScreenPointToRay(Input.mousePosition);
         Physics.Raycast(ray,out RaycastHit hit, 100,layerMask);
         if (hit.collider!=null){
-            ghostTowerTransform.position = hit.point + new Vector3(0,0.5f,0);
+            if(Physics.OverlapSphere(hit.point, ghostTowerSize,1 << 9).Length <= 0)
+                ghostTowerTransform.position = hit.point + new Vector3(0,0.5f,0);
         }
+        
         if (Input.GetMouseButtonDown(0) && !towerCreatedLastFrame)
         {
+            ghostTowerTransform.GetChild(0).gameObject.layer = 9;
             ghostTower.GetComponent<Tower>().canShoot = true;
             ghostTower=null;
         }
         
         towerCreatedLastFrame = false;
+
+
     }
 
     void CreateGhostTower(TowerScriptableObject towerScriptableObject)
@@ -47,6 +54,7 @@ public class TowerPlacementManager : MonoBehaviour
         newTower.GetComponent<Tower>().SetScriptableObject(towerScriptableObject);
         this.ghostTower = newTower;
         ghostTowerTransform = newTower.transform;
+        ghostTowerSize = towerScriptableObject.colliderSize;
     }    
 
     void OnDestroy()
