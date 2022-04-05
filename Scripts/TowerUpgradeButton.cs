@@ -11,17 +11,26 @@ public class TowerUpgradeButton : MonoBehaviour, IPointerEnterHandler, IPointerD
     private void Awake()
     {
         describable = GetComponent<Describable>();
-        TowerSlot.OnSelect += SetUpgradeTower;
+        Tower.OnSelect += SetUpgradeTower;
     }
 
-    private void SetUpgradeTower(TowerScriptableObject towerScriptableObject)
+    private void SetUpgradeTower(Tower tower)
     {
-        this.towerScriptableObject = towerScriptableObject;
+        towerScriptableObject = tower.towerScriptableObject.upgrades[upgradeIndex];
     }
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        throw new System.NotImplementedException();
+        var towerData = new TowerData
+        {
+            bulletSpeed = towerScriptableObject.bulletSpeed,
+            damage = towerScriptableObject.damage,
+            lifeTime = towerScriptableObject.lifeTime,
+            attackDelay = towerScriptableObject.attackDelay,
+            description = towerScriptableObject.description
+        };
+
+        describable.Inspect(towerData);
     }
 
     public void OnPointerDown(PointerEventData eventData)
@@ -31,11 +40,11 @@ public class TowerUpgradeButton : MonoBehaviour, IPointerEnterHandler, IPointerD
 
     public void OnPointerExit(PointerEventData eventData)
     {
-        throw new System.NotImplementedException();
+        describable.Uninspect();
     }
 
     private void OnDestroy()
     {
-        TowerSlot.OnSelect -= SetUpgradeTower;
+        Tower.OnSelect -= SetUpgradeTower;
     }
 }
