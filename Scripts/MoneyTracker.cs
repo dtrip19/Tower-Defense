@@ -7,19 +7,18 @@ public class MoneyTracker : MonoBehaviour
 {
     TextMeshProUGUI textMesh;
 
-    int points = 200;
-
+    public static int Points {get; private set;} = 200;
     // Start is called before the first frame update
     void Start()
     {
-        TowerSlot.OnSelect += SpendPoints;
+        TowerPlacementManager.OnPlace += SpendPoints;
         textMesh = GetComponent<TextMeshProUGUI>();
-        textMesh.text = points.ToString();
+        textMesh.text = Points.ToString();
     }
 
     void SpendPoints(TowerScriptableObject towerScriptableObject)
     {
-        points -= towerScriptableObject.price;
-        textMesh.text = points.ToString();
+        Points -= towerScriptableObject.price;
+        textMesh.text = Points.ToString();
     }
 }
