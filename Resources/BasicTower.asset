@@ -16,11 +16,12 @@ MonoBehaviour:
   - {fileID: 11400000, guid: b31dfaf9038e11f48b82e04ceb1fa9fe, type: 2}
   - {fileID: 11400000, guid: 4be2721f7b8cf704ea5528abd76be4e4, type: 2}
   bullet: {fileID: 1317444465190966354, guid: f24bf52a85f00db4eb83b362cf43f268, type: 3}
+  icon: {fileID: 0}
   description: This is a basic tower.
   damage: 1
   attackDelay: 30
   price: 50
-  bulletSpeed: 0
+  bulletSpeed: 0.5
   lifeTime: 0.5
-  range: 0
-  colliderSize: 0
+  range: 10
+  colliderSize: 0.5
