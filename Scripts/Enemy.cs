@@ -12,7 +12,7 @@ public class Enemy : MonoBehaviour
     private int maxHealth;
     private int health;
 
-    public float Speed => 0.4f;// enemyScriptableObject.moveSpeed * health / maxHealth;
+    public float Speed => 0.2f;// enemyScriptableObject.moveSpeed * health / maxHealth;
     public Transform Transform => _transform;
 
     public static event Action<int> OnReachEndPath;

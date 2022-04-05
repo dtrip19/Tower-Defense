@@ -1,5 +1,6 @@
 using UnityEngine;
 using System;
+
 public class TowerPlacementManager : MonoBehaviour
 {
     [SerializeField] GameObject towerObject;
@@ -7,10 +8,14 @@ public class TowerPlacementManager : MonoBehaviour
     new private Camera camera;
     private GameObject ghostTowerObject;
     private Transform ghostTowerTransform;
-    private int layerMask = 1 << 8;
+    private int groundLayerMask = 1 << 8;
+    private int unplaceableLayerMask = 1 << 9;
+    private int mapColliderLayerMask = 1 << 10;
     private float ghostTowerSize;
     private bool towerCreatedLastFrame = false;
+
     public static event Action<TowerScriptableObject> OnPlace;
+
     private void Start()
     {
         camera = GetComponent<Camera>();
@@ -22,10 +27,12 @@ public class TowerPlacementManager : MonoBehaviour
         if (ghostTowerObject == null) return;
 
         var ray = camera.ScreenPointToRay(Input.mousePosition);
-        Physics.Raycast(ray,out RaycastHit hit, 100,layerMask);
-        if (hit.collider != null){
-            if(Physics.OverlapSphere(hit.point, ghostTowerSize, 1 << 9).Length <= 0)
-                ghostTowerTransform.position = hit.point + new Vector3(0, 0.5f, 0);
+        Physics.Raycast(ray, out RaycastHit groundHit, 100, groundLayerMask);
+        Physics.Raycast(ray, out RaycastHit unplaceableHit, 100, unplaceableLayerMask);
+        if (groundHit.collider != null)
+        {
+            if (unplaceableHit.collider == null && Physics.OverlapSphere(groundHit.point, ghostTowerSize, mapColliderLayerMask).Length <= 0)
+                ghostTowerTransform.position = groundHit.point;
         }
 
         var ghostTower = ghostTowerObject.GetComponent<Tower>();
@@ -34,7 +41,9 @@ public class TowerPlacementManager : MonoBehaviour
         {
             OnPlace?.Invoke(ghostTower.towerScriptableObject);
 
-            ghostTowerTransform.GetChild(0).gameObject.layer = 9;
+            var mapColliderTransform = ghostTowerTransform.GetChild(0);
+            mapColliderTransform.gameObject.layer = 10;
+            mapColliderTransform.GetComponent<SphereCollider>().enabled = true;
             ghostTowerObject.GetComponent<Tower>().canShoot = true;
             ghostTowerObject = null;
         }
@@ -45,6 +54,7 @@ public class TowerPlacementManager : MonoBehaviour
 
         towerCreatedLastFrame = false;
     }
+
     private void CreateGhostTower(TowerScriptableObject towerScriptableObject)
     {
         if (ghostTowerObject != null)
@@ -64,5 +74,4 @@ public class TowerPlacementManager : MonoBehaviour
     {
         TowerSlot.OnSelect -= CreateGhostTower;
     }
-
 }

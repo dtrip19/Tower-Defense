@@ -71,8 +71,10 @@ public class Tower : MonoBehaviour
 
     public void SetScriptableObject(TowerScriptableObject towerScriptableObject){
         this.towerScriptableObject = towerScriptableObject;
-        GetComponent<SphereCollider>().radius = towerScriptableObject.range;
-        transform.GetChild(0).GetComponent<SphereCollider>().radius = towerScriptableObject.colliderSize;
+        //GetComponent<SphereCollider>().radius = towerScriptableObject.range;
+        var child = transform.GetChild(0);
+        child.GetComponent<SphereCollider>().radius = towerScriptableObject.colliderSize;
+        child.localPosition = new Vector3(0, towerScriptableObject.colliderSize / 2, 0);
     }
 
     private void OnMouseEnter()

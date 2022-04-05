@@ -10,8 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 6450786138606824699}
   - component: {fileID: 4417998993598475784}
-  m_Layer: 9
-  m_Name: PathCollider
+  m_Layer: 10
+  m_Name: TrackCollider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
