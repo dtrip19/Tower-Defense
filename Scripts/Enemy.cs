@@ -14,6 +14,7 @@ public class Enemy : MonoBehaviour
 
     public float Speed => 0.2f;// enemyScriptableObject.moveSpeed * health / maxHealth;
     public Transform Transform => _transform;
+    public int PathPositionIndex => pathPositionIndex;
 
     public static event Action<int> OnReachEndPath;
 

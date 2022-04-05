@@ -6,14 +6,17 @@ public class Tower : MonoBehaviour
     public TowerScriptableObject towerScriptableObject;
     private Enemy target;
     private Describable describable;
+    private Transform _transform;
     public bool canShoot = false;
     private int timer;
+    private int enemyLayer = 1 << 11;
 
     public static event Action<Tower> OnSelect;
 
     private void Awake()
     {
         describable = GetComponent<Describable>();
+        _transform = transform;
     }
 
     private void FixedUpdate()
@@ -24,6 +27,34 @@ public class Tower : MonoBehaviour
             timer = 0;
             Shoot();
         }
+    }
+
+    private void Update()
+    {
+        if (target != null && !target.Equals(null))
+        {
+            if (Vector3.Distance(target.Transform.position, _transform.position) > towerScriptableObject.range)
+                target = null;
+            else
+                return;
+        }
+
+        var colliders = Physics.OverlapSphere(_transform.position, towerScriptableObject.range, enemyLayer);
+
+        Enemy newTarget = null;
+        int furthestIndex = 0;
+        foreach (var collider in colliders)
+        {
+            if (!collider.TryGetComponent(out Enemy enemy)) continue;
+
+            int pathPositionIndex = enemy.PathPositionIndex;
+            if (pathPositionIndex > furthestIndex)
+            {
+                furthestIndex = pathPositionIndex;
+                newTarget = enemy;
+            }
+        }
+        target = newTarget;
     }
 
     private void OnTriggerEnter(Collider other)

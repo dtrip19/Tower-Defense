@@ -8,6 +8,7 @@ public class TowerPlacementManager : MonoBehaviour
     new private Camera camera;
     private GameObject ghostTowerObject;
     private Transform ghostTowerTransform;
+    private Transform _transform;
     private int groundLayerMask = 1 << 8;
     private int unplaceableLayerMask = 1 << 9;
     private int mapColliderLayerMask = 1 << 10;
@@ -19,6 +20,7 @@ public class TowerPlacementManager : MonoBehaviour
     private void Start()
     {
         camera = GetComponent<Camera>();
+        _transform = transform;
         TowerSlot.OnSelect += CreateGhostTower;
     }
 
@@ -31,8 +33,11 @@ public class TowerPlacementManager : MonoBehaviour
         Physics.Raycast(ray, out RaycastHit unplaceableHit, 100, unplaceableLayerMask);
         if (groundHit.collider != null)
         {
-            if (unplaceableHit.collider == null && Physics.OverlapSphere(groundHit.point, ghostTowerSize, mapColliderLayerMask).Length <= 0)
-                ghostTowerTransform.position = groundHit.point;
+            if (unplaceableHit.collider == null || Vector3.Distance(_transform.position, unplaceableHit.point) > Vector3.Distance(_transform.position, groundHit.point))
+            {
+                if (Physics.OverlapSphere(groundHit.point, ghostTowerSize, mapColliderLayerMask).Length <= 0)
+                    ghostTowerTransform.position = groundHit.point;
+            }
         }
 
         var ghostTower = ghostTowerObject.GetComponent<Tower>();

@@ -6,6 +6,12 @@ public class LineRendererPositionStealer : MonoBehaviour
     [SerializeField] GameObject pathColliderObject;
 
     private Vector3[] positions;
+    private Transform _transform;
+
+    private void Awake()
+    {
+        _transform = transform;
+    }
     
     private void Start()
     {
@@ -18,7 +24,7 @@ public class LineRendererPositionStealer : MonoBehaviour
             var newPosition = new Vector3(position.x, position.y + 0.05f, position.z);
             positions[i] = newPosition;
 
-            var pathCollider = Instantiate(pathColliderObject);
+            var pathCollider = Instantiate(pathColliderObject, _transform);
             pathCollider.transform.position = newPosition;
         }
         lineRenderer.SetPositions(positions);

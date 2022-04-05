@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: 7931736202315845878}
   - component: {fileID: 8449385407700893325}
   - component: {fileID: 217768535987054626}
-  m_Layer: 0
-  m_Name: enemy
+  m_Layer: 11
+  m_Name: Enemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -47,6 +47,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   positions: []
+  enemyScriptableObject: {fileID: 0}
 --- !u!136 &8449385407700893325
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -88,7 +89,7 @@ GameObject:
   - component: {fileID: 5800903083866785570}
   - component: {fileID: 5800903083866785571}
   - component: {fileID: 5800903083866785568}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: capsule
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -132,7 +133,6 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
-  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -157,4 +157,3 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_AdditionalVertexStreams: {fileID: 0}
