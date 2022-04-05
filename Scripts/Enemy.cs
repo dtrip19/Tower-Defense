@@ -14,7 +14,6 @@ public class Enemy : MonoBehaviour
     public float Speed => .05f+health/16;
     public Transform Transform => _transform;
     public static event Action<int> OnReachEndPath;
-    // Start is called before the first frame update
     void Awake()
     {
         _transform = GetComponent<Transform>();

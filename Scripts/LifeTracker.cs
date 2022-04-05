@@ -14,7 +14,8 @@ public class LifeTracker : MonoBehaviour
         textMesh.text = life.ToString();
     }
 
-    void LoseLife(int enemyHealth){
+    void LoseLife(int enemyHealth)
+    {
         life -= enemyHealth;
         textMesh.text = life.ToString();
     }
