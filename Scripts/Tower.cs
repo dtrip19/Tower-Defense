@@ -5,7 +5,7 @@ using UnityEngine;
 public class Tower : MonoBehaviour
 {
 
-    [SerializeField] TowerScriptableObject towerScriptableObject;
+    public TowerScriptableObject towerScriptableObject;
     Enemy target;
     int timer = 0;
 
