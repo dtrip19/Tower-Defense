@@ -1,22 +1,13 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
 {
-    [SerializeField] GameObject enemy;
+    [SerializeField] GameObject enemyObject;
 
     public Vector3[] positions;
-    int timer = 0;
+    private int timer = 0;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
-
-    // Update is called once per frame
-    void FixedUpdate()
+    private void FixedUpdate()
     {
         timer++;
         if (timer >= 100)
@@ -26,12 +17,12 @@ public class EnemySpawner : MonoBehaviour
         }
     }
 
-    void SpawnEnemy()
+    private void SpawnEnemy()
     {
-        var enemyComp = Instantiate(enemy).GetComponent<Enemy>();
-        enemyComp.Transform.position = positions[0];
-        enemyComp.GetComponent<Collider>().isTrigger = false;
-        enemyComp.positions = positions;
-        enemyComp.SetHealth(Random.Range(1,10));
+        var enemy = Instantiate(enemyObject).GetComponent<Enemy>();
+        enemy.Transform.position = positions[0];
+        enemy.GetComponent<Collider>().isTrigger = false;
+        enemy.positions = positions;
+        enemy.SetHealth(Random.Range(1,10));
     }
 }

@@ -1,25 +1,21 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class LineRendererPositionStealer : MonoBehaviour
 {
     [SerializeField] EnemySpawner enemySpawner;
-
     [SerializeField] GameObject pathColliderObject;
-    Vector3[] positions;
-    // Start is called before the first frame update
-    void Start()
+
+    private Vector3[] positions;
+    
+    private void Start()
     {
-
         var lineRenderer = GetComponent<LineRenderer>();
-
 
         positions = new Vector3[lineRenderer.positionCount];
         for(int i =0; i<positions.Length;i++)
         {
             Vector3 position = lineRenderer.GetPosition(i);
-            var newPosition = new Vector3(position.x,0f, position.z);
+            var newPosition = new Vector3(position.x, position.y + 0.05f, position.z);
             positions[i] = newPosition;
 
             var pathCollider = Instantiate(pathColliderObject);
@@ -27,11 +23,5 @@ public class LineRendererPositionStealer : MonoBehaviour
         }
         lineRenderer.SetPositions(positions);
         enemySpawner.positions = positions;
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }

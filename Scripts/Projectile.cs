@@ -1,27 +1,22 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class Projectile : MonoBehaviour
 {
+    private Transform _transform;
     public float speed;
     public int damage;
     public int pierce = 1;
     public Vector3 direction;
 
-    Transform _transform;
     public Transform Transform => _transform;
-
-
-    // Start is called before the first frame update
-    void Awake()
+    
+    private void Awake()
     {
         _transform = GetComponent<Transform>();
         
     }
 
-    // Update is called once per frame
-    void FixedUpdate()
+    private void FixedUpdate()
     {
         _transform.position += direction * speed;
     }

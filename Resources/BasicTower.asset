@@ -24,4 +24,4 @@ MonoBehaviour:
   bulletSpeed: 0.5
   lifeTime: 0.5
   range: 10
-  colliderSize: 0.5
+  colliderSize: 1
