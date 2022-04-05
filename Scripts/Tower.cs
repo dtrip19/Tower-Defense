@@ -7,7 +7,7 @@ public class Tower : MonoBehaviour
     private Enemy target;
     private Describable describable;
     public bool canShoot = false;
-    private int timer = 0;
+    private int timer;
 
     public static event Action<Tower> OnSelect;
 
