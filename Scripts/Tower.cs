@@ -4,11 +4,17 @@ using UnityEngine;
 public class Tower : MonoBehaviour
 {
     public TowerScriptableObject towerScriptableObject;
-    public bool canShoot = false;
     private Enemy target;
+    private Describable describable;
+    public bool canShoot = false;
     private int timer = 0;
 
     public static event Action<Tower> OnSelect;
+
+    private void Awake()
+    {
+        describable = GetComponent<Describable>();
+    }
 
     private void FixedUpdate()
     {
@@ -58,10 +64,34 @@ public class Tower : MonoBehaviour
         Destroy(projectile.gameObject, towerScriptableObject.lifeTime);
     }
 
+    public void Upgrade(int upgradeIndex)
+    {
+        SetScriptableObject(towerScriptableObject.upgrades[upgradeIndex]);
+    }
+
     public void SetScriptableObject(TowerScriptableObject towerScriptableObject){
         this.towerScriptableObject = towerScriptableObject;
         GetComponent<SphereCollider>().radius = towerScriptableObject.range;
         transform.GetChild(0).GetComponent<SphereCollider>().radius = towerScriptableObject.colliderSize;
+    }
+
+    private void OnMouseEnter()
+    {
+        var towerData = new TowerData
+        {
+            bulletSpeed = towerScriptableObject.bulletSpeed,
+            damage = towerScriptableObject.damage,
+            lifeTime = towerScriptableObject.lifeTime,
+            attackDelay = towerScriptableObject.attackDelay,
+            description = towerScriptableObject.description
+        };
+
+        describable.Inspect(towerData);
+    }
+
+    private void OnMouseExit()
+    {
+        describable.Uninspect();
     }
 
     private void OnMouseDown()

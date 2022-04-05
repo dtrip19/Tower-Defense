@@ -14,11 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   upgrades: []
   bullet: {fileID: 1317444465190966354, guid: f24bf52a85f00db4eb83b362cf43f268, type: 3}
+  icon: {fileID: 0}
   description: This tower shoiots fast
   damage: 1
   attackDelay: 15
   price: 100
-  bulletSpeed: 0
+  bulletSpeed: 5
   lifeTime: 0.5
-  range: 0
-  colliderSize: 0
+  range: 10
+  colliderSize: 0.5
