@@ -20,7 +20,7 @@ public class TowerUpgradeButton : MonoBehaviour, IPointerEnterHandler, IPointerD
     private void SetUpgradeTower(Tower tower)
     {
         selectedTower = tower;
-        image.sprite = tower.towerScriptableObject.icon;
+        image.sprite = tower.towerScriptableObject.upgrades[upgradeIndex].icon;
     }
 
     public void OnPointerEnter(PointerEventData eventData)

@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
 using System;
+using UnityEngine.UI;
 
 public class TowerSlot : MonoBehaviour, IPointerDownHandler, IPointerEnterHandler, IPointerExitHandler
 {
@@ -13,6 +14,7 @@ public class TowerSlot : MonoBehaviour, IPointerDownHandler, IPointerEnterHandle
     private void Awake()
     {
         describable = GetComponent<Describable>();
+        transform.GetChild(0).GetComponent<Image>().sprite = towerScriptableObject.icon;
     }
 
     public void OnPointerDown(PointerEventData eventData)
