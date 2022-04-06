@@ -19,7 +19,7 @@ MonoBehaviour:
   damage: 1
   attackDelay: 30
   price: 50
-  bulletSpeed: 1
+  bulletSpeed: 0.5
   lifeTime: 0.5
   range: 10
   colliderSize: 1
