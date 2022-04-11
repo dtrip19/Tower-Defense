@@ -10,6 +10,7 @@ public class Tower : MonoBehaviour
     public bool canShoot = false;
     private int timer;
     private int enemyLayer = 1 << 11;
+    private int unplaceableLayer = 1 << 9;
 
     public static event Action<Tower> OnSelect;
 
@@ -33,7 +34,7 @@ public class Tower : MonoBehaviour
     {
         if (target != null && !target.Equals(null))
         {
-            if (Vector3.Distance(target.Transform.position, _transform.position) > towerScriptableObject.range)
+            if (Vector3.Distance(target.Transform.position, _transform.position) > towerScriptableObject.range || !IsTargetVisible(target))
                 target = null;
             else
                 return;
@@ -48,39 +49,13 @@ public class Tower : MonoBehaviour
             if (!collider.TryGetComponent(out Enemy enemy)) continue;
 
             int pathPositionIndex = enemy.PathPositionIndex;
-            if (pathPositionIndex > furthestIndex)
+            if (pathPositionIndex > furthestIndex && IsTargetVisible(enemy))
             {
                 furthestIndex = pathPositionIndex;
                 newTarget = enemy;
             }
         }
         target = newTarget;
-    }
-
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.TryGetComponent(out Enemy enemy) && target == null)
-        {
-            target = enemy;
-        }
-    }
-
-    private void OnTriggerExit(Collider other)
-    {
-        if (other.TryGetComponent(out Enemy enemy) && target != null && target.Equals(enemy))
-        {
-            target = null;
-
-            var colliders = Physics.OverlapSphere(transform.position, towerScriptableObject.range);
-
-            foreach (var collider in colliders)
-            {
-                if (collider.TryGetComponent(out enemy))
-                {
-                    target = enemy;
-                }
-            }
-        }
     }
 
     private void Shoot()
@@ -92,7 +67,7 @@ public class Tower : MonoBehaviour
         projectile.direction = directionEnemy.normalized;
         projectile.speed = towerScriptableObject.bulletSpeed;
         projectile.damage = towerScriptableObject.damage;
-        Destroy(projectile.gameObject, towerScriptableObject.lifeTime);
+        Destroy(projectile.gameObject, towerScriptableObject.lifeTime / 10);
     }
 
     public void Upgrade(int upgradeIndex)
@@ -100,16 +75,23 @@ public class Tower : MonoBehaviour
         SetScriptableObject(towerScriptableObject.upgrades[upgradeIndex]);
     }
 
-    public void SetScriptableObject(TowerScriptableObject towerScriptableObject){
+    public void SetScriptableObject(TowerScriptableObject towerScriptableObject)
+    {
         this.towerScriptableObject = towerScriptableObject;
-        //GetComponent<SphereCollider>().radius = towerScriptableObject.range;
         var child = transform.GetChild(0);
         child.GetComponent<SphereCollider>().radius = towerScriptableObject.colliderSize;
         child.localPosition = new Vector3(0, towerScriptableObject.colliderSize / 2, 0);
     }
 
+    private bool IsTargetVisible(Enemy enemy)
+    {
+        Vector3 dirToTarget = (enemy.Transform.position - _transform.position).normalized;
+        return !Physics.Raycast(_transform.position, dirToTarget, out RaycastHit hit, towerScriptableObject.range, unplaceableLayer);
+    }
+
     private void OnMouseEnter()
     {
+        print("Moused over tower");
         var towerData = new TowerData
         {
             bulletSpeed = towerScriptableObject.bulletSpeed,

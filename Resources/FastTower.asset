@@ -17,9 +17,9 @@ MonoBehaviour:
   icon: {fileID: 21300000, guid: 1037958cd0e3ed843959c9d903942b1a, type: 3}
   description: This is a fast tower.
   damage: 1
-  attackDelay: 30
+  attackDelay: 15
   price: 50
   bulletSpeed: 0.5
   lifeTime: 0.5
-  range: 10
+  range: 7
   colliderSize: 1

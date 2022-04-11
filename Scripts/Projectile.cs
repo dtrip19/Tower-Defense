@@ -18,7 +18,7 @@ public class Projectile : MonoBehaviour
 
     private void FixedUpdate()
     {
-        _transform.position += direction * speed;
+        _transform.position += speed / 10 * direction;
     }
 
     private void OnTriggerEnter(Collider other)
