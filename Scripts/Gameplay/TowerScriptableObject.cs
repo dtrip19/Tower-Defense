@@ -16,4 +16,5 @@ public class TowerScriptableObject : ScriptableObject
     public float lifeTime;
     public float range;
     public float colliderSize;
+    public float bulletOriginHeight;
 }

@@ -12,6 +12,15 @@ public class Tower : MonoBehaviour
     private int enemyLayer = 1 << 11;
     private int unplaceableLayer = 1 << 9;
 
+    public Vector3 BulletOrigin
+    {
+        get
+        {
+            var offset = towerScriptableObject.bulletOriginHeight;
+            return new Vector3(_transform.position.x, _transform.position.y + offset, _transform.position.z);
+        }
+    }
+
     public static event Action<Tower> OnSelect;
 
     private void Awake()
@@ -61,10 +70,10 @@ public class Tower : MonoBehaviour
     private void Shoot()
     {
         var projectile = Instantiate(towerScriptableObject.bullet).GetComponent<Projectile>();
-        projectile.Transform.position = transform.position;
-        var directionEnemy = target.Transform.position - transform.position;
+        projectile.Transform.position = BulletOrigin;
+        var dirToEnemy = target.Transform.position - BulletOrigin;
 
-        projectile.direction = directionEnemy.normalized;
+        projectile.direction = dirToEnemy.normalized;
         projectile.speed = towerScriptableObject.bulletSpeed;
         projectile.damage = towerScriptableObject.damage;
         Destroy(projectile.gameObject, towerScriptableObject.lifeTime / 10);
@@ -85,8 +94,9 @@ public class Tower : MonoBehaviour
 
     private bool IsTargetVisible(Enemy enemy)
     {
-        Vector3 dirToTarget = (enemy.Transform.position - _transform.position).normalized;
-        return !Physics.Raycast(_transform.position, dirToTarget, out RaycastHit hit, towerScriptableObject.range, unplaceableLayer);
+        Vector3 bulletOrigin = new Vector3(_transform.position.x, _transform.position.y + towerScriptableObject.bulletOriginHeight, _transform.position.z);
+        Vector3 dirToTarget = (enemy.LineOfSightPosition - bulletOrigin).normalized;
+        return !Physics.Raycast(bulletOrigin, dirToTarget, out RaycastHit hit, towerScriptableObject.range, unplaceableLayer);
     }
 
     private void OnMouseEnter()

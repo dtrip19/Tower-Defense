@@ -11,16 +11,20 @@ public class Enemy : MonoBehaviour
     private int pathPositionIndex = 1;
     private int maxHealth;
     private int health;
+    private int height = 1;
 
     public float Speed => 0.05f;// enemyScriptableObject.moveSpeed * health / maxHealth;
     public Transform Transform => _transform;
+    public int Health => health;
+    public Vector3 LineOfSightPosition => new Vector3(_transform.position.x, _transform.position.y + height, _transform.position.z);
     public int PathPositionIndex => pathPositionIndex;
 
     public static event Action<int> OnReachEndPath;
+    public static event Action<Enemy> OnSpawn;
 
     private void Awake()
     {
-        _transform = GetComponent<Transform>();       
+        _transform = GetComponent<Transform>();
     }
 
     private void FixedUpdate()
@@ -52,5 +56,6 @@ public class Enemy : MonoBehaviour
     {
         this.health = health;
         maxHealth = health;
+        OnSpawn?.Invoke(this);
     }
 }

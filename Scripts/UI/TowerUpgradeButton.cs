@@ -20,7 +20,11 @@ public class TowerUpgradeButton : MonoBehaviour, IPointerEnterHandler, IPointerD
     private void SetUpgradeTower(Tower tower)
     {
         selectedTower = tower;
-        image.sprite = tower.towerScriptableObject.upgrades[upgradeIndex].icon;
+
+        if (tower.towerScriptableObject.upgrades.Count != 0)
+            image.sprite = tower.towerScriptableObject.upgrades[upgradeIndex].icon;
+        else
+            image.sprite = null;//Insert empty upgrade slot image
     }
 
     public void OnPointerEnter(PointerEventData eventData)
