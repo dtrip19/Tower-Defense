@@ -10,7 +10,9 @@ public class TrackNormalizer : EditorWindow
         int positionCount = lineRenderer.positionCount;
         for (int i = 1; i < positionCount - 1; i++)
         {
+            float originalY = lineRenderer.GetPosition(i).y;
             var newPosition = (lineRenderer.GetPosition(i - 1) + lineRenderer.GetPosition(i + 1)) / 2;
+            newPosition = new Vector3(newPosition.x, originalY, newPosition.z);
             lineRenderer.SetPosition(i, newPosition);
         }
     }

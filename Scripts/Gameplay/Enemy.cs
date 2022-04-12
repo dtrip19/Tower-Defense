@@ -32,6 +32,7 @@ public class Enemy : MonoBehaviour
         Vector3 dirToPosition = (positions[pathPositionIndex] - transform.position);
         Vector3 dirToMove = dirToPosition.normalized * Speed;
         _transform.position += dirToMove;
+        _transform.forward = dirToMove.normalized;
         if (dirToMove.magnitude >= dirToPosition.magnitude)
         {
             pathPositionIndex++;

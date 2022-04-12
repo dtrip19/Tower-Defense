@@ -71,7 +71,7 @@ public class Tower : MonoBehaviour
     {
         var projectile = Instantiate(towerScriptableObject.bullet).GetComponent<Projectile>();
         projectile.Transform.position = BulletOrigin;
-        var dirToEnemy = target.Transform.position - BulletOrigin;
+        var dirToEnemy = target.LineOfSightPosition - BulletOrigin;
 
         projectile.direction = dirToEnemy.normalized;
         projectile.speed = towerScriptableObject.bulletSpeed;

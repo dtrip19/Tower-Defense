@@ -2,6 +2,7 @@
 
 public class CameraController : MonoBehaviour
 {
+    [SerializeField] float cameraDistanceLimit;
     [SerializeField] float scrollSensitivity;
     [SerializeField] float xSensitivity;
     [SerializeField] float ySensitivity;
@@ -37,8 +38,6 @@ public class CameraController : MonoBehaviour
 
     private void Zoom(Vector2 scrollDelta)
     {
-        //var positionDelta = new Vector3(0, scrollDelta.y * scrollSensitivity, 0);
-        //cameraTransform.localPosition += positionDelta;
-        cameraTransform.localPosition = new Vector3(0, Mathf.Clamp(cameraTransform.localPosition.y + scrollDelta.y * scrollSensitivity, 20, 75));
+        cameraTransform.localPosition = new Vector3(0, Mathf.Clamp(cameraTransform.localPosition.y + scrollDelta.y * scrollSensitivity, 20, cameraDistanceLimit));
     }
 }
