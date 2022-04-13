@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-public class MoneyTracker : MonoBehaviour
+public class PointTracker : MonoBehaviour
 {
     TextMeshProUGUI textMesh;
 
@@ -12,6 +12,7 @@ public class MoneyTracker : MonoBehaviour
     void Start()
     {
         TowerPlacementManager.OnPlace += SpendPoints;
+        Enemy.OnDeath += GainPoints;
         textMesh = GetComponent<TextMeshProUGUI>();
         textMesh.text = Points.ToString();
     }
@@ -19,6 +20,12 @@ public class MoneyTracker : MonoBehaviour
     void SpendPoints(TowerScriptableObject towerScriptableObject)
     {
         Points -= towerScriptableObject.price;
+        textMesh.text = Points.ToString();
+    }
+
+    void GainPoints(EnemyScriptableObject enemyScriptableObject)
+    {
+        Points += enemyScriptableObject.points;
         textMesh.text = Points.ToString();
     }
 }

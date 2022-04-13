@@ -42,7 +42,7 @@ public class TowerPlacementManager : MonoBehaviour
 
         var ghostTower = ghostTowerObject.GetComponent<Tower>();
 
-        if (Input.GetMouseButtonDown(0) && !towerCreatedLastFrame && MoneyTracker.Points >= ghostTower.towerScriptableObject.price)
+        if (Input.GetMouseButtonDown(0) && !towerCreatedLastFrame && PointTracker.Points >= ghostTower.towerScriptableObject.price)
         {
             OnPlace?.Invoke(ghostTower.towerScriptableObject);
 
