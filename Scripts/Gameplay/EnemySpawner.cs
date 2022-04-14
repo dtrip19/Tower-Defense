@@ -20,6 +20,7 @@ public class EnemySpawner : MonoBehaviour
     private void SpawnEnemy()
     {
         var enemy = Instantiate(enemyObject).GetComponent<Enemy>();
+        
         enemy.Transform.position = positions[0];
         enemy.GetComponent<Collider>().isTrigger = false;
         enemy.positions = positions;

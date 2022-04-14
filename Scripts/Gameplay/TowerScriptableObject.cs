@@ -17,4 +17,5 @@ public class TowerScriptableObject : ScriptableObject
     public float range;
     public float colliderSize;
     public float bulletOriginHeight;
+    public uint towerId;
 }

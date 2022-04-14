@@ -49,7 +49,7 @@ public class TowerPlacementManager : MonoBehaviour
             var mapColliderTransform = ghostTowerTransform.GetChild(0);
             mapColliderTransform.gameObject.layer = 10;
             mapColliderTransform.GetComponent<SphereCollider>().enabled = true;
-            ghostTowerObject.GetComponent<Tower>().canShoot = true;
+            ghostTowerObject.GetComponent<TowerBehaviorBase>().canShoot = true;
             ghostTowerObject = null;
         }
         if (Input.GetMouseButtonDown(1))
