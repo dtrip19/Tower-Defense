@@ -58,10 +58,10 @@ public class EnemySpawner : MonoBehaviour
             float time = Time.time;
             foreach (var pack in activePacks)
             {
-                print($"{pack.enemySO.name}: {pack.spawnStartTime + pack.spawnInterval * pack.numEnemies}");
+                //print($"{pack.enemySO.name}: {pack.spawnStartTime + pack.spawnInterval * pack.numEnemies}");
                 if (TimeSinceWaveStart > pack.spawnStartTime + pack.spawnInterval * pack.numEnemies)
                 {
-                    print(pack.enemySO.name + " finished");
+                    //print(pack.enemySO.name + " finished");
                     activePacks.Remove(pack);
                     pack.finished = true;
                     numPacksFinished++;

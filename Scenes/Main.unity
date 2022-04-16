@@ -7692,7 +7692,7 @@ PrefabInstance:
         type: 3}
       propertyPath: towerScriptableObject
       value: 
-      objectReference: {fileID: 11400000, guid: df2b5b0764561e245bc73bd45d13945a,
+      objectReference: {fileID: 11400000, guid: 5c17085b2729734419a3b82fadf02433,
         type: 2}
     - target: {fileID: 6306785079927153497, guid: d9bbd0c2926cda84abf515fd6efde5c0,
         type: 3}
@@ -9878,7 +9878,7 @@ PrefabInstance:
         type: 3}
       propertyPath: towerScriptableObject
       value: 
-      objectReference: {fileID: 11400000, guid: bae7ce0b1fa95fc49b458eef651cdf9f,
+      objectReference: {fileID: 11400000, guid: df2b5b0764561e245bc73bd45d13945a,
         type: 2}
     - target: {fileID: 6306785079927153497, guid: d9bbd0c2926cda84abf515fd6efde5c0,
         type: 3}
@@ -9963,7 +9963,7 @@ PrefabInstance:
     - target: {fileID: 6306785079927153497, guid: d9bbd0c2926cda84abf515fd6efde5c0,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -900
+      value: -790
       objectReference: {fileID: 0}
     - target: {fileID: 6306785079927153497, guid: d9bbd0c2926cda84abf515fd6efde5c0,
         type: 3}
@@ -17507,7 +17507,7 @@ PrefabInstance:
         type: 3}
       propertyPath: towerScriptableObject
       value: 
-      objectReference: {fileID: 11400000, guid: 5c17085b2729734419a3b82fadf02433,
+      objectReference: {fileID: 11400000, guid: bae7ce0b1fa95fc49b458eef651cdf9f,
         type: 2}
     - target: {fileID: 6306785079927153497, guid: d9bbd0c2926cda84abf515fd6efde5c0,
         type: 3}
@@ -17592,7 +17592,7 @@ PrefabInstance:
     - target: {fileID: 6306785079927153497, guid: d9bbd0c2926cda84abf515fd6efde5c0,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -790
+      value: -900
       objectReference: {fileID: 0}
     - target: {fileID: 6306785079927153497, guid: d9bbd0c2926cda84abf515fd6efde5c0,
         type: 3}
