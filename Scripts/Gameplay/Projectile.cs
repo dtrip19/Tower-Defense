@@ -5,6 +5,8 @@ public class Projectile : MonoBehaviour
     private Transform _transform;
     public float speed;
     public int damage;
+
+    public DamageType damageType;
     public int pierce = 1;
     public Vector3 direction;
 
@@ -25,7 +27,7 @@ public class Projectile : MonoBehaviour
     {
         if (other.TryGetComponent(out Enemy enemy))
         {
-            enemy.TakeDamage(damage);
+            enemy.TakeDamage(damage, damageType);
             pierce--;
             if (pierce <= 0)
             {

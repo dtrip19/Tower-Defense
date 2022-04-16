@@ -5,21 +5,20 @@ public class Enemy : MonoBehaviour
 {
     [SerializeField] Transform modelRootTransform;
 
-    public EnemyScriptableObject enemySO;
+    private EnemyScriptableObject enemySO;
     public Vector3[] positions;
     private Transform _transform;
     private int pathPositionIndex = 1;
     private int maxHealth;
     private int health;
-
     public float Speed
     {
         get
         {
             if (enemySO.attributes.Contains(EnemyAttribute.Persistent))
-                return enemySO.moveSpeed;
+                return enemySO.moveSpeed/10;
             else
-                return enemySO.moveSpeed * health / maxHealth;
+                return (enemySO.moveSpeed + enemySO.moveSpeed * health / maxHealth)/20;
         }
     }
     public Transform Transform => _transform;
@@ -55,8 +54,12 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    public void TakeDamage(int damage)
+    public void TakeDamage(int damage, DamageType damageType)
     {
+        if (enemySO.attributes.Contains(EnemyAttribute.Armored) && (damageType != DamageType.Piercing || damageType != DamageType.Explosive)) return;
+        if (enemySO.attributes.Contains(EnemyAttribute.Resistant) && damageType != DamageType.Elemental) return;
+
+
         health -= damage;
         if (health <= 0)
         {
@@ -66,10 +69,17 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    public void SetHealth(int health)
+    // public void SetHealth(int health)
+    // {
+    //     this.health = health;
+    //     maxHealth = health;
+    //     OnSpawn?.Invoke(this);
+    // }
+
+    public void InitEnemy(EnemyScriptableObject enemySO)
     {
-        this.health = health;
-        maxHealth = health;
+        this.enemySO = enemySO;
+        health = maxHealth = enemySO.health;
         OnSpawn?.Invoke(this);
     }
 }

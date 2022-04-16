@@ -17,8 +17,8 @@ public abstract class TowerBehaviorBase : MonoBehaviour
     public bool canShoot = false;
     public float bulletSpeed;
     public float lifeTime;
-
     public float bulletOriginHeight;
+    public virtual DamageType DamageType => DamageType.Normal;
     public Vector3 BulletOrigin
     {
         get
@@ -76,6 +76,7 @@ public abstract class TowerBehaviorBase : MonoBehaviour
     protected virtual void Shoot()
     {
         var projectile = Instantiate(bullet).GetComponent<Projectile>();
+        projectile.damageType = DamageType;
         projectile.Transform.position = BulletOrigin;
         var dirToEnemy = target.LineOfSightPosition - BulletOrigin;
 
