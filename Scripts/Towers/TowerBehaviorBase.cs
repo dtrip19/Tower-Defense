@@ -18,8 +18,9 @@ public abstract class TowerBehaviorBase : MonoBehaviour
     public float bulletSpeed;
     public float lifeTime;
     public float bulletOriginHeight;
-    public virtual DamageType DamageType => DamageType.Normal;
-    public Vector3 BulletOrigin
+
+    protected virtual DamageType DamageType => DamageType.Normal;
+    protected Vector3 BulletOrigin
     {
         get
         {

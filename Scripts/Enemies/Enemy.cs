@@ -43,7 +43,7 @@ public class Enemy : MonoBehaviour
         Vector3 dirToMove = dirToPosition.normalized * Speed;
         _transform.position += dirToMove;
         modelRootTransform.forward = dirToMove.normalized;
-        if (dirToMove.magnitude >= dirToPosition.magnitude)
+        if (dirToMove.magnitude >= dirToPosition.magnitude - 0.05f)
         {
             pathPositionIndex++;
             if (pathPositionIndex > positions.Length - 1)
@@ -56,9 +56,8 @@ public class Enemy : MonoBehaviour
 
     public void TakeDamage(int damage, DamageType damageType)
     {
-        if (enemySO.attributes.Contains(EnemyAttribute.Armored) && (damageType != DamageType.Piercing || damageType != DamageType.Explosive)) return;
+        if (enemySO.attributes.Contains(EnemyAttribute.Armored) && damageType != DamageType.Piercing && damageType != DamageType.Explosive) return;
         if (enemySO.attributes.Contains(EnemyAttribute.Resistant) && damageType != DamageType.Elemental) return;
-
 
         health -= damage;
         if (health <= 0)
@@ -80,6 +79,7 @@ public class Enemy : MonoBehaviour
     {
         this.enemySO = enemySO;
         health = maxHealth = enemySO.health;
+        GetComponentInChildren<MeshRenderer>().material = enemySO.material;
         OnSpawn?.Invoke(this);
     }
 }

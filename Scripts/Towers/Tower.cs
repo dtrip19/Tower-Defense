@@ -44,6 +44,15 @@ public class Tower : MonoBehaviour
             case 2:
                 behavior = gameObject.AddComponent<RandomTowerbehavior>();
                 break;
+            case 3:
+                behavior = gameObject.AddComponent<MagicTowerBehavior>();
+                break;
+            case 4:
+                behavior = gameObject.AddComponent<UtilityTowerBehavior>();
+                break;
+            case 5:
+                behavior = gameObject.AddComponent<SlowTowerBehavior>();
+                break;
         }
         behavior.attackDelay = towerScriptableObject.attackDelay;
         behavior.damage = towerScriptableObject.damage;

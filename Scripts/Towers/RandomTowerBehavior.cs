@@ -19,7 +19,7 @@ public sealed class RandomTowerbehavior : TowerBehaviorBase
     {
         var projectile = Instantiate(bullet).GetComponent<Projectile>();
         projectile.Transform.position = BulletOrigin;
-        var dir = new Vector3(Random.Range(-1f,1f),Random.Range(0f,1f),Random.Range(-1f,1f));
+        var dir = new Vector3(Random.Range(-1f, 1f),Random.Range(-0.2f, 1f),Random.Range(-1f, 1f));
 
         projectile.direction = dir.normalized;
         projectile.speed = bulletSpeed;

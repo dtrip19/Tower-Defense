@@ -21,7 +21,7 @@ MonoBehaviour:
   price: 50
   bulletSpeed: 20
   lifeTime: 5
-  range: 10
+  range: 15.32
   colliderSize: 0.75
   bulletOriginHeight: 2
   towerId: 0
