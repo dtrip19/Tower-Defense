@@ -5,7 +5,7 @@ public class Enemy : MonoBehaviour
 {
     [SerializeField] Transform modelRootTransform;
 
-    public EnemyScriptableObject enemyScriptableObject;
+    public EnemyScriptableObject enemySO;
     public Vector3[] positions;
     private Transform _transform;
     private int pathPositionIndex = 1;
@@ -16,15 +16,15 @@ public class Enemy : MonoBehaviour
     {
         get
         {
-            if (enemyScriptableObject.attributes.Contains(EnemyAttribute.Persistent))
-                return enemyScriptableObject.moveSpeed;
+            if (enemySO.attributes.Contains(EnemyAttribute.Persistent))
+                return enemySO.moveSpeed;
             else
-                return enemyScriptableObject.moveSpeed * health / maxHealth;
+                return enemySO.moveSpeed * health / maxHealth;
         }
     }
     public Transform Transform => _transform;
     public int Health => health;
-    public Vector3 LineOfSightPosition => new Vector3(_transform.position.x, _transform.position.y + enemyScriptableObject.height, _transform.position.z);
+    public Vector3 LineOfSightPosition => _transform.position;// new Vector3(_transform.position.x, _transform.position.y + enemySO.height, _transform.position.z);
     public int PathPositionIndex => pathPositionIndex;
 
     public static event Action<int> OnReachEndPath;
@@ -39,7 +39,8 @@ public class Enemy : MonoBehaviour
 
     private void FixedUpdate()
     {    
-        Vector3 dirToPosition = positions[pathPositionIndex] - _transform.position;
+        Vector3 newPos =new Vector3(positions[pathPositionIndex].x, positions[pathPositionIndex].y + enemySO.height,positions[pathPositionIndex].z);
+        Vector3 dirToPosition = newPos - _transform.position;
         Vector3 dirToMove = dirToPosition.normalized * Speed;
         _transform.position += dirToMove;
         modelRootTransform.forward = dirToMove.normalized;
@@ -59,8 +60,8 @@ public class Enemy : MonoBehaviour
         health -= damage;
         if (health <= 0)
         {
-            enemyScriptableObject.deathLocation = new Vector3(_transform.position.x,_transform.position.y + enemyScriptableObject.height, transform.position.z);
-            OnDeath?.Invoke(enemyScriptableObject);
+            enemySO.deathLocation = new Vector3(_transform.position.x,_transform.position.y + enemySO.height, transform.position.z);
+            OnDeath?.Invoke(enemySO);
             Destroy(gameObject);
         }
     }

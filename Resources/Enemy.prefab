@@ -175,8 +175,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   modelRootTransform: {fileID: 5800903083866785570}
+  enemySO: {fileID: 11400000, guid: 665c910582a317744abf5718d289deb0, type: 2}
   positions: []
-  enemyScriptableObject: {fileID: 11400000, guid: 397837d37f7b9be4fae3f92b4d8027d4, type: 2}
 --- !u!136 &8449385407700893325
 CapsuleCollider:
   m_ObjectHideFlags: 0
