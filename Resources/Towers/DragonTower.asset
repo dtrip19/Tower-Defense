@@ -10,17 +10,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6a5288cbf4bfffe4abb449af8bd02ab9, type: 3}
-  m_Name: UtilityTower
+  m_Name: DragonTower
   m_EditorClassIdentifier: 
   upgrades: []
   bullet: {fileID: 1317444465190966354, guid: f24bf52a85f00db4eb83b362cf43f268, type: 3}
-  icon: {fileID: 21300000, guid: 18e9813db746b87418be75675f473e7b, type: 3}
-  description: This tower shoiots fast
+  icon: {fileID: 0}
+  description: This is a fast tower.
   damage: 1
   attackDelay: 15
-  price: 100
+  price: 50
   bulletSpeed: 20
   lifeTime: 5
-  range: 10
+  range: 7
   colliderSize: 0.75
   bulletOriginHeight: 2
+  towerId: 0

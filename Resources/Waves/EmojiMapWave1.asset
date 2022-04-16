@@ -11,10 +11,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 0}
   m_Name: EmojiMapWave1
-  m_EditorClassIdentifier: Assembly-CSharp::EnemyWaveScriptableObjects
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyWaveScriptableObject
   enemyPacks:
   - {fileID: 11400000, guid: 82a6cedc4a82ed6428d8cba22b758da4, type: 2}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 11400000, guid: cdc2d652be460b448b450a288740c6e8, type: 2}

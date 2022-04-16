@@ -2,7 +2,7 @@
 using UnityEngine;
 
 [CreateAssetMenu(menuName = "Enemy Wave")]
-public class EnemyWaveScriptableObjects : ScriptableObject
+public class EnemyWaveScriptableObject : ScriptableObject
 {
     public List<EnemyPackSciptableObject> enemyPacks;
 }

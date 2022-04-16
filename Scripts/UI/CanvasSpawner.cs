@@ -26,7 +26,7 @@ public class CanvasSpawner : MonoBehaviour
         var spawnLocation = mainCam.WorldToScreenPoint(enemyScriptableObject.deathLocation);
         var pointNumbersTransform = (RectTransform)Instantiate(pointNumbers, clonesTransform).transform;
         pointNumbersTransform.GetComponent<TextMeshProUGUI>().text = "+" + enemyScriptableObject.points.ToString();
-        pointNumbersTransform.anchoredPosition = new Vector2(spawnLocation.x - Screen.width/2 +70,spawnLocation.y - Screen.height/2);
+        pointNumbersTransform.anchoredPosition = new Vector2(spawnLocation.x - Screen.width / 2 + 35, spawnLocation.y - Screen.height / 2);
         Destroy(pointNumbersTransform.gameObject, 2);
     }
 }
