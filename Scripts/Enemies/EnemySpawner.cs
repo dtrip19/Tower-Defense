@@ -13,22 +13,9 @@ public class EnemySpawner : MonoBehaviour
     private float timeStartedWave;
     public Vector3[] positions;
 
-    //private int timer;
-    //private int spawnIndex;
-    //private string[] wave1 = new string[10];
-
     private float TimeSinceWaveStart => Time.time - timeStartedWave;
 
     public event Action OnEndWave;
-
-    //private void Awake()
-    //{
-    //    for(int i = 0; i <wave1.Length; i++)
-    //    {
-    //        wave1[i] = "BasicEnemy";
-    //    }
-    //    wave1[9] = "WeakEnemy";
-    //}
 
     public void StartWave()
     {
