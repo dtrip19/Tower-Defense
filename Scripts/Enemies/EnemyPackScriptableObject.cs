@@ -7,6 +7,4 @@ public class EnemyPackSciptableObject : ScriptableObject
     public int numEnemies;
     public float spawnStartTime;
     public float spawnInterval;
-    public float timeLastSpawn;
-    public bool finished;
 }

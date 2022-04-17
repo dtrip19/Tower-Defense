@@ -43,61 +43,45 @@ public class EnemySpawner : MonoBehaviour
     {
         List<EnemyPackSciptableObject> activePacks = new List<EnemyPackSciptableObject>();
         EnemyWaveScriptableObject wave = mapSpawns.waves[waveIndex];
-        int numPacksFinished = 0;
+        int numPacks = wave.enemyPacks.Count;
+        bool[] finishedPacks = new bool[numPacks];
+        float[] timesLastSpawned = new float[numPacks];
 
-        while (numPacksFinished < wave.enemyPacks.Count)
+        while (Array.Exists(finishedPacks, b => b == false))
         {
-            foreach (var pack in wave.enemyPacks)
+            //print("Iterating");
+            for (int i = 0; i < numPacks; i++)
             {
-                if (!pack.finished && TimeSinceWaveStart >= pack.spawnStartTime && !activePacks.Contains(pack))
-                {
-                    activePacks.Add(pack);
-                }
+                if (!finishedPacks[i] && TimeSinceWaveStart >= wave.enemyPacks[i].spawnStartTime && !activePacks.Contains(wave.enemyPacks[i]))
+                    activePacks.Add(wave.enemyPacks[i]);
             }
 
             float time = Time.time;
-            foreach (var pack in activePacks)
+            for (int i = activePacks.Count - 1; i >= 0; i--)
             {
+                var pack = activePacks[i];
+                int packIndex = wave.enemyPacks.IndexOf(pack);
                 //print($"{pack.enemySO.name}: {pack.spawnStartTime + pack.spawnInterval * pack.numEnemies}");
                 if (TimeSinceWaveStart > pack.spawnStartTime + pack.spawnInterval * pack.numEnemies)
                 {
                     //print(pack.enemySO.name + " finished");
                     activePacks.Remove(pack);
-                    pack.finished = true;
-                    numPacksFinished++;
-                    break;
+                    finishedPacks[packIndex] = true;
                 }
-                else if (time >= pack.timeLastSpawn + pack.spawnInterval)
+                else if (time >= timesLastSpawned[packIndex] + pack.spawnInterval)
                 {
                     SpawnEnemy(pack.enemySO);
-                    pack.timeLastSpawn = time;
+                    timesLastSpawned[packIndex] = time;
                 }
             }
 
             yield return null;
         }
 
-        foreach (var pack in wave.enemyPacks)
-        {
-            pack.finished = false; //Must undo this or else any changes made to the SO will be serialized lmao
-            pack.timeLastSpawn = 0;
-        }
         playing = false;
         waveIndex++;
-
         OnEndWave?.Invoke();
     }
-
-    //private void FixedUpdate()
-    //{
-    //    timer++;
-    //    if (timer >= 100 && spawnIndex <= 9)
-    //    {
-    //
-    //        timer = 0;
-    //        SpawnEnemy(wave1[spawnIndex++]);
-    //    }
-    //}
 
     private void SpawnEnemy(EnemyScriptableObject enemySO)
     {
