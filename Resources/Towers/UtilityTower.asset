@@ -19,9 +19,10 @@ MonoBehaviour:
   damage: 1
   attackDelay: 15
   price: 100
+  pierce: 1
   bulletSpeed: 20
   lifeTime: 5
   range: 10
-  colliderSize: 0.75
+  colliderSize: 0.5
   bulletOriginHeight: 2
-  towerId: 4
+  towerId: 10

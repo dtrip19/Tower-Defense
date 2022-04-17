@@ -10,18 +10,19 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6a5288cbf4bfffe4abb449af8bd02ab9, type: 3}
-  m_Name: DragonTower
+  m_Name: OncePunchTower
   m_EditorClassIdentifier: 
   upgrades: []
-  bullet: {fileID: 1317444465190966354, guid: f24bf52a85f00db4eb83b362cf43f268, type: 3}
+  bullet: {fileID: 0}
   icon: {fileID: 0}
-  description: This is a fast tower
-  damage: 1
-  attackDelay: 15
-  price: 50
-  bulletSpeed: 20
-  lifeTime: 5
-  range: 7
-  colliderSize: 0.75
+  description: Low range, stupid damage
+  damage: 1000
+  attackDelay: 250
+  price: 200
+  pierce: 1
+  bulletSpeed: 0
+  lifeTime: 0
+  range: 5
+  colliderSize: 0.5
   bulletOriginHeight: 2
-  towerId: 0
+  towerId: 7

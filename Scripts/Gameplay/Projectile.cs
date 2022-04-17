@@ -14,8 +14,7 @@ public class Projectile : MonoBehaviour
     
     private void Awake()
     {
-        _transform = GetComponent<Transform>();
-        
+        _transform = GetComponent<Transform>();  
     }
 
     private void FixedUpdate()

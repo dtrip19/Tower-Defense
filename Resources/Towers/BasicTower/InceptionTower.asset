@@ -10,18 +10,19 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6a5288cbf4bfffe4abb449af8bd02ab9, type: 3}
-  m_Name: FastTower
+  m_Name: InceptionTower
   m_EditorClassIdentifier: 
   upgrades: []
-  bullet: {fileID: 1317444465190966354, guid: f24bf52a85f00db4eb83b362cf43f268, type: 3}
-  icon: {fileID: 21300000, guid: 1037958cd0e3ed843959c9d903942b1a, type: 3}
-  description: This is a fast tower
-  damage: 1
-  attackDelay: 10
-  price: 50
-  bulletSpeed: 20
-  lifeTime: 5
-  range: 7
-  colliderSize: 0.75
+  bullet: {fileID: 7871653369370538987, guid: 486ed97472c22fc479c2fb6495e8315c, type: 3}
+  icon: {fileID: 0}
+  description: Shoots a slow moving projectile that shoots fast projectiles
+  damage: 5
+  attackDelay: 150
+  price: 200
+  pierce: 1
+  bulletSpeed: 3
+  lifeTime: 3
+  range: 10
+  colliderSize: 0.5
   bulletOriginHeight: 2
-  towerId: 0
+  towerId: 5

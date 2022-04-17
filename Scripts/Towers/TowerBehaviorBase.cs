@@ -1,33 +1,26 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public abstract class TowerBehaviorBase : MonoBehaviour
 {
     #region variables
+
     protected Transform _transform;
     protected Enemy target;
     public GameObject bullet;
     public float range;
     public int attackDelay;
     public int damage;
-    public int timer;
+    public int pierce;
     public int enemyLayer = 1 << 11;
     public int unplaceableLayer = 1 << 9;
-    public bool canShoot = false;
+    public bool canShoot;
     public float bulletSpeed;
     public float lifeTime;
     public float bulletOriginHeight;
+    protected int timer;
 
     protected virtual DamageType DamageType => DamageType.Normal;
-    protected Vector3 BulletOrigin
-    {
-        get
-        {
-            var offset = bulletOriginHeight;
-            return new Vector3(_transform.position.x, _transform.position.y + offset, _transform.position.z);
-        }
-    }
+    protected Vector3 BulletOrigin => new Vector3(_transform.position.x, _transform.position.y + bulletOriginHeight, _transform.position.z);
 
     #endregion 
 
@@ -84,7 +77,8 @@ public abstract class TowerBehaviorBase : MonoBehaviour
         projectile.direction = dirToEnemy.normalized;
         projectile.speed = bulletSpeed;
         projectile.damage = damage;
-        Destroy(projectile.gameObject, lifeTime / 10);
+        projectile.pierce = pierce;
+        Destroy(projectile.gameObject, lifeTime);
     }
 
     protected virtual bool IsTargetVisible(Enemy enemy)

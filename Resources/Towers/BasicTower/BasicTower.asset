@@ -10,19 +10,21 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6a5288cbf4bfffe4abb449af8bd02ab9, type: 3}
-  m_Name: RandomTower
+  m_Name: BasicTower
   m_EditorClassIdentifier: 
-  upgrades: []
+  upgrades:
+  - {fileID: 11400000, guid: b31dfaf9038e11f48b82e04ceb1fa9fe, type: 2}
+  - {fileID: 11400000, guid: 4be2721f7b8cf704ea5528abd76be4e4, type: 2}
   bullet: {fileID: 1317444465190966354, guid: f24bf52a85f00db4eb83b362cf43f268, type: 3}
-  icon: {fileID: 21300000, guid: a64b99347cc83f0489db0727221b5486, type: 3}
-  description: This tower shoots very fast in random directions
+  icon: {fileID: 21300000, guid: d934ee580ae3a064cbfd783869390749, type: 3}
+  description: This is a Basic tower
   damage: 1
-  attackDelay: 5
-  price: 100
+  attackDelay: 30
+  price: 50
   pierce: 1
   bulletSpeed: 5
   lifeTime: 5
-  range: 10
+  range: 7
   colliderSize: 0.5
   bulletOriginHeight: 2
-  towerId: 8
+  towerId: 1

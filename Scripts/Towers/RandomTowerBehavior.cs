@@ -1,10 +1,7 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public sealed class RandomTowerbehavior : TowerBehaviorBase
+public sealed class RandomTowerBehavior : TowerBehaviorBase
 {
-
     new private void FixedUpdate()
     {
         timer++;

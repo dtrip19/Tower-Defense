@@ -5,19 +5,18 @@ public class Tower : MonoBehaviour
 {
     public TowerScriptableObject towerScriptableObject;
     private Describable describable;
-    private Transform _transform;
-    private int timer;
+
     public static event Action<Tower> OnSelect;
 
     private void Awake()
     {
         describable = GetComponent<Describable>();
-        _transform = transform;
     }
 
     public void Upgrade(int upgradeIndex)
     {
         SetScriptableObject(towerScriptableObject.upgrades[upgradeIndex]);
+        OnSelect?.Invoke(this);
     }
 
     public void SetScriptableObject(TowerScriptableObject towerScriptableObject)
@@ -31,28 +30,43 @@ public class Tower : MonoBehaviour
 
     public void AttachBehaviorComponent()
     {
-        if (TryGetComponent(out TowerBehaviorBase behavior))
-        {
+        bool hasBehavior = TryGetComponent(out TowerBehaviorBase behavior);
+        if (hasBehavior)
             Destroy(behavior);
 
-        }
         switch (towerScriptableObject.towerId)
         {
             case 1: 
                 behavior = gameObject.AddComponent<BasicTowerBehavior>();
                 break;
             case 2:
-                behavior = gameObject.AddComponent<RandomTowerbehavior>();
+                behavior = gameObject.AddComponent<FastTowerBehavior>();
                 break;
             case 3:
-                behavior = gameObject.AddComponent<MagicTowerBehavior>();
-                break;
-            case 4:
-                behavior = gameObject.AddComponent<UtilityTowerBehavior>();
-                break;
-            case 5:
                 behavior = gameObject.AddComponent<SlowTowerBehavior>();
                 break;
+            case 4:
+                behavior = gameObject.AddComponent<DragonTowerBehavior>();
+                break;
+            case 5:
+                behavior = gameObject.AddComponent<InceptionTowerBehavior>();
+                break;
+            case 6:
+                behavior = gameObject.AddComponent<RailgunTowerBehavior>();
+                break;
+            case 7:
+                behavior = gameObject.AddComponent<OncePunchTowerBehavior>();
+                break;
+            case 8:
+                behavior = gameObject.AddComponent<RandomTowerBehavior>();
+                break;
+            case 9:
+                behavior = gameObject.AddComponent<MagicTowerBehavior>();
+                break;
+            case 10:
+                behavior = gameObject.AddComponent<UtilityTowerBehavior>();
+                break;
+
         }
         behavior.attackDelay = towerScriptableObject.attackDelay;
         behavior.damage = towerScriptableObject.damage;
@@ -61,6 +75,10 @@ public class Tower : MonoBehaviour
         behavior.lifeTime = towerScriptableObject.lifeTime;
         behavior.bullet = towerScriptableObject.bullet;
         behavior.bulletOriginHeight = towerScriptableObject.bulletOriginHeight;
+        behavior.pierce = towerScriptableObject.pierce;
+
+        if (hasBehavior)
+            behavior.canShoot = true;
     }
 
     private void OnMouseEnter()

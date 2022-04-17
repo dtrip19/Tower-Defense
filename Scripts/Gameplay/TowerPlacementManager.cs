@@ -4,16 +4,17 @@ using System;
 public class TowerPlacementManager : MonoBehaviour
 {
     [SerializeField] GameObject towerObject;
+    [SerializeField] Transform rangeIndicatorTransform;
 
     new private Camera camera;
     private GameObject ghostTowerObject;
     private Transform ghostTowerTransform;
     private Transform _transform;
-    private int groundLayerMask = 1 << 8;
-    private int unplaceableLayerMask = 1 << 9;
-    private int mapColliderLayerMask = 1 << 10;
     private float ghostTowerSize;
     private bool towerCreatedLastFrame = false;
+    private const int groundLayerMask = 1 << 8;
+    private const int unplaceableLayerMask = 1 << 9;
+    private const int mapColliderLayerMask = 1 << 10;
 
     public static event Action<TowerScriptableObject> OnPlace;
 
@@ -22,6 +23,7 @@ public class TowerPlacementManager : MonoBehaviour
         camera = GetComponent<Camera>();
         _transform = transform;
         TowerSlot.OnSelect += CreateGhostTower;
+        Tower.OnSelect += ShowRangeIndicator;
     }
 
     private void Update()
@@ -36,7 +38,10 @@ public class TowerPlacementManager : MonoBehaviour
             if (unplaceableHit.collider == null || Vector3.Distance(_transform.position, unplaceableHit.point) > Vector3.Distance(_transform.position, groundHit.point))
             {
                 if (Physics.OverlapSphere(groundHit.point, ghostTowerSize, mapColliderLayerMask).Length <= 0)
+                {
                     ghostTowerTransform.position = groundHit.point;
+                    rangeIndicatorTransform.position = groundHit.point;
+                }
             }
         }
 
@@ -55,6 +60,7 @@ public class TowerPlacementManager : MonoBehaviour
         if (Input.GetMouseButtonDown(1))
         {
             Destroy(ghostTowerObject);
+            rangeIndicatorTransform.localScale = Vector3.zero;
         }
 
         towerCreatedLastFrame = false;
@@ -62,6 +68,8 @@ public class TowerPlacementManager : MonoBehaviour
 
     private void CreateGhostTower(TowerScriptableObject towerScriptableObject)
     {
+        float scale = towerScriptableObject.range * 2;
+        rangeIndicatorTransform.localScale = new Vector3(scale, scale, scale);
         if (ghostTowerObject != null)
         {
             Destroy(ghostTowerObject);
@@ -73,7 +81,14 @@ public class TowerPlacementManager : MonoBehaviour
         ghostTowerObject = newTower;
         ghostTowerTransform = newTower.transform;
         ghostTowerSize = towerScriptableObject.colliderSize;
-    }    
+    }
+
+    private void ShowRangeIndicator(Tower tower)
+    {
+        rangeIndicatorTransform.position = tower.transform.position;
+        float scale = tower.towerScriptableObject.range * 2;
+        rangeIndicatorTransform.localScale = new Vector3(scale, scale, scale);
+    }
 
     private void OnDestroy()
     {
