@@ -3,21 +3,19 @@ using TMPro;
 
 public class LifeTracker : MonoBehaviour
 {
-    TextMeshProUGUI textMesh;
-    int life = 50;
+    private TextMeshProUGUI textMesh;
+    private int life = 500;
 
-    // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
         Enemy.OnReachEndPath += LoseLife;
         textMesh = GetComponent<TextMeshProUGUI>();
         textMesh.text = life.ToString();
     }
 
-    void LoseLife(int enemyHealth)
+    private void LoseLife(int enemyHealth)
     {
         life -= enemyHealth;
         textMesh.text = life.ToString();
-    }
-    
+    }  
 }

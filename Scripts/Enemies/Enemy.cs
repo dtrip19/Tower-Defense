@@ -56,7 +56,9 @@ public class Enemy : MonoBehaviour
 
     public void TakeDamage(int damage, DamageType damageType)
     {
-        if (enemySO.attributes.Contains(EnemyAttribute.Armored) && damageType != DamageType.Piercing && damageType != DamageType.Explosive) return;
+        float damageToTake = damage;
+        if (enemySO.attributes.Contains(EnemyAttribute.Armored) && damageType != DamageType.Piercing && damageType != DamageType.Explosive)
+            damageToTake /= 2;
         if (enemySO.attributes.Contains(EnemyAttribute.Resistant) && damageType != DamageType.Elemental) return;
 
         health -= damage;

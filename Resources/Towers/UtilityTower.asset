@@ -18,7 +18,7 @@ MonoBehaviour:
   description: This tower slows enemies it hits
   damage: 1
   attackDelay: 15
-  price: 100
+  price: 50
   pierce: 1
   bulletSpeed: 20
   lifeTime: 5

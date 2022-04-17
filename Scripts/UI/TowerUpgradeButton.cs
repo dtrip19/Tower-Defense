@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
@@ -9,6 +10,8 @@ public class TowerUpgradeButton : MonoBehaviour, IPointerEnterHandler, IPointerD
     private Describable describable;
     private Tower selectedTower;
     private Image image;
+
+    public static event Action<TowerScriptableObject> OnUpgrade;
 
     private void Awake()
     {
@@ -57,9 +60,10 @@ public class TowerUpgradeButton : MonoBehaviour, IPointerEnterHandler, IPointerD
 
     public void OnPointerDown(PointerEventData eventData)
     {
-        if (selectedTower == null || selectedTower.Equals(null)) return;
+        if (selectedTower == null || selectedTower.Equals(null) || PointTracker.Points < selectedTower.towerSO.price) return;
 
         selectedTower.Upgrade(upgradeIndex);
+        OnUpgrade?.Invoke(selectedTower.towerSO);
     }
 
     public void OnPointerExit(PointerEventData eventData)

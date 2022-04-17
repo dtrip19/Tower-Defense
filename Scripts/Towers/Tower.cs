@@ -24,7 +24,7 @@ public class Tower : MonoBehaviour
         this.towerSO = towerScriptableObject;
         var child = transform.GetChild(0);
         child.GetComponent<SphereCollider>().radius = towerScriptableObject.colliderSize;
-        child.localPosition = new Vector3(0, towerScriptableObject.colliderSize / 2, 0);
+        //child.localPosition = new Vector3(0, towerScriptableObject.colliderSize / 2, 0);
         AttachBehaviorComponent();
     }
 

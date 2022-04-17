@@ -4,20 +4,20 @@ public abstract class TowerBehaviorBase : MonoBehaviour
 {
     #region variables
 
-    protected Transform _transform;
-    protected Enemy target;
     public GameObject bullet;
     public float range;
     public int attackDelay;
     public int damage;
     public int pierce;
-    public int enemyLayer = 1 << 11;
-    public int unplaceableLayer = 1 << 9;
-    public bool canShoot;
     public float bulletSpeed;
     public float lifeTime;
     public float bulletOriginHeight;
+    public bool canShoot;
+    protected Transform _transform;
+    protected Enemy target;
     protected int timer;
+    protected const int enemyLayer = 1 << 11;
+    protected const int unplaceableLayer = 1 << 9;
 
     protected virtual DamageType DamageType => DamageType.Normal;
     protected Vector3 BulletOrigin => new Vector3(_transform.position.x, _transform.position.y + bulletOriginHeight, _transform.position.z);

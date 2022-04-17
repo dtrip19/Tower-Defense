@@ -21,6 +21,6 @@ public sealed class RandomTowerBehavior : TowerBehaviorBase
         projectile.direction = dir.normalized;
         projectile.speed = bulletSpeed;
         projectile.damage = damage;
-        Destroy(projectile.gameObject, lifeTime / 10);
+        Destroy(projectile.gameObject, lifeTime);
     }
 }

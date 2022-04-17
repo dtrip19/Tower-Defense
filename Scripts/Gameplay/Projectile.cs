@@ -13,12 +13,12 @@ public class Projectile : MonoBehaviour
 
     public Transform Transform => _transform;
     
-    private void Awake()
+    protected void Awake()
     {
         _transform = GetComponent<Transform>();
     }
 
-    private void FixedUpdate()
+    protected void FixedUpdate()
     {
         _transform.position += speed / 10 * direction;
     }

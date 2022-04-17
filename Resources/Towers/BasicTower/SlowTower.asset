@@ -18,13 +18,13 @@ MonoBehaviour:
   bullet: {fileID: 1317444465190966354, guid: f24bf52a85f00db4eb83b362cf43f268, type: 3}
   icon: {fileID: 21300000, guid: 80a4ab6eb16d608448d103d542adfa4c, type: 3}
   description: This is a slow tower, shoots heavy bullets
-  damage: 2
+  damage: 20
   attackDelay: 50
   price: 50
   pierce: 2
-  bulletSpeed: 20
-  lifeTime: 5
-  range: 7
+  bulletSpeed: 4
+  lifeTime: 2
+  range: 8
   colliderSize: 0.5
   bulletOriginHeight: 2
   towerId: 3

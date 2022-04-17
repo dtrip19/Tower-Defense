@@ -16,7 +16,7 @@ MonoBehaviour:
   bullet: {fileID: 1317444465190966354, guid: f24bf52a85f00db4eb83b362cf43f268, type: 3}
   icon: {fileID: 0}
   description: Incredibly high range and pierce, heavy projectiles
-  damage: 4
+  damage: 40
   attackDelay: 150
   price: 200
   pierce: 6

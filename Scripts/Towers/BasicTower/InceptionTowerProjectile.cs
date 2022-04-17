@@ -4,8 +4,13 @@ using UnityEngine;
 
 public class InceptionTowerProjectile : Projectile
 {
-    private void Update()
-    {
+    private int timer;
 
+    new protected void FixedUpdate()
+    {
+        base.FixedUpdate();
+
+        timer++;
+        //if (timer > )
     }
 }

@@ -1,31 +1,49 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
 public class PointTracker : MonoBehaviour
 {
-    TextMeshProUGUI textMesh;
+    [SerializeField] bool usePoints;
 
-    public static int Points {get; private set;} = 200;
-    // Start is called before the first frame update
-    void Start()
+    private TextMeshProUGUI textMesh;
+
+    public static int Points { get; private set; } = 100;
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.P) && !usePoints)
+        {
+            Points += 100;
+            textMesh.text = Points.ToString();
+        }
+    }
+    
+    private void Awake()
     {
         TowerPlacementManager.OnPlace += SpendPoints;
+        TowerUpgradeButton.OnUpgrade += SpendPoints;
         Enemy.OnDeath += GainPoints;
         textMesh = GetComponent<TextMeshProUGUI>();
         textMesh.text = Points.ToString();
     }
 
-    void SpendPoints(TowerScriptableObject towerScriptableObject)
+    private void SpendPoints(TowerScriptableObject towerScriptableObject)
     {
+        if (!usePoints) return;
+
         Points -= towerScriptableObject.price;
         textMesh.text = Points.ToString();
     }
 
-    void GainPoints(EnemyScriptableObject enemyScriptableObject)
+    private void GainPoints(EnemyScriptableObject enemyScriptableObject)
     {
         Points += enemyScriptableObject.points;
         textMesh.text = Points.ToString();
+    }
+
+    private void OnDestroy()
+    {
+        TowerPlacementManager.OnPlace -= SpendPoints;
+        TowerUpgradeButton.OnUpgrade -= SpendPoints;
     }
 }

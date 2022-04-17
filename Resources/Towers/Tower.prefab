@@ -250,8 +250,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 58ec6026b4ad74b4ea4b98ab7650dbd3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  towerScriptableObject: {fileID: 0}
-  canShoot: 0
+  towerSO: {fileID: 0}
 --- !u!114 &-6358484758549948824
 MonoBehaviour:
   m_ObjectHideFlags: 0
