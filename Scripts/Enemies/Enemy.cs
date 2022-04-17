@@ -59,9 +59,10 @@ public class Enemy : MonoBehaviour
         float damageToTake = damage;
         if (enemySO.attributes.Contains(EnemyAttribute.Armored) && damageType != DamageType.Piercing && damageType != DamageType.Explosive)
             damageToTake /= 2;
-        if (enemySO.attributes.Contains(EnemyAttribute.Resistant) && damageType != DamageType.Elemental) return;
+        if (enemySO.attributes.Contains(EnemyAttribute.Resistant) && damageType != DamageType.Elemental)
+            damageToTake /= 2;
 
-        health -= damage;
+        health -= (int)damageToTake;
         if (health <= 0)
         {
             enemySO.deathLocation = new Vector3(_transform.position.x, _transform.position.y + enemySO.height, transform.position.z);
