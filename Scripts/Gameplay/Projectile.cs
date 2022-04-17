@@ -2,19 +2,20 @@
 
 public class Projectile : MonoBehaviour
 {
-    private Transform _transform;
+    public Vector3 direction;
+    public DamageType damageType;
     public float speed;
     public int damage;
-
-    public DamageType damageType;
     public int pierce = 1;
-    public Vector3 direction;
+    private Transform _transform;
+    private const int groundLayer = 8;
+    private const int unplaceableLayer = 9;
 
     public Transform Transform => _transform;
     
     private void Awake()
     {
-        _transform = GetComponent<Transform>();  
+        _transform = GetComponent<Transform>();
     }
 
     private void FixedUpdate()
@@ -26,6 +27,11 @@ public class Projectile : MonoBehaviour
     {
         if (other.TryGetComponent(out Enemy enemy))
         {
+            if (pierce <= 0)
+            {
+                Destroy(gameObject);
+                return;
+            }
             enemy.TakeDamage(damage, damageType);
             pierce--;
             if (pierce <= 0)
@@ -33,5 +39,12 @@ public class Projectile : MonoBehaviour
                 Destroy(gameObject);
             }
         }
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        int layer = collision.collider.gameObject.layer;
+        if (layer == unplaceableLayer || layer == groundLayer)
+            Destroy(gameObject);
     }
 }

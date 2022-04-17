@@ -9,9 +9,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 0}
+  m_Script: {fileID: 11500000, guid: 01505ea9ca55c254b89f0a42dff21b14, type: 3}
   m_Name: EmojiMapWave1
   m_EditorClassIdentifier: Assembly-CSharp::EnemyWaveScriptableObject
   enemyPacks:
   - {fileID: 11400000, guid: 82a6cedc4a82ed6428d8cba22b758da4, type: 2}
   - {fileID: 11400000, guid: cdc2d652be460b448b450a288740c6e8, type: 2}
+  - {fileID: 11400000, guid: 92de1cbb5974e984d865904716bb838f, type: 2}
+  - {fileID: 11400000, guid: 02de35b0f2fba3246b5c15dc4a348a87, type: 2}
+  - {fileID: 11400000, guid: 704f2ee9c93041149b3c6bfe784588bb, type: 2}

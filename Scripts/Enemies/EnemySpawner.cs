@@ -28,7 +28,7 @@ public class EnemySpawner : MonoBehaviour
 
     private IEnumerator StartWaveCoroutine()
     {
-        List<EnemyPackSciptableObject> activePacks = new List<EnemyPackSciptableObject>();
+        List<EnemyPackScriptableObject> activePacks = new List<EnemyPackScriptableObject>();
         EnemyWaveScriptableObject wave = mapSpawns.waves[waveIndex];
         int numPacks = wave.enemyPacks.Count;
         bool[] finishedPacks = new bool[numPacks];

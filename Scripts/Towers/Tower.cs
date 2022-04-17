@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class Tower : MonoBehaviour
 {
-    public TowerScriptableObject towerScriptableObject;
+    public TowerScriptableObject towerSO;
     private Describable describable;
 
     public static event Action<Tower> OnSelect;
@@ -15,13 +15,13 @@ public class Tower : MonoBehaviour
 
     public void Upgrade(int upgradeIndex)
     {
-        SetScriptableObject(towerScriptableObject.upgrades[upgradeIndex]);
+        SetScriptableObject(towerSO.upgrades[upgradeIndex]);
         OnSelect?.Invoke(this);
     }
 
     public void SetScriptableObject(TowerScriptableObject towerScriptableObject)
     {
-        this.towerScriptableObject = towerScriptableObject;
+        this.towerSO = towerScriptableObject;
         var child = transform.GetChild(0);
         child.GetComponent<SphereCollider>().radius = towerScriptableObject.colliderSize;
         child.localPosition = new Vector3(0, towerScriptableObject.colliderSize / 2, 0);
@@ -34,7 +34,7 @@ public class Tower : MonoBehaviour
         if (hasBehavior)
             Destroy(behavior);
 
-        switch (towerScriptableObject.towerId)
+        switch (towerSO.towerId)
         {
             case 1: 
                 behavior = gameObject.AddComponent<BasicTowerBehavior>();
@@ -66,16 +66,15 @@ public class Tower : MonoBehaviour
             case 10:
                 behavior = gameObject.AddComponent<UtilityTowerBehavior>();
                 break;
-
         }
-        behavior.attackDelay = towerScriptableObject.attackDelay;
-        behavior.damage = towerScriptableObject.damage;
-        behavior.bulletSpeed = towerScriptableObject.bulletSpeed;
-        behavior.range = towerScriptableObject.range;
-        behavior.lifeTime = towerScriptableObject.lifeTime;
-        behavior.bullet = towerScriptableObject.bullet;
-        behavior.bulletOriginHeight = towerScriptableObject.bulletOriginHeight;
-        behavior.pierce = towerScriptableObject.pierce;
+        behavior.attackDelay = towerSO.attackDelay;
+        behavior.damage = towerSO.damage;
+        behavior.bulletSpeed = towerSO.bulletSpeed;
+        behavior.range = towerSO.range;
+        behavior.lifeTime = towerSO.lifeTime;
+        behavior.bullet = towerSO.bullet;
+        behavior.bulletOriginHeight = towerSO.bulletOriginHeight;
+        behavior.pierce = towerSO.pierce;
 
         if (hasBehavior)
             behavior.canShoot = true;
@@ -85,11 +84,15 @@ public class Tower : MonoBehaviour
     {
         var towerData = new TowerData
         {
-            bulletSpeed = towerScriptableObject.bulletSpeed,
-            damage = towerScriptableObject.damage,
-            lifeTime = towerScriptableObject.lifeTime,
-            attackDelay = towerScriptableObject.attackDelay,
-            description = towerScriptableObject.description
+            description = towerSO.description,
+            price = towerSO.price,
+            damage = towerSO.damage,
+            attackDelay = towerSO.attackDelay,
+            pierce = towerSO.pierce,
+            bulletSpeed = towerSO.bulletSpeed,
+            lifeTime = towerSO.lifeTime,
+            range = towerSO.range,
+            size = towerSO.colliderSize
         };
 
         describable.Inspect(towerData);

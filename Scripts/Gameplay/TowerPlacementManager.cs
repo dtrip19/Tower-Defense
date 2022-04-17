@@ -47,9 +47,9 @@ public class TowerPlacementManager : MonoBehaviour
 
         var ghostTower = ghostTowerObject.GetComponent<Tower>();
 
-        if (Input.GetMouseButtonDown(0) && !towerCreatedLastFrame && PointTracker.Points >= ghostTower.towerScriptableObject.price)
+        if (Input.GetMouseButtonDown(0) && !towerCreatedLastFrame && PointTracker.Points >= ghostTower.towerSO.price)
         {
-            OnPlace?.Invoke(ghostTower.towerScriptableObject);
+            OnPlace?.Invoke(ghostTower.towerSO);
 
             var mapColliderTransform = ghostTowerTransform.GetChild(0);
             mapColliderTransform.gameObject.layer = 10;
@@ -86,7 +86,7 @@ public class TowerPlacementManager : MonoBehaviour
     private void ShowRangeIndicator(Tower tower)
     {
         rangeIndicatorTransform.position = tower.transform.position;
-        float scale = tower.towerScriptableObject.range * 2;
+        float scale = tower.towerSO.range * 2;
         rangeIndicatorTransform.localScale = new Vector3(scale, scale, scale);
     }
 

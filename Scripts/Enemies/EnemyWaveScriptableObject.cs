@@ -4,5 +4,5 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "Enemy Wave")]
 public class EnemyWaveScriptableObject : ScriptableObject
 {
-    public List<EnemyPackSciptableObject> enemyPacks;
+    public List<EnemyPackScriptableObject> enemyPacks;
 }

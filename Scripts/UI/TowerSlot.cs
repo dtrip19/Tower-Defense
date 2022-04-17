@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class TowerSlot : MonoBehaviour, IPointerDownHandler, IPointerEnterHandler, IPointerExitHandler
 {
-    [SerializeField] TowerScriptableObject towerScriptableObject;
+    [SerializeField] TowerScriptableObject towerSO;
 
     private Describable describable;
 
@@ -14,23 +14,27 @@ public class TowerSlot : MonoBehaviour, IPointerDownHandler, IPointerEnterHandle
     private void Awake()
     {
         describable = GetComponent<Describable>();
-        transform.GetChild(0).GetComponent<Image>().sprite = towerScriptableObject.icon;
+        transform.GetChild(0).GetComponent<Image>().sprite = towerSO.icon;
     }
 
     public void OnPointerDown(PointerEventData eventData)
     {
-        OnSelect?.Invoke(towerScriptableObject);
+        OnSelect?.Invoke(towerSO);
     }
 
     public void OnPointerEnter(PointerEventData eventData)
     {
         var towerData = new TowerData
         {
-            bulletSpeed = towerScriptableObject.bulletSpeed,
-            damage = towerScriptableObject.damage,
-            lifeTime = towerScriptableObject.lifeTime,
-            attackDelay = towerScriptableObject.attackDelay,
-            description = towerScriptableObject.description
+            description = towerSO.description,
+            price = towerSO.price,
+            damage = towerSO.damage,
+            attackDelay = towerSO.attackDelay,
+            pierce = towerSO.pierce,
+            bulletSpeed = towerSO.bulletSpeed,
+            lifeTime = towerSO.lifeTime,
+            range = towerSO.range,
+            size = towerSO.colliderSize
         };
 
         describable.Inspect(towerData);

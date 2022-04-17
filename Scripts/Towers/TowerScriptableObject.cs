@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "Towers")]
+[CreateAssetMenu(menuName = "Tower")]
 public class TowerScriptableObject : ScriptableObject
 {
     public List<TowerScriptableObject> upgrades;

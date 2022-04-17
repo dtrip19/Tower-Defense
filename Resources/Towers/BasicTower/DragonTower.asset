@@ -15,14 +15,14 @@ MonoBehaviour:
   upgrades: []
   bullet: {fileID: 1317444465190966354, guid: f24bf52a85f00db4eb83b362cf43f268, type: 3}
   icon: {fileID: 0}
-  description: This is a fast tower
+  description: Rains down bullets from above
   damage: 1
   attackDelay: 15
   price: 50
   pierce: 1
   bulletSpeed: 20
   lifeTime: 5
-  range: 7
+  range: 12
   colliderSize: 0.5
   bulletOriginHeight: 2
   towerId: 4

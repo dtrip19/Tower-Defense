@@ -13,7 +13,7 @@ public class TowerUpgradeButton : MonoBehaviour, IPointerEnterHandler, IPointerD
     private void Awake()
     {
         describable = GetComponent<Describable>();
-        image = GetComponent<Image>();
+        image = transform.GetChild(0).GetComponent<Image>();
         Tower.OnSelect += SetUpgradeTower;
     }
 
@@ -21,25 +21,35 @@ public class TowerUpgradeButton : MonoBehaviour, IPointerEnterHandler, IPointerD
     {
         selectedTower = tower;
 
-        if (tower.towerScriptableObject.upgrades.Count != 0)
-            image.sprite = tower.towerScriptableObject.upgrades[upgradeIndex].icon;
+        if (tower.towerSO.upgrades.Count != 0)
+        {
+            image.sprite = tower.towerSO.upgrades[upgradeIndex].icon;
+            image.color = Color.white;
+        }
         else
+        {
             image.sprite = null;//Insert empty upgrade slot image
+            image.color = Color.clear;
+        }
     }
 
     public void OnPointerEnter(PointerEventData eventData)
     {
         if (selectedTower == null || selectedTower.Equals(null)) return;
-        if (upgradeIndex >= selectedTower.towerScriptableObject.upgrades.Count) return;
+        if (upgradeIndex >= selectedTower.towerSO.upgrades.Count) return;
 
-        var towerScriptableObject = selectedTower.towerScriptableObject.upgrades[upgradeIndex];
+        var towerSO = selectedTower.towerSO.upgrades[upgradeIndex];
         var towerData = new TowerData
         {
-            bulletSpeed = towerScriptableObject.bulletSpeed,
-            damage = towerScriptableObject.damage,
-            lifeTime = towerScriptableObject.lifeTime,
-            attackDelay = towerScriptableObject.attackDelay,
-            description = towerScriptableObject.description
+            description = towerSO.description,
+            price = towerSO.price,
+            damage = towerSO.damage,
+            attackDelay = towerSO.attackDelay,
+            pierce = towerSO.pierce,
+            bulletSpeed = towerSO.bulletSpeed,
+            lifeTime = towerSO.lifeTime,
+            range = towerSO.range,
+            size = towerSO.colliderSize
         };
 
         describable.Inspect(towerData);

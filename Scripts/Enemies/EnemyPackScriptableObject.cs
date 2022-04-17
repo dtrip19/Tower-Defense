@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 
 [CreateAssetMenu(menuName = "Enemy Pack")]
-public class EnemyPackSciptableObject : ScriptableObject
+public class EnemyPackScriptableObject : ScriptableObject
 {
     public EnemyScriptableObject enemySO;
     public int numEnemies;
