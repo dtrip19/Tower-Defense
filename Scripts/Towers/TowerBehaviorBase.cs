@@ -16,8 +16,6 @@ public abstract class TowerBehaviorBase : MonoBehaviour
     protected Transform _transform;
     protected Enemy target;
     protected int timer;
-    protected const int enemyLayer = 1 << 11;
-    protected const int unplaceableLayer = 1 << 9;
 
     protected virtual DamageType DamageType => DamageType.Normal;
     protected Vector3 BulletOrigin => new Vector3(_transform.position.x, _transform.position.y + bulletOriginHeight, _transform.position.z);
@@ -39,7 +37,7 @@ public abstract class TowerBehaviorBase : MonoBehaviour
                 return;
         }
 
-        var colliders = Physics.OverlapSphere(_transform.position, range, enemyLayer);
+        var colliders = Physics.OverlapSphere(_transform.position, range, (int)Layers.Enemy);
 
         Enemy newTarget = null;
         int furthestIndex = 0;
@@ -85,7 +83,7 @@ public abstract class TowerBehaviorBase : MonoBehaviour
     {
         Vector3 bulletOrigin = new Vector3(_transform.position.x, _transform.position.y + bulletOriginHeight, _transform.position.z);
         Vector3 dirToTarget = (enemy.LineOfSightPosition - bulletOrigin).normalized;
-        return !Physics.Raycast(bulletOrigin, dirToTarget, out RaycastHit hit, range, unplaceableLayer);
+        return !Physics.Raycast(bulletOrigin, dirToTarget, out RaycastHit hit, range, (int)Layers.Unplaceable);
     }
 
 }

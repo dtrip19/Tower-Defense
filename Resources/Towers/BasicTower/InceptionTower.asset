@@ -16,11 +16,11 @@ MonoBehaviour:
   bullet: {fileID: 7871653369370538987, guid: 486ed97472c22fc479c2fb6495e8315c, type: 3}
   icon: {fileID: 0}
   description: Shoots a slow moving projectile that shoots fast projectiles
-  damage: 5
-  attackDelay: 150
+  damage: 4
+  attackDelay: 25
   price: 200
   pierce: 1
-  bulletSpeed: 3
+  bulletSpeed: 2
   lifeTime: 3
   range: 10
   colliderSize: 0.5
