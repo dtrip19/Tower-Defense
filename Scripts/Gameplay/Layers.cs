@@ -1,7 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
 
 public static class Layers
 {
@@ -10,10 +6,19 @@ public static class Layers
         Ground = 8,
         Unplaceable,
         MapCollider,
-        Enemy
+        Enemy,
+        Projectile
     }
+
     public static int Ground => 1 << (int)LayerName.Ground;
     public static int Unplaceable => 1 << (int)LayerName.Unplaceable;
     public static int MapCollider => 1 << (int)LayerName.MapCollider;
     public static int Enemy => 1 << (int)LayerName.Enemy;
+    public static int Projectile => 1 << (int)LayerName.Projectile;
+
+    public static int GroundRaw => (int)LayerName.Ground;
+    public static int UnplaceableRaw => (int)LayerName.Unplaceable;
+    public static int MapColliderRaw => (int)LayerName.MapCollider;
+    public static int EnemyRaw => (int)LayerName.Enemy;
+    public static int ProjectileRaw => (int)LayerName.Projectile;
 }

@@ -7,9 +7,7 @@ public class Projectile : MonoBehaviour
     public float speed;
     public int damage;
     public int pierce = 1;
-    private Transform _transform;
-    private const int groundLayer = 8;
-    private const int unplaceableLayer = 9;
+    protected Transform _transform;
 
     public Transform Transform => _transform;
     
@@ -21,6 +19,15 @@ public class Projectile : MonoBehaviour
     protected void FixedUpdate()
     {
         _transform.position += speed / 10 * direction;
+    }
+
+    public virtual void SetValues(Vector3 direction, DamageType damageType, float speed, int damage, int pierce)
+    {
+        this.direction = direction;
+        this.damageType = damageType;
+        this.speed = speed;
+        this.damage = damage;
+        this.pierce = pierce;
     }
 
     private void OnTriggerEnter(Collider other)
@@ -44,7 +51,9 @@ public class Projectile : MonoBehaviour
     private void OnCollisionEnter(Collision collision)
     {
         int layer = collision.collider.gameObject.layer;
-        if (layer == unplaceableLayer || layer == groundLayer)
+        if (layer == Layers.UnplaceableRaw || layer == Layers.GroundRaw)
+        {
             Destroy(gameObject);
+        }
     }
 }

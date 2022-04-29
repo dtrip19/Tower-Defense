@@ -1,21 +1,14 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class InceptionTowerProjectile : Projectile
 {
-    private int timer;
-    private Enemy target;
-    private const float range = 10;
-    private Transform _transform;
     public GameObject bullet;
     public int attackDelay;
     public float lifeTime;
-    new private void Awake()
-    {
-        base.Awake();
-        _transform = transform;
-    }
+    public int generation = 1;
+    private Enemy target;
+    private int timer;
+    private const float range = 10;
 
     private void Update()
     {
@@ -39,16 +32,25 @@ public class InceptionTowerProjectile : Projectile
 
     new private void FixedUpdate()
     {
-
         base.FixedUpdate();
 
         timer++;
-
         if (timer >= attackDelay && target != null)
         {
             timer = 0;
             Shoot();
         }
+    }
+
+    public void SetValues(Vector3 direction, DamageType damageType, float speed, int damage, int pierce, int generation)
+    {
+        this.direction = direction;
+        this.damageType = damageType;
+        this.speed = speed;
+        this.damage = damage;
+        this.pierce = pierce;
+        this.generation = generation;
+        GetComponent<MeshRenderer>().material = Resources.Load<Material>("Materials/InceptionGen" + generation);
     }
 
     private bool IsTargetVisible(Enemy enemy)
@@ -64,11 +66,7 @@ public class InceptionTowerProjectile : Projectile
         projectile.Transform.position = _transform.position;
         var dirToEnemy = target.LineOfSightPosition - _transform.position;
 
-        projectile.attackDelay = attackDelay + 5;
-        projectile.direction = dirToEnemy.normalized;
-        projectile.speed = speed + 1;
-        projectile.damage = damage;
-        projectile.pierce = pierce;
+        projectile.SetValues(dirToEnemy.normalized, DamageType.Normal, speed + 1, damage, pierce, generation + 1);
         Destroy(projectile.gameObject, lifeTime);
     }
 }

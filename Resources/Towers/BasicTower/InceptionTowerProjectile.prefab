@@ -12,8 +12,9 @@ GameObject:
   - component: {fileID: 1651983182654600686}
   - component: {fileID: 3198005446332992462}
   - component: {fileID: 309934660019759628}
+  - component: {fileID: -7779038550188489851}
   - component: {fileID: 4793526303847946851}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: InceptionTowerProjectile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -57,7 +58,6 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
-  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -82,7 +82,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!135 &309934660019759628
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -91,11 +90,27 @@ SphereCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7871653369370538987}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!54 &-7779038550188489851
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7871653369370538987}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!114 &4793526303847946851
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -114,5 +129,6 @@ MonoBehaviour:
   damage: 0
   pierce: 1
   bullet: {fileID: 7871653369370538987}
-  attackDelay: 50
-  lifeTime: 5
+  attackDelay: 40
+  lifeTime: 4
+  generation: 1

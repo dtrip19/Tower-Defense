@@ -20,8 +20,8 @@ MonoBehaviour:
   attackDelay: 25
   price: 200
   pierce: 1
-  bulletSpeed: 2
-  lifeTime: 3
+  bulletSpeed: 1
+  lifeTime: 4
   range: 10
   colliderSize: 0.5
   bulletOriginHeight: 2
