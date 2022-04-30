@@ -2,6 +2,8 @@ using UnityEngine;
 
 public sealed class RandomTowerBehavior : TowerBehaviorBase
 {
+    new private void Update() { }
+
     new private void FixedUpdate()
     {
         timer++;

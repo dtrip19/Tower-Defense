@@ -22,7 +22,7 @@ MonoBehaviour:
   pierce: 1
   bulletSpeed: 2.5
   lifeTime: 5
-  range: 10
+  range: 8
   colliderSize: 0.5
   bulletOriginHeight: 2
   towerId: 9

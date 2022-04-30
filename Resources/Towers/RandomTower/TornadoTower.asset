@@ -10,21 +10,22 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6a5288cbf4bfffe4abb449af8bd02ab9, type: 3}
-  m_Name: RandomTower
+  m_Name: TornadoTower
   m_EditorClassIdentifier: 
   upgrades:
-  - {fileID: 11400000, guid: 3a0fb3a6aaa14b441bca3901ba606fa6, type: 2}
-  - {fileID: 11400000, guid: 1bc58cec812033042833f9d3a48982ee, type: 2}
+  - {fileID: 11400000, guid: 7661cab4d4357d3419c7979d9e3fd309, type: 2}
+  - {fileID: 11400000, guid: f618ed9008c96db44ba12239d8304590, type: 2}
   bullet: {fileID: 1317444465190966354, guid: f24bf52a85f00db4eb83b362cf43f268, type: 3}
   icon: {fileID: 21300000, guid: a64b99347cc83f0489db0727221b5486, type: 3}
-  description: This tower shoots very fast in random directions
-  damage: 15
-  attackDelay: 5
-  price: 75
-  pierce: 1
-  bulletSpeed: 5
-  lifeTime: 2
+  description: Deals damage over time to all enemies within range, doubled against
+    flying enemies
+  damage: 2
+  attackDelay: 75
+  price: 100
+  pierce: 0
+  bulletSpeed: 0
+  lifeTime: 0
   range: 8
   colliderSize: 0.5
   bulletOriginHeight: 2
-  towerId: 8
+  towerId: 10

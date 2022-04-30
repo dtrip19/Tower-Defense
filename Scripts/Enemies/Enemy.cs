@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System;
+using System.Collections.Generic;
 
 public class Enemy : MonoBehaviour
 {
@@ -25,6 +26,7 @@ public class Enemy : MonoBehaviour
     public int Health => health;
     public Vector3 LineOfSightPosition => _transform.position + new Vector3(0, 1, 0);// new Vector3(_transform.position.x, _transform.position.y + enemySO.height, _transform.position.z);
     public int PathPositionIndex => pathPositionIndex;
+    public List<EnemyAttribute> Attributes => enemySO.attributes;
 
     public static event Action<int> OnReachEndPath;
     public static event Action<Enemy> OnSpawn;

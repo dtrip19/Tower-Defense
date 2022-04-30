@@ -63,6 +63,15 @@ public class Tower : MonoBehaviour
             case 9:
                 behavior = gameObject.AddComponent<HeavyTowerBehavior>();
                 break;
+            case 10:
+                behavior = gameObject.AddComponent<TornadoTowerBehavior>();
+                break;
+            case 13:
+                behavior = gameObject.AddComponent<HurricaneTowerBehavior>();
+                break;
+            case 14:
+                behavior = gameObject.AddComponent<PursuerTowerBehavior>();
+                break;
             case 15:
                 behavior = gameObject.AddComponent<RandomTowerBehavior>();
                 break;
