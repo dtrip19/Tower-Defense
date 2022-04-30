@@ -72,10 +72,7 @@ public abstract class TowerBehaviorBase : MonoBehaviour
         projectile.Transform.position = BulletOrigin;
         var dirToEnemy = target.LineOfSightPosition - BulletOrigin;
 
-        projectile.direction = dirToEnemy.normalized;
-        projectile.speed = bulletSpeed;
-        projectile.damage = damage;
-        projectile.pierce = pierce;
+        projectile.SetValues(dirToEnemy.normalized, DamageType.Normal, bulletSpeed, damage, pierce);
         Destroy(projectile.gameObject, lifeTime);
     }
 

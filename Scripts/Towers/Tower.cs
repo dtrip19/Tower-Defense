@@ -19,11 +19,11 @@ public class Tower : MonoBehaviour
         OnSelect?.Invoke(this);
     }
 
-    public void SetScriptableObject(TowerScriptableObject towerScriptableObject)
+    public void SetScriptableObject(TowerScriptableObject towerSO)
     {
-        this.towerSO = towerScriptableObject;
+        this.towerSO = towerSO;
         var child = transform.GetChild(0);
-        child.GetComponent<SphereCollider>().radius = towerScriptableObject.colliderSize;
+        child.GetComponent<SphereCollider>().radius = towerSO.colliderSize;
         //child.localPosition = new Vector3(0, towerScriptableObject.colliderSize / 2, 0);
         AttachBehaviorComponent();
     }
@@ -61,9 +61,12 @@ public class Tower : MonoBehaviour
                 behavior = gameObject.AddComponent<RandomTowerBehavior>();
                 break;
             case 9:
-                behavior = gameObject.AddComponent<MagicTowerBehavior>();
+                behavior = gameObject.AddComponent<HeavyTowerBehavior>();
                 break;
-            case 10:
+            case 15:
+                behavior = gameObject.AddComponent<RandomTowerBehavior>();
+                break;
+            case 22:
                 behavior = gameObject.AddComponent<UtilityTowerBehavior>();
                 break;
         }

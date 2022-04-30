@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a5288cbf4bfffe4abb449af8bd02ab9, type: 3}
+  m_Name: HeavyBulletTower
+  m_EditorClassIdentifier: 
+  upgrades:
+  - {fileID: 11400000, guid: c8624c1d89665684396e672e06a4d517, type: 2}
+  - {fileID: 11400000, guid: 1c1af4616b7cb5a4f8611d3039f48060, type: 2}
+  bullet: {fileID: 6171550589090853087, guid: 37203595066035146bf27e91ec9d4687, type: 3}
+  icon: {fileID: 0}
+  description: Bullets are affected by gravity and deal more damage
+  damage: 20
+  attackDelay: 5
+  price: 200
+  pierce: 1
+  bulletSpeed: 2.5
+  lifeTime: 5
+  range: 10
+  colliderSize: 0.5
+  bulletOriginHeight: 2
+  towerId: 9
