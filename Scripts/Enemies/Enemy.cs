@@ -44,7 +44,7 @@ public class Enemy : MonoBehaviour
         Vector3 dirToPosition = newPos - _transform.position;
         Vector3 dirToMove = dirToPosition.normalized * Speed;
         _transform.position += dirToMove;
-        modelRootTransform.forward = dirToMove.normalized;
+        modelRootTransform.forward = dirToMove;
         if (dirToMove.magnitude >= dirToPosition.magnitude - 0.05f)
         {
             pathPositionIndex++;
@@ -72,13 +72,6 @@ public class Enemy : MonoBehaviour
             Destroy(gameObject);
         }
     }
-
-    // public void SetHealth(int health)
-    // {
-    //     this.health = health;
-    //     maxHealth = health;
-    //     OnSpawn?.Invoke(this);
-    // }
 
     public void InitEnemy(EnemyScriptableObject enemySO)
     {

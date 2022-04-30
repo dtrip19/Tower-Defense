@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public enum ProjectileType { Normmal, Heavy }
+public enum ProjectileType { Normal, Heavy }
 
 public class Projectile : MonoBehaviour
 {

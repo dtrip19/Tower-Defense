@@ -1,8 +1,10 @@
 ﻿using UnityEngine;
+using System.Collections.Generic;
 
 public class HurricaneTowerBehavior : TowerBehaviorBase
 {
     private Transform orbitTransform;
+    private List<Projectile> projectilesToSlow = new List<Projectile>();
 
     new private void Awake()
     {
@@ -20,10 +22,22 @@ public class HurricaneTowerBehavior : TowerBehaviorBase
         {
             if (collider.TryGetComponent(out Projectile proj) && proj.projectileType != ProjectileType.Heavy)
             {
-                proj.speed = 0;
+                projectilesToSlow.Add(proj);
                 proj.transform.SetParent(orbitTransform);
-                proj.timeDestroy += 3;
+                //proj.timeDestroy += 3;
             }
+        }
+
+        for (int i = projectilesToSlow.Count - 1; i >= 0; i--)
+        {
+            float newSpeed = projectilesToSlow[i].speed - Time.deltaTime * 3;
+            if (newSpeed < 0.25f)
+            {
+                projectilesToSlow[i].speed = 0;
+                projectilesToSlow.Remove(projectilesToSlow[i]);
+            }
+            else
+                projectilesToSlow[i].speed = newSpeed;
         }
     }
 
@@ -41,6 +55,11 @@ public class HurricaneTowerBehavior : TowerBehaviorBase
 
     protected override void Shoot()
     {
+        var spawnPosition = Random.insideUnitSphere * range + _transform.position;
+        var proj = Instantiate(bullet).GetComponent<Projectile>();
+        proj.transform.position = spawnPosition;
+        proj.SetValues(Vector3.zero, DamageType.Normal, Time.time + lifeTime, 0, damage, pierce);
+
         var colliders = Physics.OverlapSphere(_transform.position, range, Layers.Enemy);
         foreach (var collider in colliders)
         {
