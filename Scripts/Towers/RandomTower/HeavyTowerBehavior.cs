@@ -18,7 +18,6 @@ public class HeavyTowerBehavior : TowerBehaviorBase
         projectile.Transform.position = BulletOrigin;
         var dir = new Vector3(Random.Range(-0.35f, 0.35f), Random.Range(1f, 1f), Random.Range(-0.35f, 0.35f));
 
-        projectile.SetValues(dir.normalized, DamageType.Normal, bulletSpeed, damage, pierce);
-        Destroy(projectile.gameObject, lifeTime);
+        projectile.SetValues(dir.normalized, DamageType.Normal, Time.time + lifeTime, bulletSpeed, damage, pierce);
     }
 }

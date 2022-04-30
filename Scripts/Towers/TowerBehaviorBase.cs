@@ -72,8 +72,7 @@ public abstract class TowerBehaviorBase : MonoBehaviour
         projectile.Transform.position = BulletOrigin;
         var dirToEnemy = target.LineOfSightPosition - BulletOrigin;
 
-        projectile.SetValues(dirToEnemy.normalized, DamageType.Normal, bulletSpeed, damage, pierce);
-        Destroy(projectile.gameObject, lifeTime);
+        projectile.SetValues(dirToEnemy.normalized, DamageType.Normal, Time.time + lifeTime, bulletSpeed, damage, pierce);
     }
 
     protected virtual bool IsTargetVisible(Enemy enemy)

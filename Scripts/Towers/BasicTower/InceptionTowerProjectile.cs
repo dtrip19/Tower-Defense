@@ -10,8 +10,10 @@ public class InceptionTowerProjectile : Projectile
     private int timer;
     private const float range = 10;
 
-    private void Update()
+    new private void Update()
     {
+        base.Update();
+
         var colliders = Physics.OverlapSphere(_transform.position, range, Layers.Enemy);
 
         Enemy newTarget = null;

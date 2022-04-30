@@ -17,8 +17,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 1c1af4616b7cb5a4f8611d3039f48060, type: 2}
   bullet: {fileID: 1317444465190966354, guid: f24bf52a85f00db4eb83b362cf43f268, type: 3}
   icon: {fileID: 21300000, guid: a64b99347cc83f0489db0727221b5486, type: 3}
-  description: Deals damage over time to all enemies within range, doubled against
-    flying enemies
+  description: Causes nearby non-heavy projectiles to orbit the tower and extends
+    their lifetime
   damage: 2
   attackDelay: 75
   price: 100

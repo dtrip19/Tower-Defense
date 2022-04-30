@@ -25,4 +25,4 @@ MonoBehaviour:
   range: 8
   colliderSize: 0.5
   bulletOriginHeight: 2
-  towerId: 9
+  towerId: 11

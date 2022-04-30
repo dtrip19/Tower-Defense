@@ -1,10 +1,14 @@
 ﻿using UnityEngine;
 
+public enum ProjectileType { Normmal, Heavy }
+
 public class Projectile : MonoBehaviour
 {
     public Vector3 direction;
+    public ProjectileType projectileType;
     public DamageType damageType;
     public float speed;
+    public float timeDestroy;
     public int damage;
     public int pierce = 1;
     protected Transform _transform;
@@ -16,15 +20,24 @@ public class Projectile : MonoBehaviour
         _transform = GetComponent<Transform>();
     }
 
+    protected void Update()
+    {
+        if (Time.time > timeDestroy)
+        {
+            Destroy(gameObject);
+        }
+    }
+
     protected void FixedUpdate()
     {
         _transform.position += speed / 10 * direction;
     }
 
-    public virtual void SetValues(Vector3 direction, DamageType damageType, float speed, int damage, int pierce)
+    public virtual void SetValues(Vector3 direction, DamageType damageType, float timeDestroy, float speed, int damage, int pierce)
     {
         this.direction = direction;
         this.damageType = damageType;
+        this.timeDestroy = timeDestroy;
         this.speed = speed;
         this.damage = damage;
         this.pierce = pierce;

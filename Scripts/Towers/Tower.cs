@@ -24,7 +24,6 @@ public class Tower : MonoBehaviour
         this.towerSO = towerSO;
         var child = transform.GetChild(0);
         child.GetComponent<SphereCollider>().radius = towerSO.colliderSize;
-        //child.localPosition = new Vector3(0, towerScriptableObject.colliderSize / 2, 0);
         AttachBehaviorComponent();
     }
 
@@ -65,6 +64,9 @@ public class Tower : MonoBehaviour
                 break;
             case 10:
                 behavior = gameObject.AddComponent<TornadoTowerBehavior>();
+                break;
+            case 11:
+                behavior = gameObject.AddComponent<VolcanoTowerBehavior>();
                 break;
             case 13:
                 behavior = gameObject.AddComponent<HurricaneTowerBehavior>();
