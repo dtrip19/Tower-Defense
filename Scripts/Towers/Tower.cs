@@ -77,9 +77,13 @@ public class Tower : MonoBehaviour
             case 15:
                 behavior = gameObject.AddComponent<MagicTowerBehavior>();
                 break;
+            case 16:
+                behavior = gameObject.AddComponent<TeslaTowerBehavior>();
+                break;
             case 22:
                 behavior = gameObject.AddComponent<UtilityTowerBehavior>();
                 break;
+
         }
         behavior.attackDelay = towerSO.attackDelay;
         behavior.damage = towerSO.damage;

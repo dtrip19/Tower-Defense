@@ -22,12 +22,12 @@ public abstract class TowerBehaviorBase : MonoBehaviour
 
     #endregion 
 
-    protected virtual void Awake()
+    protected void Awake()
     {
         _transform = transform;
     }
 
-    protected virtual void Update()
+    protected void Update()
     {
         if (target != null && !target.Equals(null))
         {
