@@ -30,7 +30,7 @@ public class Projectile : MonoBehaviour
 
     protected void FixedUpdate()
     {
-        _transform.position += speed / 10 * direction;
+        _transform.position += speed / 10 * direction.normalized;
     }
 
     public virtual void SetValues(Vector3 direction, DamageType damageType, float timeDestroy, float speed, int damage, int pierce)
@@ -43,7 +43,7 @@ public class Projectile : MonoBehaviour
         this.pierce = pierce;
     }
 
-    private void OnTriggerEnter(Collider other)
+    protected void OnTriggerEnter(Collider other)
     {
         if (other.TryGetComponent(out Enemy enemy))
         {
@@ -61,7 +61,7 @@ public class Projectile : MonoBehaviour
         }
     }
 
-    private void OnCollisionEnter(Collision collision)
+    protected void OnCollisionEnter(Collision collision)
     {
         int layer = collision.collider.gameObject.layer;
         if (layer == Layers.UnplaceableRaw || layer == Layers.GroundRaw)

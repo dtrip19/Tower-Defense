@@ -22,7 +22,7 @@ public class TornadoTowerBehavior : TowerBehaviorBase
             if (collider.TryGetComponent(out Enemy enemy))
             {
                 int damage = this.damage;
-                if (enemy.Attributes.Contains(EnemyAttribute.Flying))
+                if (enemy.attributes.Contains(EnemyAttribute.Flying))
                     damage *= 2;
                 enemy.TakeDamage(damage, DamageType.Normal);
             }

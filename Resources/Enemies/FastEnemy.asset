@@ -18,4 +18,4 @@ MonoBehaviour:
   moveSpeed: 1
   points: 1
   height: 0
-  deathLocation: {x: 8.065653, y: 0.049999826, z: -0.67685056}
+  deathLocation: {x: -0.4362215, y: 0.049999252, z: 14.384848}

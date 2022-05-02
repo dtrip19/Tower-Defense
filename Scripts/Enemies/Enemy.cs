@@ -6,12 +6,15 @@ public class Enemy : MonoBehaviour
 {
     [SerializeField] Transform modelRootTransform;
 
-    private EnemyScriptableObject enemySO;
     public Vector3[] positions;
+    public List<EnemyAttribute> attributes = new List<EnemyAttribute>();
+    public bool canMove = true;
+    private EnemyScriptableObject enemySO;
     private Transform _transform;
     private int pathPositionIndex = 1;
     private int maxHealth;
     private int health;
+
     public float Speed
     {
         get
@@ -24,9 +27,8 @@ public class Enemy : MonoBehaviour
     }
     public Transform Transform => _transform;
     public int Health => health;
-    public Vector3 LineOfSightPosition => _transform.position + new Vector3(0, 1, 0);// new Vector3(_transform.position.x, _transform.position.y + enemySO.height, _transform.position.z);
+    public Vector3 LineOfSightPosition => _transform.position + new Vector3(0, 1, 0);
     public int PathPositionIndex => pathPositionIndex;
-    public List<EnemyAttribute> Attributes => enemySO.attributes;
 
     public static event Action<int> OnReachEndPath;
     public static event Action<Enemy> OnSpawn;
@@ -40,6 +42,8 @@ public class Enemy : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if (!canMove) return;
+
         Vector3 newPos = new Vector3(positions[pathPositionIndex].x, positions[pathPositionIndex].y + enemySO.height, positions[pathPositionIndex].z);
         Vector3 dirToPosition = newPos - _transform.position;
         Vector3 dirToMove = dirToPosition.normalized * Speed;
@@ -77,6 +81,10 @@ public class Enemy : MonoBehaviour
     {
         this.enemySO = enemySO;
         health = maxHealth = enemySO.health;
+        foreach (var attribute in enemySO.attributes)
+        {
+            attributes.Add(attribute);
+        }
         GetComponentInChildren<MeshRenderer>().material = enemySO.material;
         OnSpawn?.Invoke(this);
     }

@@ -1,9 +1,15 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class GeyserTowerBehavior : TowerBehaviorBase
 {
+    private GameObject geyserIndicatorObject;
+
+    new private void Awake()
+    {
+        base.Awake();
+        geyserIndicatorObject = Resources.Load<GameObject>("Towers/RandomTower/GeyserIndicator");
+    }
+
     new private void Update() { }
 
     new private void FixedUpdate()
@@ -24,7 +30,7 @@ public class GeyserTowerBehavior : TowerBehaviorBase
             if (collider.TryGetComponent(out Enemy enemy))
             {
                 int damage = this.damage;
-                if (enemy.Attributes.Contains(EnemyAttribute.Flying))
+                if (enemy.attributes.Contains(EnemyAttribute.Flying))
                     damage *= 2;
                 enemy.TakeDamage(damage, DamageType.Normal);
             }
@@ -34,7 +40,7 @@ public class GeyserTowerBehavior : TowerBehaviorBase
         int furthestIndex = 0;
         foreach (var collider in colliders)
         {
-            if (!collider.TryGetComponent(out Enemy enemy) || enemy.Attributes.Contains(EnemyAttribute.Flying)) continue;
+            if (!collider.TryGetComponent(out Enemy enemy) || enemy.attributes.Contains(EnemyAttribute.Flying)) continue;
 
             int pathPositionIndex = enemy.PathPositionIndex;
             if (pathPositionIndex > furthestIndex)
@@ -47,10 +53,13 @@ public class GeyserTowerBehavior : TowerBehaviorBase
         if (newTarget != null)
         {
             var targetPosition = newTarget.positions[furthestIndex] + new Vector3(0, 2, 0);
+            var geyserIndicator = Instantiate(geyserIndicatorObject);
+            geyserIndicator.transform.position = targetPosition;
+            Destroy(geyserIndicator, 0.2f);
             colliders = Physics.OverlapSphere(targetPosition, 2, Layers.Enemy);
             foreach (var collider in colliders)
             {
-                //collider.gameObject.AddComponent<g>
+                collider.gameObject.AddComponent<GeyserTowerKnockup>();
             }
         }
     }
