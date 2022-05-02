@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   material: {fileID: 2100000, guid: ed0b8b048c36de54cab01f27b2cda635, type: 2}
   attributes: 00000000
-  health: 20
+  health: 100
   moveSpeed: 0.8
   points: 2
   height: 4
-  deathLocation: {x: -20.707993, y: 8.05, z: 2.5456414}
+  deathLocation: {x: -1.4091702, y: 8.05, z: 17.044565}

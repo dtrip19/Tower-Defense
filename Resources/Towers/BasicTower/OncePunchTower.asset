@@ -16,7 +16,7 @@ MonoBehaviour:
   bullet: {fileID: 0}
   icon: {fileID: 0}
   description: Low range, stupid damage
-  damage: 1000
+  damage: 5000
   attackDelay: 250
   price: 200
   pierce: 1

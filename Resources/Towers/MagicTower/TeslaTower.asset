@@ -13,16 +13,17 @@ MonoBehaviour:
   m_Name: TeslaTower
   m_EditorClassIdentifier: 
   upgrades: []
-  bullet: {fileID: 0}
+  bullet: {fileID: 1317444465190966354, guid: f24bf52a85f00db4eb83b362cf43f268, type: 3}
   icon: {fileID: 0}
-  description: 
-  damage: 0
-  attackDelay: 0
-  price: 0
-  pierce: 0
-  bulletSpeed: 0
-  lifeTime: 0
-  range: 0
-  colliderSize: 0
-  bulletOriginHeight: 0
-  towerId: 0
+  description: 'This tower shoots a continous beam of bullets. Can target up to 5
+    different enemies. '
+  damage: 1
+  attackDelay: 3
+  price: 100
+  pierce: 1
+  bulletSpeed: 15
+  lifeTime: 0.5
+  range: 10
+  colliderSize: 0.5
+  bulletOriginHeight: 2
+  towerId: 16
