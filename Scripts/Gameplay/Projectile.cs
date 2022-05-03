@@ -4,13 +4,13 @@ public enum ProjectileType { Normal, Heavy }
 
 public class Projectile : MonoBehaviour
 {
-    public Vector3 direction;
-    public ProjectileType projectileType;
-    public DamageType damageType;
-    public float speed;
-    public float timeDestroy;
-    public int damage;
-    public int pierce = 1;
+    [HideInInspector] public Vector3 direction;
+    [HideInInspector] public ProjectileType projectileType;
+    [HideInInspector] public DamageType damageType;
+    [HideInInspector] public float speed;
+    [HideInInspector] public float timeDestroy;
+    [HideInInspector] public int damage;
+    [HideInInspector] public int pierce = 1;
     protected Transform _transform;
 
     public Transform Transform => _transform;
@@ -68,5 +68,41 @@ public class Projectile : MonoBehaviour
         {
             Destroy(gameObject);
         }
+    }
+    protected virtual Projectile Shoot(GameObject bullet, DamageType damageType, float timeDestroy, float bulletSpeed, int pierce, Enemy target)
+    {
+        var projectile = Instantiate(bullet).GetComponent<Projectile>();
+        projectile.gameObject.SetActive(true);//we dont know why. Dont remove this.
+        projectile.transform.position = _transform.position;
+        var dirToEnemy = target.LineOfSightPosition - _transform.position;
+
+        projectile.SetValues(dirToEnemy.normalized, damageType, timeDestroy, bulletSpeed, damage, pierce);
+        return projectile;
+    }
+
+    protected virtual bool IsTargetVisible(Enemy enemy, float range)
+    {
+        Vector3 dirToTarget = (enemy.LineOfSightPosition - _transform.position).normalized;
+        return !Physics.Raycast(_transform.position, dirToTarget, out RaycastHit hit, range, Layers.Unplaceable);
+    }
+
+    protected Enemy FindFurthestTarget(int range)
+    {
+        var colliders = Physics.OverlapSphere(_transform.position, range, Layers.Enemy);
+
+        Enemy newTarget = null;
+        int furthestIndex = 0;
+        foreach (var collider in colliders)
+        {
+            if (!collider.TryGetComponent(out Enemy enemy)) continue;
+
+            int pathPositionIndex = enemy.PathPositionIndex;
+            if (pathPositionIndex > furthestIndex && IsTargetVisible(enemy, range))
+            {
+                furthestIndex = pathPositionIndex;
+                newTarget = enemy;
+            }
+        }
+        return newTarget;
     }
 }

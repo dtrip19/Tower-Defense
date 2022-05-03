@@ -37,6 +37,11 @@ public abstract class TowerBehaviorBase : MonoBehaviour
                 return;
         }
 
+        target = FindFurthestTarget();
+    }
+
+    protected Enemy FindFurthestTarget()
+    {
         var colliders = Physics.OverlapSphere(_transform.position, range, (int)Layers.Enemy);
 
         Enemy newTarget = null;
@@ -52,7 +57,7 @@ public abstract class TowerBehaviorBase : MonoBehaviour
                 newTarget = enemy;
             }
         }
-        target = newTarget;
+        return newTarget;
     }
 
     protected void FixedUpdate()
@@ -68,11 +73,10 @@ public abstract class TowerBehaviorBase : MonoBehaviour
     protected virtual void Shoot()
     {
         var projectile = Instantiate(bullet).GetComponent<Projectile>();
-        projectile.damageType = DamageType;
         projectile.Transform.position = BulletOrigin;
         var dirToEnemy = target.LineOfSightPosition - BulletOrigin;
 
-        projectile.SetValues(dirToEnemy.normalized, DamageType.Normal, Time.time + lifeTime, bulletSpeed, damage, pierce);
+        projectile.SetValues(dirToEnemy.normalized, DamageType, Time.time + lifeTime, bulletSpeed, damage, pierce);
     }
 
     protected virtual bool IsTargetVisible(Enemy enemy)

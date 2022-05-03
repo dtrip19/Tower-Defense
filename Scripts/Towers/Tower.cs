@@ -80,6 +80,12 @@ public class Tower : MonoBehaviour
             case 16:
                 behavior = gameObject.AddComponent<TeslaTowerBehavior>();
                 break;
+            case 18:
+                behavior = gameObject.AddComponent<LightningWaveTowerBehavior>();
+                break;
+            case 19:
+                behavior = gameObject.AddComponent<ChainLightningTowerBehavior>();
+                break;
             case 22:
                 behavior = gameObject.AddComponent<UtilityTowerBehavior>();
                 break;

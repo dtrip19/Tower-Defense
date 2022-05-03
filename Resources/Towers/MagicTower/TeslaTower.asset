@@ -12,7 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a5288cbf4bfffe4abb449af8bd02ab9, type: 3}
   m_Name: TeslaTower
   m_EditorClassIdentifier: 
-  upgrades: []
+  upgrades:
+  - {fileID: 11400000, guid: e013f383d51013a4d8393909e2428264, type: 2}
+  - {fileID: 11400000, guid: 19e7c01d534b7794692f80fd22766048, type: 2}
   bullet: {fileID: 1317444465190966354, guid: f24bf52a85f00db4eb83b362cf43f268, type: 3}
   icon: {fileID: 0}
   description: 'This tower shoots a continous beam of bullets. Can target up to 5

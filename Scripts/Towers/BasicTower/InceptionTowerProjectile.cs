@@ -64,7 +64,6 @@ public class InceptionTowerProjectile : Projectile
     protected virtual void Shoot()
     {
         var projectile = Instantiate(bullet).GetComponent<InceptionTowerProjectile>();
-        projectile.damageType = DamageType.Normal;
         projectile.Transform.position = _transform.position;
         var dirToEnemy = target.LineOfSightPosition - _transform.position;
 
