@@ -42,20 +42,8 @@ public class TowerUpgradeButton : MonoBehaviour, IPointerEnterHandler, IPointerD
         if (upgradeIndex >= selectedTower.towerSO.upgrades.Count) return;
 
         var towerSO = selectedTower.towerSO.upgrades[upgradeIndex];
-        var towerData = new TowerData
-        {
-            description = towerSO.description,
-            price = towerSO.price,
-            damage = towerSO.damage,
-            attackDelay = towerSO.attackDelay,
-            pierce = towerSO.pierce,
-            bulletSpeed = towerSO.bulletSpeed,
-            lifeTime = towerSO.lifeTime,
-            range = towerSO.range,
-            size = towerSO.colliderSize
-        };
-
-        describable.Inspect(towerData);
+        
+        UI.cursorEnter(towerSO, describable);
     }
 
     public void OnPointerDown(PointerEventData eventData)

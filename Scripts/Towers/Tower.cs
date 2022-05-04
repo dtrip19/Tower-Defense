@@ -80,6 +80,9 @@ public class Tower : MonoBehaviour
             case 16:
                 behavior = gameObject.AddComponent<TeslaTowerBehavior>();
                 break;
+            case 17:
+                behavior = gameObject.AddComponent<RainCloudTowerBehavior>();
+                break;
             case 18:
                 behavior = gameObject.AddComponent<LightningWaveTowerBehavior>();
                 break;
@@ -106,20 +109,7 @@ public class Tower : MonoBehaviour
 
     private void OnMouseEnter()
     {
-        var towerData = new TowerData
-        {
-            description = towerSO.description,
-            price = towerSO.price,
-            damage = towerSO.damage,
-            attackDelay = towerSO.attackDelay,
-            pierce = towerSO.pierce,
-            bulletSpeed = towerSO.bulletSpeed,
-            lifeTime = towerSO.lifeTime,
-            range = towerSO.range,
-            size = towerSO.colliderSize
-        };
-
-        describable.Inspect(towerData);
+        UI.cursorEnter(towerSO, describable);
     }
 
     private void OnMouseExit()

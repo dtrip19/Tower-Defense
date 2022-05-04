@@ -6,6 +6,7 @@ public struct TowerData
     public List<TowerScriptableObject> upgrades;
     public GameObject bullet;
 
+    public string towerName;
     public string description; 
     public int price;
     public int damage;

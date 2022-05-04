@@ -21,7 +21,7 @@ public class DescriptionBox : MonoBehaviour
 
     private void FillDescriptionBox(TowerData data)
     {
-        description.text = data.description;
+        description.text = data.towerName + "\n"+ data.description;
         price.text = data.price.ToString();
         damage.text = data.damage.ToString();
         delay.text = data.attackDelay.ToString();

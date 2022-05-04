@@ -7,7 +7,7 @@ public class TowerScriptableObject : ScriptableObject
     public List<TowerScriptableObject> upgrades;
     public GameObject bullet;
     public Sprite icon;
-
+    public string towerName;
     public string description;
     public int damage;
     public int attackDelay;

@@ -24,20 +24,7 @@ public class TowerSlot : MonoBehaviour, IPointerDownHandler, IPointerEnterHandle
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        var towerData = new TowerData
-        {
-            description = towerSO.description,
-            price = towerSO.price,
-            damage = towerSO.damage,
-            attackDelay = towerSO.attackDelay,
-            pierce = towerSO.pierce,
-            bulletSpeed = towerSO.bulletSpeed,
-            lifeTime = towerSO.lifeTime,
-            range = towerSO.range,
-            size = towerSO.colliderSize
-        };
-
-        describable.Inspect(towerData);
+        UI.cursorEnter(towerSO, describable);
     }
 
     public void OnPointerExit(PointerEventData eventData)
