@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   upgrades: []
   bullet: {fileID: 1317444465190966354, guid: f24bf52a85f00db4eb83b362cf43f268, type: 3}
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: a48321ce18cadf74596bd7677d1678d5, type: 3}
   towerName: Dragon Tower
   description: Rains down bullets from above
   damage: 75

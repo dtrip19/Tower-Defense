@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   upgrades: []
   bullet: {fileID: 0}
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: d35a6ff7c68e4874aa71fb16ec4f5080, type: 3}
   towerName: Once Punch Tower
   description: Low range, stupid damage
   damage: 5000
