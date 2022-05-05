@@ -15,6 +15,7 @@ MonoBehaviour:
   upgrades: []
   bullet: {fileID: 0}
   icon: {fileID: 0}
+  towerName: Once Punch Tower
   description: Low range, stupid damage
   damage: 5000
   attackDelay: 250

@@ -15,6 +15,7 @@ MonoBehaviour:
   upgrades: []
   bullet: {fileID: 1092208095435456724, guid: 1c70ecb4162a2594399812a194ab8a89, type: 3}
   icon: {fileID: 0}
+  towerName: Volcano Tower
   description: Bullets explode when they are destroyed
   damage: 20
   attackDelay: 5

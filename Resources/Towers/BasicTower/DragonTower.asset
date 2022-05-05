@@ -15,6 +15,7 @@ MonoBehaviour:
   upgrades: []
   bullet: {fileID: 1317444465190966354, guid: f24bf52a85f00db4eb83b362cf43f268, type: 3}
   icon: {fileID: 0}
+  towerName: Dragon Tower
   description: Rains down bullets from above
   damage: 75
   attackDelay: 15

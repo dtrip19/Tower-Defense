@@ -17,6 +17,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: f618ed9008c96db44ba12239d8304590, type: 2}
   bullet: {fileID: 1317444465190966354, guid: f24bf52a85f00db4eb83b362cf43f268, type: 3}
   icon: {fileID: 21300000, guid: a64b99347cc83f0489db0727221b5486, type: 3}
+  towerName: Tornado Tower
   description: Deals damage over time to all enemies within range, doubled against
     flying enemies
   damage: 2

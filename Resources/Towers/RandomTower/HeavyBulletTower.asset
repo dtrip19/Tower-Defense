@@ -17,6 +17,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 1c1af4616b7cb5a4f8611d3039f48060, type: 2}
   bullet: {fileID: 6171550589090853087, guid: 37203595066035146bf27e91ec9d4687, type: 3}
   icon: {fileID: 0}
+  towerName: Heavy Bullet Tower
   description: Bullets are affected by gravity and deal more damage
   damage: 20
   attackDelay: 5
