@@ -11,6 +11,7 @@ public class Enemy : MonoBehaviour
     public bool canMove = true;
     private EnemyScriptableObject enemySO;
     private Transform _transform;
+    private int height;
     private int pathPositionIndex = 1;
     private int maxHealth;
     private int health;
@@ -44,7 +45,7 @@ public class Enemy : MonoBehaviour
     {
         if (!canMove) return;
 
-        Vector3 newPos = new Vector3(positions[pathPositionIndex].x, positions[pathPositionIndex].y + enemySO.height, positions[pathPositionIndex].z);
+        Vector3 newPos = new Vector3(positions[pathPositionIndex].x, positions[pathPositionIndex].y + height, positions[pathPositionIndex].z);
         Vector3 dirToPosition = newPos - _transform.position;
         Vector3 dirToMove = dirToPosition.normalized * Speed;
         _transform.position += dirToMove;
@@ -63,9 +64,9 @@ public class Enemy : MonoBehaviour
     public void TakeDamage(int damage, DamageType damageType)
     {
         float damageToTake = damage;
-        if (enemySO.attributes.Contains(EnemyAttribute.Armored) && damageType != DamageType.Piercing && damageType != DamageType.Explosive)
+        if (attributes.Contains(EnemyAttribute.Armored) && damageType != DamageType.Piercing && damageType != DamageType.Explosive)
             damageToTake /= 2;
-        if (enemySO.attributes.Contains(EnemyAttribute.Resistant) && damageType != DamageType.Elemental)
+        if (attributes.Contains(EnemyAttribute.Resistant) && damageType != DamageType.Elemental)
             damageToTake /= 2;
 
         health -= (int)damageToTake;
@@ -77,10 +78,18 @@ public class Enemy : MonoBehaviour
         }
     }
 
+    public void ReduceHeight(int value)
+    {
+        height -= value;
+        if (height < 0)
+            height = 0;
+    }
+
     public void InitEnemy(EnemyScriptableObject enemySO)
     {
         this.enemySO = enemySO;
         health = maxHealth = enemySO.health;
+        height = enemySO.height;
         foreach (var attribute in enemySO.attributes)
         {
             attributes.Add(attribute);

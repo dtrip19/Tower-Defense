@@ -10,20 +10,20 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6a5288cbf4bfffe4abb449af8bd02ab9, type: 3}
-  m_Name: ChainLightningTower
+  m_Name: AcidRainTower
   m_EditorClassIdentifier: 
   upgrades: []
-  bullet: {fileID: 3573375156421550533, guid: ec83624e0dfc3e3479ee1b155b490664, type: 3}
+  bullet: {fileID: 4510488539195371066, guid: b232c3246ee0a9e42a23e2b85f735ce2, type: 3}
   icon: {fileID: 21300000, guid: 09acd7667d0352945b08964242899366, type: 3}
-  towerName: Chain Lightning
-  description: Fires fast projectiles that jump between enemies they hit
-  damage: 10
-  attackDelay: 25
+  towerName: Acid Rain
+  description: Enemies hit by rain projectiles take damage over time for 4 seconds
+  damage: 30
+  attackDelay: 5
   price: 75
-  pierce: 100
-  bulletSpeed: 5
+  pierce: 1
+  bulletSpeed: 0.5
   lifeTime: 4
   range: 10
   colliderSize: 0.5
   bulletOriginHeight: 2
-  towerId: 19
+  towerId: 20

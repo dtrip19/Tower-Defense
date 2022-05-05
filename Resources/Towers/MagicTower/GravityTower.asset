@@ -10,20 +10,21 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6a5288cbf4bfffe4abb449af8bd02ab9, type: 3}
-  m_Name: ChainLightningTower
+  m_Name: GravityTower
   m_EditorClassIdentifier: 
   upgrades: []
-  bullet: {fileID: 3573375156421550533, guid: ec83624e0dfc3e3479ee1b155b490664, type: 3}
+  bullet: {fileID: 0}
   icon: {fileID: 21300000, guid: 09acd7667d0352945b08964242899366, type: 3}
-  towerName: Chain Lightning
-  description: Fires fast projectiles that jump between enemies they hit
-  damage: 10
-  attackDelay: 25
+  towerName: Gravity Tower
+  description: Creates a gravity field beneath it that deals persistent damage and
+    pulls flying enemies toward the ground
+  damage: 50
+  attackDelay: 20
   price: 75
-  pierce: 100
-  bulletSpeed: 5
+  pierce: 4
+  bulletSpeed: 0.5
   lifeTime: 4
   range: 10
   colliderSize: 0.5
   bulletOriginHeight: 2
-  towerId: 19
+  towerId: 21

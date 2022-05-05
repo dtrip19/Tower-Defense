@@ -17,8 +17,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 19e7c01d534b7794692f80fd22766048, type: 2}
   bullet: {fileID: 1317444465190966354, guid: f24bf52a85f00db4eb83b362cf43f268, type: 3}
   icon: {fileID: 0}
-  description: 'This tower shoots a continous beam of bullets. Can target up to 5
-    different enemies. '
+  towerName: 
+  description: Fires a continous beam  at up to 5 enemies at a time
   damage: 1
   attackDelay: 3
   price: 100
