@@ -98,6 +98,7 @@ public class Tower : MonoBehaviour
             case 22:
                 behavior = gameObject.AddComponent<UtilityTowerBehavior>();
                 break;
+
         }
         behavior.attackDelay = towerSO.attackDelay;
         behavior.damage = towerSO.damage;
