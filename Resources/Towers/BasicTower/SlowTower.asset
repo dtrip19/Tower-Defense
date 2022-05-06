@@ -18,7 +18,11 @@ MonoBehaviour:
   bullet: {fileID: 1317444465190966354, guid: f24bf52a85f00db4eb83b362cf43f268, type: 3}
   icon: {fileID: 21300000, guid: 80a4ab6eb16d608448d103d542adfa4c, type: 3}
   towerName: Slow Tower
+<<<<<<< Updated upstream
   description: This is a slow tower, shoots heavy bullets
+=======
+  description: Fires a little slower
+>>>>>>> Stashed changes
   damage: 100
   attackDelay: 50
   price: 50

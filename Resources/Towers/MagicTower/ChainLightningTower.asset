@@ -15,7 +15,7 @@ MonoBehaviour:
   upgrades: []
   bullet: {fileID: 3573375156421550533, guid: ec83624e0dfc3e3479ee1b155b490664, type: 3}
   icon: {fileID: 21300000, guid: 09acd7667d0352945b08964242899366, type: 3}
-  towerName: Chain Lightning
+  towerName: Chain Lightning Tower
   description: Fires fast projectiles that jump between enemies they hit
   damage: 10
   attackDelay: 25

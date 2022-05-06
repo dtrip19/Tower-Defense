@@ -6,7 +6,7 @@ public class VolcanoTowerProjectile : Projectile
     [SerializeField] float explosionRadius;
     [SerializeField] int explosionDamage;
 
-    private void OnCollisionEnter(Collision collision)
+    new private void OnCollisionEnter(Collision collision)
     {
         int layer = collision.collider.gameObject.layer;
         if (layer == Layers.UnplaceableRaw || layer == Layers.GroundRaw)

@@ -18,7 +18,11 @@ MonoBehaviour:
   bullet: {fileID: 1317444465190966354, guid: f24bf52a85f00db4eb83b362cf43f268, type: 3}
   icon: {fileID: 21300000, guid: 1037958cd0e3ed843959c9d903942b1a, type: 3}
   towerName: Fast Tower
+<<<<<<< Updated upstream
   description: This is a fast tower
+=======
+  description: 'Fires a little faster '
+>>>>>>> Stashed changes
   damage: 40
   attackDelay: 15
   price: 50
