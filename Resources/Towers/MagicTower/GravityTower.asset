@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: GravityTower
   m_EditorClassIdentifier: 
   upgrades: []
+  model: {fileID: 0}
   bullet: {fileID: 0}
   icon: {fileID: 21300000, guid: 09acd7667d0352945b08964242899366, type: 3}
   towerName: Gravity Tower
@@ -25,6 +26,6 @@ MonoBehaviour:
   bulletSpeed: 0.5
   lifeTime: 4
   range: 10
-  colliderSize: 0.5
+  colliderSize: 1
   bulletOriginHeight: 2
   towerId: 21

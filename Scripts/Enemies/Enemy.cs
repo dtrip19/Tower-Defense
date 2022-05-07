@@ -9,6 +9,7 @@ public class Enemy : MonoBehaviour
     public Vector3[] positions;
     public List<EnemyAttribute> attributes = new List<EnemyAttribute>();
     public bool canMove = true;
+    public float moveSpeedMultiplier = 1;
     private EnemyScriptableObject enemySO;
     private Transform _transform;
     private int height;
@@ -47,7 +48,7 @@ public class Enemy : MonoBehaviour
 
         Vector3 newPos = new Vector3(positions[pathPositionIndex].x, positions[pathPositionIndex].y + height, positions[pathPositionIndex].z);
         Vector3 dirToPosition = newPos - _transform.position;
-        Vector3 dirToMove = dirToPosition.normalized * Speed;
+        Vector3 dirToMove = Speed * moveSpeedMultiplier * dirToPosition.normalized;
         _transform.position += dirToMove;
         modelRootTransform.forward = dirToMove;
         if (dirToMove.magnitude >= dirToPosition.magnitude - 0.05f)

@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: OncePunchTower
   m_EditorClassIdentifier: 
   upgrades: []
+  model: {fileID: 0}
   bullet: {fileID: 0}
   icon: {fileID: 21300000, guid: d35a6ff7c68e4874aa71fb16ec4f5080, type: 3}
   towerName: Once Punch Tower
@@ -24,6 +25,6 @@ MonoBehaviour:
   bulletSpeed: 0
   lifeTime: 0
   range: 5
-  colliderSize: 0.5
+  colliderSize: 1
   bulletOriginHeight: 2
   towerId: 7

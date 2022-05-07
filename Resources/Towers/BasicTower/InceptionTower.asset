@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: InceptionTower
   m_EditorClassIdentifier: 
   upgrades: []
+  model: {fileID: 0}
   bullet: {fileID: 7871653369370538987, guid: 486ed97472c22fc479c2fb6495e8315c, type: 3}
   icon: {fileID: 21300000, guid: 6a88f37528b6aa04db9182728a33130b, type: 3}
   towerName: Inception Tower
@@ -24,6 +25,6 @@ MonoBehaviour:
   bulletSpeed: 1
   lifeTime: 4
   range: 10
-  colliderSize: 0.5
+  colliderSize: 1
   bulletOriginHeight: 2
   towerId: 5

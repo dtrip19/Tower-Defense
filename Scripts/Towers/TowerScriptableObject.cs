@@ -5,6 +5,7 @@ using UnityEngine;
 public class TowerScriptableObject : ScriptableObject
 {
     public List<TowerScriptableObject> upgrades;
+    public GameObject model;
     public GameObject bullet;
     public Sprite icon;
     public string towerName;

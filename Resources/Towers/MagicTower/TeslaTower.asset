@@ -15,6 +15,7 @@ MonoBehaviour:
   upgrades:
   - {fileID: 11400000, guid: e013f383d51013a4d8393909e2428264, type: 2}
   - {fileID: 11400000, guid: 19e7c01d534b7794692f80fd22766048, type: 2}
+  model: {fileID: 0}
   bullet: {fileID: 1317444465190966354, guid: f24bf52a85f00db4eb83b362cf43f268, type: 3}
   icon: {fileID: 0}
   towerName: Tesla Tower
@@ -26,6 +27,6 @@ MonoBehaviour:
   bulletSpeed: 15
   lifeTime: 0.5
   range: 10
-  colliderSize: 0.5
+  colliderSize: 1
   bulletOriginHeight: 2
   towerId: 16

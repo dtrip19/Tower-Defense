@@ -15,6 +15,7 @@ MonoBehaviour:
   upgrades:
   - {fileID: 11400000, guid: c8624c1d89665684396e672e06a4d517, type: 2}
   - {fileID: 11400000, guid: 1c1af4616b7cb5a4f8611d3039f48060, type: 2}
+  model: {fileID: 0}
   bullet: {fileID: 6171550589090853087, guid: 37203595066035146bf27e91ec9d4687, type: 3}
   icon: {fileID: 0}
   towerName: Heavy Bullet Tower
@@ -26,6 +27,6 @@ MonoBehaviour:
   bulletSpeed: 2.5
   lifeTime: 5
   range: 8
-  colliderSize: 0.5
+  colliderSize: 1
   bulletOriginHeight: 2
   towerId: 9

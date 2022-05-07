@@ -5,12 +5,14 @@ public class Tower : MonoBehaviour
 {
     public TowerScriptableObject towerSO;
     private Describable describable;
+    private Transform _transform;
 
     public static event Action<Tower> OnSelect;
 
     private void Awake()
     {
         describable = GetComponent<Describable>();
+        _transform = transform;
     }
 
     public void Upgrade(int upgradeIndex)
@@ -22,8 +24,18 @@ public class Tower : MonoBehaviour
     public void SetScriptableObject(TowerScriptableObject towerSO)
     {
         this.towerSO = towerSO;
-        var child = transform.GetChild(0);
-        child.GetComponent<SphereCollider>().radius = towerSO.colliderSize;
+        var collider = _transform.GetChild(0);
+        collider.GetComponent<SphereCollider>().radius = towerSO.colliderSize;
+
+        foreach (Transform child in _transform)
+        {
+            if (child.gameObject.tag == "TowerModel")
+                Destroy(child.gameObject);
+        }
+        if (towerSO.model != null)
+            Instantiate(towerSO.model, _transform);
+        else
+            Instantiate(Resources.Load<GameObject>("Towers/DefaultTowerModel"), _transform);
         AttachBehaviorComponent();
     }
 
@@ -98,7 +110,12 @@ public class Tower : MonoBehaviour
             case 22:
                 behavior = gameObject.AddComponent<UtilityTowerBehavior>();
                 break;
-
+            case 23:
+                behavior = gameObject.AddComponent<StumpTowerBehavior>();
+                break;
+            case 24:
+                behavior = gameObject.AddComponent<WatermelonTowerBehavior>();
+                break;
         }
         behavior.attackDelay = towerSO.attackDelay;
         behavior.damage = towerSO.damage;

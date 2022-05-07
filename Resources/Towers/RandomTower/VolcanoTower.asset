@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: VolcanoTower
   m_EditorClassIdentifier: 
   upgrades: []
+  model: {fileID: 0}
   bullet: {fileID: 1092208095435456724, guid: 1c70ecb4162a2594399812a194ab8a89, type: 3}
   icon: {fileID: 0}
   towerName: Volcano Tower
@@ -24,6 +25,6 @@ MonoBehaviour:
   bulletSpeed: 2.5
   lifeTime: 5
   range: 8
-  colliderSize: 0.5
+  colliderSize: 1
   bulletOriginHeight: 2
   towerId: 11

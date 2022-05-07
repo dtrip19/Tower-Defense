@@ -10,21 +10,23 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6a5288cbf4bfffe4abb449af8bd02ab9, type: 3}
-  m_Name: DragonTower
+  m_Name: PlantTower
   m_EditorClassIdentifier: 
-  upgrades: []
+  upgrades:
+  - {fileID: 11400000, guid: df2b5b0764561e245bc73bd45d13945a, type: 2}
+  - {fileID: 11400000, guid: 8cf8c2a79dc372d449008a7ef9f47bec, type: 2}
   model: {fileID: 0}
-  bullet: {fileID: 1317444465190966354, guid: f24bf52a85f00db4eb83b362cf43f268, type: 3}
-  icon: {fileID: 21300000, guid: a48321ce18cadf74596bd7677d1678d5, type: 3}
-  towerName: Dragon Tower
-  description: Rains down bullets from above
-  damage: 75
-  attackDelay: 15
-  price: 50
-  pierce: 1
-  bulletSpeed: 10
-  lifeTime: 5
-  range: 12
+  bullet: {fileID: 0}
+  icon: {fileID: 0}
+  towerName: Plant Tower
+  description: Pretty flower :)
+  damage: 0
+  attackDelay: 0
+  price: 0
+  pierce: 0
+  bulletSpeed: 0
+  lifeTime: 0
+  range: 0
   colliderSize: 1
-  bulletOriginHeight: 2
-  towerId: 4
+  bulletOriginHeight: 0
+  towerId: 22
