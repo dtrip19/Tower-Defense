@@ -22,7 +22,7 @@ public abstract class TowerBehaviorBase : MonoBehaviour
 
     #endregion 
 
-    protected void Awake()
+    protected virtual void Awake()
     {
         _transform = transform;
     }
@@ -42,7 +42,7 @@ public abstract class TowerBehaviorBase : MonoBehaviour
 
     protected Enemy FindFurthestTarget()
     {
-        var colliders = Physics.OverlapSphere(_transform.position, range, (int)Layers.Enemy);
+        var colliders = Physics.OverlapSphere(_transform.position, range, Layers.Enemy);
 
         Enemy newTarget = null;
         int furthestIndex = 0;
@@ -60,7 +60,7 @@ public abstract class TowerBehaviorBase : MonoBehaviour
         return newTarget;
     }
 
-    protected void FixedUpdate()
+    protected virtual void FixedUpdate()
     {
         timer++;
         if (timer >= attackDelay && target != null && canShoot)

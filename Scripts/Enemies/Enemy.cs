@@ -29,6 +29,7 @@ public class Enemy : MonoBehaviour
     }
     public Transform Transform => _transform;
     public int Health => health;
+    public int Height => height;
     public Vector3 LineOfSightPosition => _transform.position + new Vector3(0, 1, 0);
     public int PathPositionIndex => pathPositionIndex;
 

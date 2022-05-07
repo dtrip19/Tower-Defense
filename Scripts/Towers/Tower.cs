@@ -116,6 +116,12 @@ public class Tower : MonoBehaviour
             case 24:
                 behavior = gameObject.AddComponent<WatermelonTowerBehavior>();
                 break;
+            case 25:
+                behavior = gameObject.AddComponent<TreeTowerBehavior>();
+                break;
+            case 26:
+                behavior = gameObject.AddComponent<RootTowerBehavior>();
+                break;
         }
         behavior.attackDelay = towerSO.attackDelay;
         behavior.damage = towerSO.damage;

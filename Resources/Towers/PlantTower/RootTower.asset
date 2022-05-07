@@ -10,22 +10,22 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6a5288cbf4bfffe4abb449af8bd02ab9, type: 3}
-  m_Name: TreeTower
+  m_Name: RootTower
   m_EditorClassIdentifier: 
   upgrades: []
-  model: {fileID: 1349009588003086675, guid: 78681846f2ba1294abdac475754dc2b5, type: 3}
+  model: {fileID: 2684329544316879834, guid: cf8e56c56570303408852dafc5f21bc4, type: 3}
   bullet: {fileID: 1564849948281754654, guid: ee9fce8766a0ac94bbfd13b8eb7c3057, type: 3}
   icon: {fileID: 21300000, guid: 18e9813db746b87418be75675f473e7b, type: 3}
-  towerName: Tree Tower
-  description: Fires sticky sap that slows enemies. Other towers can be placed on
-    top of it
-  damage: 1
-  attackDelay: 35
+  towerName: Root Tower
+  description: ' Grows roots in the ground that damage burrowing enemies. Spawns
+    roots above ground that slam on enemies.'
+  damage: 0
+  attackDelay: 50
   price: 100
-  pierce: 3
-  bulletSpeed: 11
-  lifeTime: 0.3
+  pierce: 1
+  bulletSpeed: 10
+  lifeTime: 0.5
   range: 8
   colliderSize: 1
   bulletOriginHeight: 2
-  towerId: 25
+  towerId: 26
