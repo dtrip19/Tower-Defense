@@ -17,7 +17,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 8cb5ae6c62950804d93ea82369513f28, type: 2}
   model: {fileID: 0}
   bullet: {fileID: 4510488539195371066, guid: 1a05ee8b6177d7345a19494359f40ea6, type: 3}
-  icon: {fileID: 21300000, guid: 09acd7667d0352945b08964242899366, type: 3}
+  icon: {fileID: 21300000, guid: c086cf6b96cab954e881a4a6fbd24f50, type: 3}
   towerName: Rain Cloud
   description: Creates a cloud that rains projectiles from up high
   damage: 20

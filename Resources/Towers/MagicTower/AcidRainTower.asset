@@ -15,7 +15,7 @@ MonoBehaviour:
   upgrades: []
   model: {fileID: 0}
   bullet: {fileID: 4510488539195371066, guid: b232c3246ee0a9e42a23e2b85f735ce2, type: 3}
-  icon: {fileID: 21300000, guid: 09acd7667d0352945b08964242899366, type: 3}
+  icon: {fileID: 21300000, guid: 16ef79022f32e044ba40599061baaafb, type: 3}
   towerName: Acid Rain
   description: Enemies hit by rain projectiles take damage over time for 4 seconds
   damage: 30

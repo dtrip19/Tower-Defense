@@ -17,7 +17,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 1c1af4616b7cb5a4f8611d3039f48060, type: 2}
   model: {fileID: 0}
   bullet: {fileID: 1317444465190966354, guid: f24bf52a85f00db4eb83b362cf43f268, type: 3}
-  icon: {fileID: 21300000, guid: a64b99347cc83f0489db0727221b5486, type: 3}
+  icon: {fileID: 21300000, guid: 999a85e78e6269649b0d1e7dca33eaf3, type: 3}
   towerName: Hurricane Tower
   description: Causes nearby non-heavy projectiles to orbit the tower and extends
     their lifetime

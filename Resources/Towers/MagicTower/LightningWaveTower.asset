@@ -15,7 +15,7 @@ MonoBehaviour:
   upgrades: []
   model: {fileID: 0}
   bullet: {fileID: 7706692421417961690, guid: 23e70035a4b63f742b2e5788f47d7b66, type: 3}
-  icon: {fileID: 21300000, guid: 09acd7667d0352945b08964242899366, type: 3}
+  icon: {fileID: 21300000, guid: d7bed5f50c4df9e4cbdf89d852b9ed92, type: 3}
   towerName: Lightning Wave Tower
   description: Fires a wave of lightning bolts towards its target
   damage: 15
