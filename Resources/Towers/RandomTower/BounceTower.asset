@@ -10,16 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6a5288cbf4bfffe4abb449af8bd02ab9, type: 3}
-  m_Name: HeavyBulletTower
+  m_Name: BounceTower
   m_EditorClassIdentifier: 
-  upgrades:
-  - {fileID: 11400000, guid: c8624c1d89665684396e672e06a4d517, type: 2}
-  - {fileID: 11400000, guid: f2ceb084d3da074459fb9f8bcc17356c, type: 2}
+  upgrades: []
   model: {fileID: 0}
-  bullet: {fileID: 6171550589090853087, guid: 37203595066035146bf27e91ec9d4687, type: 3}
-  icon: {fileID: 21300000, guid: 627141b9c053fb0468874b9126291413, type: 3}
-  towerName: Heavy Bullet Tower
-  description: Projectiles are affected by gravity
+  bullet: {fileID: 2885362044385808120, guid: 1d21342f948eee94dae50fabef9bc1ec, type: 3}
+  icon: {fileID: 21300000, guid: 93d5050ef10561b40897ca079b07e4bd, type: 3}
+  towerName: Bounce Tower
+  description: Projectiles can bounce off surfaces
   damage: 20
   attackDelay: 5
   price: 200
@@ -29,4 +27,4 @@ MonoBehaviour:
   range: 8
   colliderSize: 1
   bulletOriginHeight: 2.5
-  towerId: 9
+  towerId: 12

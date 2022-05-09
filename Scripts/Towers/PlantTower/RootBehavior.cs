@@ -16,7 +16,7 @@ public class RootBehavior : TowerBehaviorBase
 
     protected override void Shoot()
     {
-        transform.eulerAngles = target.transform.position - transform.position;
+        transform.forward = target.transform.position - transform.position;
 
         // Destroy(gameObject);
     }

@@ -80,6 +80,9 @@ public class Tower : MonoBehaviour
             case 11:
                 behavior = gameObject.AddComponent<VolcanoTowerBehavior>();
                 break;
+            case 12:
+                behavior = gameObject.AddComponent<BounceTowerBehavior>();
+                break;
             case 13:
                 behavior = gameObject.AddComponent<HurricaneTowerBehavior>();
                 break;
