@@ -29,7 +29,7 @@ public class RootTowerBehavior : TowerBehaviorBase
     {
         var root = Instantiate(rootPrefab);
         var randomPosition = Random.insideUnitCircle * range;
-        root.transform.position = new Vector3(transform.position.x + randomPosition.x,0, transform.position.z + randomPosition.y);
-        root.transform.forward = new Vector3(270,0,0);
+        root.transform.position = new Vector3(transform.position.x + randomPosition.x, 0, transform.position.z + randomPosition.y);
+        //root.transform.forward = new Vector3(270,0,0);
     }
 }
