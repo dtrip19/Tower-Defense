@@ -60,7 +60,7 @@ public abstract class TowerBehaviorBase : MonoBehaviour
         return newTarget;
     }
 
-    protected virtual void FixedUpdate()
+    protected void FixedUpdate()
     {
         timer++;
         if (timer >= attackDelay && target != null && canShoot)

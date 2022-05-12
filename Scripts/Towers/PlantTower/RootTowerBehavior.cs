@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class RootTowerBehavior : TowerBehaviorBase
@@ -10,6 +8,16 @@ public class RootTowerBehavior : TowerBehaviorBase
     {
         base.Awake();
         rootPrefab = Resources.Load<GameObject>("Towers/PlantTower/Root");
+    }
+
+    new protected void FixedUpdate()
+    {
+        timer++;
+        if (timer >= attackDelay && canShoot)
+        {
+            timer = 0;
+            Shoot();
+        }
     }
 
     protected override void Shoot()
@@ -27,9 +35,23 @@ public class RootTowerBehavior : TowerBehaviorBase
 
     private void SpawnRoot()
     {
+        int iterations = 1;
         var root = Instantiate(rootPrefab);
-        var randomPosition = Random.insideUnitCircle * range;
-        root.transform.position = new Vector3(transform.position.x + randomPosition.x, 0, transform.position.z + randomPosition.y);
-        //root.transform.forward = new Vector3(270,0,0);
+        var randomOffset = Random.insideUnitCircle * range;
+        var randomPosition = new Vector3(transform.position.x + randomOffset.x, 0, transform.position.z + randomOffset.y);
+        while (LocationIsObstructed(randomPosition) && iterations++ < 50)
+        {
+            randomOffset = Random.insideUnitCircle * range;
+            randomPosition = new Vector3(transform.position.x + randomOffset.x, 0, transform.position.z + randomOffset.y);
+        }
+        root.transform.position = randomPosition;
+        root.GetComponent<RootBehavior>().damage = damage;
+        root.GetComponent<RootBehavior>().lifeTime = lifeTime;
+    }
+
+    private bool LocationIsObstructed(Vector3 location)
+    {
+        var origin = new Vector3(location.x, 100, location.z);
+        return Physics.SphereCast(origin, 1, Vector3.down, out RaycastHit hit, 120, Layers.MapCollider);
     }
 }

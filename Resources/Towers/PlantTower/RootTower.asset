@@ -17,14 +17,14 @@ MonoBehaviour:
   bullet: {fileID: 1564849948281754654, guid: ee9fce8766a0ac94bbfd13b8eb7c3057, type: 3}
   icon: {fileID: 21300000, guid: 18e9813db746b87418be75675f473e7b, type: 3}
   towerName: Root Tower
-  description: ' Grows roots in the ground that damage burrowing enemies. Spawns
-    roots above ground that slam on enemies.'
-  damage: 0
+  description: Grows roots in the ground that damage burrowing enemies. Spawns roots
+    above ground that slam on enemies.
+  damage: 50
   attackDelay: 50
   price: 100
   pierce: 1
   bulletSpeed: 10
-  lifeTime: 0.5
+  lifeTime: 7
   range: 8
   colliderSize: 1
   bulletOriginHeight: 2

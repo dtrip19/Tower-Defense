@@ -1,19 +1,23 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class RootBehavior : TowerBehaviorBase
 {
+    private List<Enemy> enemiesHit = new List<Enemy>();
+    private bool attacking;
+    private float timeCreated;
+
     new protected void Awake()
     {
         base.Awake();
+        timeCreated = Time.time;
 
         range = 8;
-        attackDelay = 300;
+        attackDelay = 50;
         _transform.eulerAngles = new Vector3(-90, 0, 0);
     }
 
-    protected override void FixedUpdate()
+    new protected void FixedUpdate()
     {
         timer++;
         if (timer >= attackDelay && target != null)
@@ -21,28 +25,26 @@ public class RootBehavior : TowerBehaviorBase
             timer = 0;
             Shoot();
         }
+
+        if (Time.time > timeCreated + lifeTime)
+            Destroy(gameObject);
     }
 
     protected override void Shoot()
     {
+        attacking = true;
         var dirToEnemy = target.transform.position - transform.position;
         transform.forward = new Vector3(dirToEnemy.x, 0, dirToEnemy.z);
         GetComponent<Animator>().Play("Swing");
 
-        Destroy(gameObject, 0.5f);
+        Destroy(gameObject, 0.6f);
     }
 
-    private void OnDestroy()
+    private void OnTriggerEnter(Collider other)
     {
-        var point0 = _transform.position + _transform.forward.normalized * 0.5f;
-        var point1 = _transform.position + _transform.forward.normalized * 7.5f;
-        var colliders = Physics.OverlapCapsule(point0, point1, 0.5f, Layers.Enemy);
+        if (!attacking || !other.TryGetComponent(out Enemy enemy) || enemiesHit.Contains(enemy)) return;
 
-        foreach (var collider in colliders)
-        {
-            if (!collider.TryGetComponent(out Enemy enemy)) continue;
-
-            enemy.TakeDamage(damage, DamageType.Normal);
-        }
+        enemy.TakeDamage(damage, DamageType.Normal);
+        enemiesHit.Add(enemy);
     }
 }
