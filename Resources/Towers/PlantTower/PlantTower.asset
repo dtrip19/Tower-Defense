@@ -17,7 +17,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 8cf8c2a79dc372d449008a7ef9f47bec, type: 2}
   model: {fileID: 0}
   bullet: {fileID: 0}
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: 2010f75c37b4e6449a196f2d86de8cb5, type: 3}
   towerName: Plant Tower
   description: Pretty flower :)
   damage: 0
