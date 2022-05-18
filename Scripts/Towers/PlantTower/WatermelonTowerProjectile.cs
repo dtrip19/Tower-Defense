@@ -4,34 +4,37 @@ using UnityEngine;
 
 public class WatermelonTowerProjectile : Projectile
 {
-
-    private Vector3 destination;
-    private float distToDestination;
-
-    private float gravity = -.4f;
-    private float vSpeed = 2;
-
-
+    float gravity = .03f;
+    float vSpeed;
+    Vector3 xzSpeed;
     new private void FixedUpdate()
     {
-        base.FixedUpdate();
-        vSpeed += gravity;
-        _transform.position += new Vector3(0,vSpeed,0);
+        // _transform.position += direction;
+        // direction = new Vector3(direction.x, direction.y - 30 * .002f, direction.z);
+        vSpeed -= 2*gravity;
+        _transform.position += new Vector3(xzSpeed.x, vSpeed, xzSpeed.z);
     }
     public override void SetValues(Vector3 destination, DamageType damageType, float timeDestroy, float speed, int damage, int pierce)
     {
-        this.destination = destination;
         this.damageType = damageType;
         this.timeDestroy = timeDestroy;
         this.damage = damage;
         this.pierce = pierce;
-        this.distToDestination = Vector3.Distance(_transform.position, destination);
-        var dirToDestination = (destination - _transform.position).normalized;
-        direction = new Vector3(dirToDestination.x, 0, dirToDestination.z);
-        this.speed = distToDestination * speed /2;
-        // vSpeed = destination.y/10;
+        var xzDestination = new Vector3(destination.x, 0, destination.z);
+        var xzPostion = new Vector3(_transform.position.x, 0, _transform.position.z);
+        var distToDestination = Vector3.Distance(xzPostion, xzDestination);
+        var dirToDestination = xzDestination - _transform.position;
 
-        vSpeed =  speed + destination.y/10;
-        gravity = -speed * speed * .1f;
+        // var vSpeed = 15 * distToDestination *speed;
+        // vSpeed += (destination.y - _transform.position.y) * 15/vSpeed;
+        // direction = new Vector3(dirToDestination.x, vSpeed, dirToDestination.z).normalized * speed;
+
+        gravity *= speed * speed;
+        vSpeed = speed;
+        xzSpeed = dirToDestination.normalized * distToDestination * gravity / vSpeed;
+        print('1');
+        print(vSpeed);
+        // vSpeed = ((destination.y - _transform.position.y) + distToDestination * distToDestination * gravity) / distToDestination;
+        print(vSpeed);
     }
 }
