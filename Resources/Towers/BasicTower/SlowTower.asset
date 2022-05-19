@@ -20,9 +20,9 @@ MonoBehaviour:
   icon: {fileID: 21300000, guid: 80a4ab6eb16d608448d103d542adfa4c, type: 3}
   towerName: Slow Tower
   description: This is a slow tower, shoots heavy bullets
-  damage: 100
+  damage: 75
   attackDelay: 50
-  price: 50
+  price: 100
   pierce: 2
   bulletSpeed: 4
   lifeTime: 2

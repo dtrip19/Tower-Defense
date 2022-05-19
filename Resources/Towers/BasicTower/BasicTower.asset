@@ -20,7 +20,7 @@ MonoBehaviour:
   icon: {fileID: 21300000, guid: d934ee580ae3a064cbfd783869390749, type: 3}
   towerName: Basic Tower
   description: This is a Basic tower
-  damage: 40
+  damage: 30
   attackDelay: 30
   price: 50
   pierce: 1

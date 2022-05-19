@@ -20,9 +20,9 @@ MonoBehaviour:
   description: Rains down bullets from above
   damage: 5
   attackDelay: 3
-  price: 50
+  price: 250
   pierce: 1
-  bulletSpeed: 4
+  bulletSpeed: 7
   lifeTime: 1
   range: 12
   colliderSize: 1

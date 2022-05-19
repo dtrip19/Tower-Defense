@@ -20,7 +20,7 @@ MonoBehaviour:
   description: Incredibly high range and pierce, heavy projectiles
   damage: 200
   attackDelay: 150
-  price: 200
+  price: 300
   pierce: 6
   bulletSpeed: 20
   lifeTime: 3

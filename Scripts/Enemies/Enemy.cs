@@ -96,7 +96,16 @@ public class Enemy : MonoBehaviour
         {
             attributes.Add(attribute);
         }
+        if (enemySO.modelPrefab != null)
+            Instantiate(enemySO.modelPrefab, _transform);
+        else
+            Instantiate(Resources.Load<GameObject>("Enemies/EnemyCapsule"), _transform);
+        modelRootTransform = _transform.GetChild(0);
         GetComponentInChildren<MeshRenderer>().material = enemySO.material;
+        var capsule = GetComponent<CapsuleCollider>();
+        capsule.direction = (int)enemySO.capsuleDirection;
+        capsule.radius = enemySO.capsuleRadius;
+        capsule.height = enemySO.capsuleHeight;
         OnSpawn?.Invoke(this);
     }
 }

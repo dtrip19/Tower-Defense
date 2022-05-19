@@ -12,8 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e07927ee50024ae408562e7de0756171, type: 3}
   m_Name: ArmoredEnemy
   m_EditorClassIdentifier: 
+  modelPrefab: {fileID: 0}
   material: {fileID: 2100000, guid: d62fa4a419e5a914c85b0650556412c1, type: 2}
   attributes: 02000000
+  capsuleDirection: 1
+  capsuleRadius: 0.5
+  capsuleHeight: 2
   health: 150
   moveSpeed: 0.5
   points: 3
