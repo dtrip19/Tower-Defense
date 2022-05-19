@@ -7,7 +7,7 @@ public class PointTracker : MonoBehaviour
 
     private TextMeshProUGUI textMesh;
 
-    public static int Points { get; private set; } = 100;
+    public static int Points { get; private set; } = 125;
 
     private void Update()
     {

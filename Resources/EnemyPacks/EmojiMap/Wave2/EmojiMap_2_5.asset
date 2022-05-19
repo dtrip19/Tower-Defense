@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::EnemyPackSciptableObject
   enemySO: {fileID: 11400000, guid: 87621aa249ef0a54aa2a67e5a48bbcd7, type: 2}
   numEnemies: 6
-  spawnStartTime: 10
+  spawnStartTime: 15
   spawnInterval: 1

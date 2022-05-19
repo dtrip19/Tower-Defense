@@ -21,10 +21,11 @@ MonoBehaviour:
   towerName: Tornado Tower
   description: Deals damage over time to all enemies within range, doubled against
     flying enemies
-  damage: 2
+  damage: 15
   attackDelay: 75
   price: 100
   pierce: 0
+  ammo: 0
   bulletSpeed: 0
   lifeTime: 0
   range: 8

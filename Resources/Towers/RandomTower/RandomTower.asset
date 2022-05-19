@@ -20,10 +20,11 @@ MonoBehaviour:
   icon: {fileID: 21300000, guid: a64b99347cc83f0489db0727221b5486, type: 3}
   towerName: Random Tower
   description: This tower shoots very fast in random directions
-  damage: 15
+  damage: 75
   attackDelay: 5
   price: 75
   pierce: 1
+  ammo: 0
   bulletSpeed: 5
   lifeTime: 2
   range: 8

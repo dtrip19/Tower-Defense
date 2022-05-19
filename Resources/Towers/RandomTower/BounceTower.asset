@@ -18,10 +18,11 @@ MonoBehaviour:
   icon: {fileID: 21300000, guid: 93d5050ef10561b40897ca079b07e4bd, type: 3}
   towerName: Bounce Tower
   description: Projectiles can bounce off surfaces
-  damage: 20
+  damage: 100
   attackDelay: 5
   price: 200
   pierce: 1
+  ammo: 0
   bulletSpeed: 4
   lifeTime: 5
   range: 8
