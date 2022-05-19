@@ -5265,7 +5265,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 563205902}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 17.66, y: 2, z: 5.01}
+  m_LocalPosition: {x: 18.78, y: 2, z: 6.58}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children:
   - {fileID: 1239269477}
@@ -19992,9 +19992,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mainCam: {fileID: 1548112836}
   clonesTransform: {fileID: 881922374}
-  healthBarObject: {fileID: 187184071963982816, guid: e195698a45251214186c3d6b411a6525,
+  healthBarPrefab: {fileID: 187184071963982816, guid: e195698a45251214186c3d6b411a6525,
     type: 3}
   pointNumbers: {fileID: 7946063030903473038, guid: 9c6c99c6095ad4d46b49c0562eafad21,
+    type: 3}
+  ammoBarPrefab: {fileID: 2895646947407586118, guid: 98052c35510688c4dac19537f06b33df,
     type: 3}
 --- !u!43 &1676997500
 Mesh:

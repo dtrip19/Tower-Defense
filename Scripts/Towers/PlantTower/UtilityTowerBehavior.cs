@@ -4,5 +4,5 @@ using UnityEngine;
 
 public class UtilityTowerBehavior : TowerBehaviorBase
 {
-    new private void FixedUpdate() { }
+
 }

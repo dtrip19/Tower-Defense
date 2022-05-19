@@ -126,14 +126,20 @@ public class Tower : MonoBehaviour
                 behavior = gameObject.AddComponent<RootTowerBehavior>();
                 break;
         }
-        behavior.attackDelay = towerSO.attackDelay;
-        behavior.damage = towerSO.damage;
-        behavior.bulletSpeed = towerSO.bulletSpeed;
-        behavior.range = towerSO.range;
-        behavior.lifeTime = towerSO.lifeTime;
-        behavior.bullet = towerSO.bullet;
-        behavior.bulletOriginHeight = towerSO.bulletOriginHeight;
-        behavior.pierce = towerSO.pierce;
+
+        var towerData = new TowerData
+        {
+            attackDelay = towerSO.attackDelay,
+            damage = towerSO.damage,
+            bulletSpeed = towerSO.bulletSpeed,
+            range = towerSO.range,
+            lifeTime = towerSO.lifeTime,
+            bullet = towerSO.bullet,
+            bulletOriginHeight = towerSO.bulletOriginHeight,
+            pierce = towerSO.pierce,
+            ammo = towerSO.ammo,
+        };
+        behavior.SetTowerInfo(towerData);
 
         if (hasBehavior)
             behavior.canShoot = true;

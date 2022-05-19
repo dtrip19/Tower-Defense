@@ -14,6 +14,7 @@ public class TowerScriptableObject : ScriptableObject
     public int attackDelay;
     public int price;
     public int pierce;
+    public int ammo;
     public float bulletSpeed;
     public float lifeTime;
     public float range;

@@ -20,6 +20,6 @@ MonoBehaviour:
   capsuleHeight: 2
   health: 100
   moveSpeed: 0.8
-  points: 1
+  points: 2
   height: 0
-  deathLocation: {x: -0.18705228, y: 0.049999647, z: 11.192971}
+  deathLocation: {x: 2.3975449, y: 0.049999665, z: -0.25281462}

@@ -1,4 +1,5 @@
 using UnityEngine;
+using System;
 
 public abstract class TowerBehaviorBase : MonoBehaviour
 {
@@ -9,6 +10,8 @@ public abstract class TowerBehaviorBase : MonoBehaviour
     public int attackDelay;
     public int damage;
     public int pierce;
+    public int ammo;
+    public int maxAmmo;
     public float bulletSpeed;
     public float lifeTime;
     public float bulletOriginHeight;
@@ -17,8 +20,10 @@ public abstract class TowerBehaviorBase : MonoBehaviour
     protected Enemy target;
     protected int timer;
 
+    public Vector3 BulletOrigin => new Vector3(_transform.position.x, _transform.position.y + bulletOriginHeight, _transform.position.z);
     protected virtual DamageType DamageType => DamageType.Normal;
-    protected Vector3 BulletOrigin => new Vector3(_transform.position.x, _transform.position.y + bulletOriginHeight, _transform.position.z);
+
+    public static event Action<TowerBehaviorBase> OnSpawn;
 
     #endregion 
 
@@ -38,6 +43,22 @@ public abstract class TowerBehaviorBase : MonoBehaviour
         }
 
         target = FindFurthestTarget();
+    }
+
+    public void SetTowerInfo(TowerData towerData)
+    {
+        attackDelay = towerData.attackDelay;
+        damage = towerData.damage;
+        bulletSpeed = towerData.bulletSpeed;
+        range = towerData.range;
+        lifeTime = towerData.lifeTime;
+        bullet = towerData.bullet;
+        bulletOriginHeight = towerData.bulletOriginHeight;
+        pierce = towerData.pierce;
+        maxAmmo = towerData.ammo;
+        ammo = maxAmmo;
+        if (maxAmmo != 0)
+            OnSpawn?.Invoke(this);
     }
 
     protected Enemy FindFurthestTarget()
@@ -63,10 +84,11 @@ public abstract class TowerBehaviorBase : MonoBehaviour
     protected void FixedUpdate()
     {
         timer++;
-        if (timer >= attackDelay && target != null && canShoot)
+        if (ammo > 0 && timer >= attackDelay && target != null && canShoot)
         {
             timer = 0;
             Shoot();
+            ammo--;
         }
     }
 
@@ -85,5 +107,4 @@ public abstract class TowerBehaviorBase : MonoBehaviour
         Vector3 dirToTarget = (enemy.LineOfSightPosition - bulletOrigin).normalized;
         return !Physics.Raycast(bulletOrigin, dirToTarget, out RaycastHit hit, range, (int)Layers.Unplaceable);
     }
-
 }

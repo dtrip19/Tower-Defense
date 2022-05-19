@@ -1,17 +1,15 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class TeslaTowerBehavior : TowerBehaviorBase
 {
-    new protected void Update(){}
     new protected void FixedUpdate()
     {
         timer++;
-        if (timer >= attackDelay && canShoot)
+        if (ammo > 0 && timer >= attackDelay && canShoot)
         {
             timer = 0;
             Shoot();
+            ammo--;
         }
     }
 
@@ -36,7 +34,6 @@ public class TeslaTowerBehavior : TowerBehaviorBase
 
             projectile.SetValues(dirToEnemy.normalized, DamageType.Normal, Time.time + lifeTime, bulletSpeed, damage, pierce);
             enemiesShot++;
-
         }
     }
 }

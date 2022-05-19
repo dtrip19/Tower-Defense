@@ -10,17 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e07927ee50024ae408562e7de0756171, type: 3}
-  m_Name: TankyFlyingEnemy
+  m_Name: FlyingEnemy
   m_EditorClassIdentifier: 
-  modelPrefab: {fileID: 185785687060928240, guid: eb0b2c310b1c04046b78f0e4233aa390,
-    type: 3}
+  modelPrefab: {fileID: 0}
   material: {fileID: 2100000, guid: ed0b8b048c36de54cab01f27b2cda635, type: 2}
   attributes: 00000000
-  capsuleDirection: 2
+  capsuleDirection: 1
   capsuleRadius: 0.5
   capsuleHeight: 2
-  health: 500
+  health: 300
   moveSpeed: 0.5
-  points: 4
+  points: 10
   height: 6
   deathLocation: {x: -21.231407, y: 4.0500007, z: 1.1148759}
