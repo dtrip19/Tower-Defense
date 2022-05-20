@@ -11,7 +11,7 @@ public class PointTracker : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.P) && !usePoints)
+        if (Input.GetKeyDown(KeyCode.P))
         {
             Points += 100;
             textMesh.text = Points.ToString();

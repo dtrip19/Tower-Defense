@@ -19,7 +19,7 @@ MonoBehaviour:
   towerName: Hurricane Tower
   description: Causes nearby non-heavy projectiles to orbit the tower and extends
     their lifetime
-  damage: 2
+  damage: 10
   attackDelay: 75
   price: 200
   pierce: 1

@@ -40,6 +40,8 @@ public class HurricaneTowerBehavior : TowerBehaviorBase
             else
                 projectilesToSlow[i].speed = newSpeed;
         }
+
+        base.Update();
     }
 
     protected override void Shoot()
