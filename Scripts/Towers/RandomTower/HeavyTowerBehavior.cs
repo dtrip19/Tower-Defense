@@ -2,16 +2,6 @@
 
 public class HeavyTowerBehavior : TowerBehaviorBase
 {
-    new private void FixedUpdate()
-    {
-        timer++;
-        if (timer >= attackDelay && canShoot)
-        {
-            timer = 0;
-            Shoot();
-        }
-    }
-
     protected override void Shoot()
     {
         var projectile = Instantiate(bullet).GetComponent<Projectile>();

@@ -3,8 +3,6 @@ using System;
 
 public abstract class TowerBehaviorBase : MonoBehaviour
 {
-    #region variables
-
     public GameObject bullet;
     public float range;
     public int attackDelay;
@@ -24,8 +22,6 @@ public abstract class TowerBehaviorBase : MonoBehaviour
     protected virtual DamageType DamageType => DamageType.Normal;
 
     public static event Action<TowerBehaviorBase> OnSpawn;
-
-    #endregion 
 
     protected virtual void Awake()
     {
@@ -105,6 +101,6 @@ public abstract class TowerBehaviorBase : MonoBehaviour
     {
         Vector3 bulletOrigin = new Vector3(_transform.position.x, _transform.position.y + bulletOriginHeight, _transform.position.z);
         Vector3 dirToTarget = (enemy.LineOfSightPosition - bulletOrigin).normalized;
-        return !Physics.Raycast(bulletOrigin, dirToTarget, out RaycastHit hit, range, (int)Layers.Unplaceable);
+        return !Physics.Raycast(bulletOrigin, dirToTarget, out RaycastHit hit, range, Layers.Unplaceable);
     }
 }

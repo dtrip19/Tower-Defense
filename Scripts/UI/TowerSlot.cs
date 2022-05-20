@@ -24,7 +24,7 @@ public class TowerSlot : MonoBehaviour, IPointerDownHandler, IPointerEnterHandle
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        UI.cursorEnter(towerSO, describable);
+        describable.Inspect(UI.GetTowerDataFromSO(towerSO));
     }
 
     public void OnPointerExit(PointerEventData eventData)

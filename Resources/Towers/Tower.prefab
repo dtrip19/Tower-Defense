@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2208152243217670029}
   - component: {fileID: 7578767025715850998}
-  m_Layer: 10
+  m_Layer: 13
   m_Name: MapCollider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -56,7 +56,7 @@ GameObject:
   - component: {fileID: 7761779961491853233}
   - component: {fileID: -6358484758549948824}
   - component: {fileID: 3460267705127309225}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Tower
   m_TagString: Untagged
   m_Icon: {fileID: 0}

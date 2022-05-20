@@ -16073,14 +16073,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1333388795}
-  m_LocalRotation: {x: -0.258819, y: 0, z: 0, w: 0.9659259}
-  m_LocalPosition: {x: 0, y: 0, z: -2}
+  m_LocalRotation: {x: -0.3420201, y: 0, z: 0, w: 0.9396927}
+  m_LocalPosition: {x: 0, y: -2, z: -1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1548112837}
   m_Father: {fileID: 0}
   m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: -30, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -40, y: 0, z: 0}
 --- !u!114 &1333388797
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16093,10 +16093,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a7cfe21031d2744282469bf109b679b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cameraDistanceLimit: 115
+  cameraDistanceLimit: 20
   scrollSensitivity: -1
-  xSensitivity: -0.2
-  ySensitivity: 0.2
+  xSensitivity: 30
+  ySensitivity: 20
   cameraTransform: {fileID: 1548112837}
 --- !u!1 &1340343786
 GameObject:
@@ -18615,6 +18615,7 @@ GameObject:
   - component: {fileID: 1548112836}
   - component: {fileID: 1548112835}
   - component: {fileID: 1548112838}
+  - component: {fileID: 1548112839}
   m_Layer: 0
   m_Name: MainCamera
   m_TagString: MainCamera
@@ -18681,7 +18682,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1548112834}
   m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 66.96, z: 0}
+  m_LocalPosition: {x: 0, y: 70, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1333388796}
@@ -18699,9 +18700,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 578ed1db50c7ba147a17ffe92427cfaf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  towerObject: {fileID: 7761779961491853243, guid: 6d820d47e49050e439e37ec13c9e76be,
+  towerPrefab: {fileID: 7761779961491853243, guid: 6d820d47e49050e439e37ec13c9e76be,
     type: 3}
   rangeIndicatorTransform: {fileID: 379000520}
+--- !u!114 &1548112839
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1548112834}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 22eaec2397d6fe44e8569f747983e567, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1567788437
 GameObject:
   m_ObjectHideFlags: 0

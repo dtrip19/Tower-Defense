@@ -42,8 +42,8 @@ public class TowerUpgradeButton : MonoBehaviour, IPointerEnterHandler, IPointerD
         if (upgradeIndex >= selectedTower.towerSO.upgrades.Count) return;
 
         var towerSO = selectedTower.towerSO.upgrades[upgradeIndex];
-        
-        UI.cursorEnter(towerSO, describable);
+
+        describable.Inspect(UI.GetTowerDataFromSO(towerSO));
     }
 
     public void OnPointerDown(PointerEventData eventData)

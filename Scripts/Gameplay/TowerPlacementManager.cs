@@ -3,24 +3,21 @@ using System;
 
 public class TowerPlacementManager : MonoBehaviour
 {
-    [SerializeField] GameObject towerObject;
+    [SerializeField] GameObject towerPrefab;
     [SerializeField] Transform rangeIndicatorTransform;
 
-    new private Camera camera;
+    private Camera mainCam;
     private GameObject ghostTowerObject;
     private Transform ghostTowerTransform;
     private Transform _transform;
     private float ghostTowerSize;
-    private bool towerCreatedLastFrame = false;
-    private const int groundLayerMask = 1 << 8;
-    private const int unplaceableLayerMask = 1 << 9;
-    private const int mapColliderLayerMask = 1 << 10;
+    private bool towerCreatedLastFrame;
 
     public static event Action<TowerScriptableObject> OnPlace;
 
     private void Start()
     {
-        camera = GetComponent<Camera>();
+        mainCam = GetComponent<Camera>();
         _transform = transform;
         TowerSlot.OnSelect += CreateGhostTower;
         Tower.OnSelect += ShowRangeIndicator;
@@ -30,14 +27,14 @@ public class TowerPlacementManager : MonoBehaviour
     {
         if (ghostTowerObject == null) return;
 
-        var ray = camera.ScreenPointToRay(Input.mousePosition);
-        Physics.Raycast(ray, out RaycastHit groundHit, 100, groundLayerMask);
-        Physics.Raycast(ray, out RaycastHit unplaceableHit, 100, unplaceableLayerMask);
+        var ray = mainCam.ScreenPointToRay(Input.mousePosition);
+        Physics.Raycast(ray, out RaycastHit groundHit, 100, Layers.Ground);
+        Physics.Raycast(ray, out RaycastHit unplaceableHit, 100, Layers.Unplaceable);
         if (groundHit.collider != null)
         {
             if (unplaceableHit.collider == null || Vector3.Distance(_transform.position, unplaceableHit.point) > Vector3.Distance(_transform.position, groundHit.point))
             {
-                if (Physics.OverlapSphere(groundHit.point, ghostTowerSize, mapColliderLayerMask).Length <= 0)
+                if (Physics.OverlapSphere(groundHit.point, ghostTowerSize, Layers.MapCollider).Length <= 0)
                 {
                     ghostTowerTransform.position = groundHit.point;
                     rangeIndicatorTransform.position = groundHit.point;
@@ -55,6 +52,9 @@ public class TowerPlacementManager : MonoBehaviour
             mapColliderTransform.gameObject.layer = 10;
             mapColliderTransform.GetComponent<SphereCollider>().enabled = true;
             ghostTowerObject.GetComponent<TowerBehaviorBase>().canShoot = true;
+            var tower = ghostTowerObject.GetComponent<Tower>();
+            tower.isGhostTower = false;
+            tower.MouseDown();
             ghostTowerObject = null;
         }
         if (Input.GetMouseButtonDown(1))
@@ -75,7 +75,7 @@ public class TowerPlacementManager : MonoBehaviour
             Destroy(ghostTowerObject);
         }
         towerCreatedLastFrame = true;
-        var newTower = Instantiate(towerObject);
+        var newTower = Instantiate(towerPrefab);
         newTower.GetComponent<Tower>().SetScriptableObject(towerScriptableObject);
 
         ghostTowerObject = newTower;

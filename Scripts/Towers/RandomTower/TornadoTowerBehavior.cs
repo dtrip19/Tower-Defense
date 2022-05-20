@@ -2,18 +2,6 @@
 
 public class TornadoTowerBehavior : TowerBehaviorBase
 {
-    new private void Update() { }
-
-    new private void FixedUpdate()
-    {
-        timer++;
-        if (timer >= attackDelay && canShoot)
-        {
-            timer = 0;
-            Shoot();
-        }
-    }
-
     protected override void Shoot()
     {
         var colliders = Physics.OverlapSphere(_transform.position, range, Layers.Enemy);
