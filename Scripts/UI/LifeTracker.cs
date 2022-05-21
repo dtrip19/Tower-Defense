@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using TMPro;
 
@@ -5,6 +6,8 @@ public class LifeTracker : MonoBehaviour
 {
     private TextMeshProUGUI textMesh;
     private int life = 500;
+
+    public static Action OnPlayerLose;
 
     private void Start()
     {
@@ -17,5 +20,8 @@ public class LifeTracker : MonoBehaviour
     {
         life -= enemyHealth;
         textMesh.text = life.ToString();
+
+        if (life <= 0)
+            OnPlayerLose?.Invoke();
     }  
 }
