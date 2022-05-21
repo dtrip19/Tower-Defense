@@ -22,9 +22,9 @@ MonoBehaviour:
   description: Fires a continous beam at up to 5 enemies at a time
   damage: 2
   attackDelay: 3
-  price: 100
+  price: 150
   pierce: 1
-  ammo: 750
+  ammo: 500
   bulletSpeed: 15
   lifeTime: 0.5
   range: 10
