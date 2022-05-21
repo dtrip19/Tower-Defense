@@ -28,5 +28,5 @@ MonoBehaviour:
   lifeTime: 5
   range: 12
   colliderSize: 1
-  bulletOriginHeight: 3
+  bulletOriginHeight: 2
   towerId: 24
