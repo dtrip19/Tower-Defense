@@ -20,11 +20,11 @@ MonoBehaviour:
   icon: {fileID: 21300000, guid: 53bebcda4d2dd2a4b88b0aa28b3843cb, type: 3}
   towerName: Tesla Tower
   description: Fires a continous beam at up to 5 enemies at a time
-  damage: 10
+  damage: 2
   attackDelay: 3
   price: 100
   pierce: 1
-  ammo: 1000
+  ammo: 1250
   bulletSpeed: 15
   lifeTime: 0.5
   range: 10

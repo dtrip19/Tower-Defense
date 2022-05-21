@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c985c7eb4d24dbd4fb6cd55fde4fb6a9, type: 3}
+  m_Name: EmojiMapWave3
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyWaveScriptableObject
+  enemyPacks:
+  - {fileID: 11400000, guid: 780fbfbb8e811ed4881be1341b1801b9, type: 2}
+  - {fileID: 11400000, guid: a177db30c0f40ea4eb9dcd0d11e75f78, type: 2}
+  - {fileID: 11400000, guid: df1b633fd9b95d8428b7822684dc5e4b, type: 2}
+  - {fileID: 11400000, guid: 022677000e2c71f4dbe30846876cd4e1, type: 2}
+  - {fileID: 11400000, guid: 3e35bf5630b71634bbaca4f1d8152d16, type: 2}
+  - {fileID: 11400000, guid: e4207cef63b72fa459e4e0403d32e587, type: 2}
+  - {fileID: 11400000, guid: 7d713b9e13a1efb48bcbc31d6e973343, type: 2}

@@ -2,21 +2,8 @@ using UnityEngine;
 
 public class TeslaTowerBehavior : TowerBehaviorBase
 {
-    new protected void FixedUpdate()
-    {
-        timer++;
-        if (ammo > 0 && timer >= attackDelay && canShoot)
-        {
-            timer = 0;
-            Shoot();
-            ammo--;
-        }
-    }
-
-
     new protected void Shoot()
     {
-
         var colliders = Physics.OverlapSphere(_transform.position, range, (int)Layers.Enemy);
 
         int enemiesShot = 0;

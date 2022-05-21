@@ -172,9 +172,10 @@ public class Tower : MonoBehaviour
 
     public void RightMouseDown()
     {
-        if (behavior.ammo > behavior.maxAmmo / 2) return;
+        int refillPrice = AmmoRefillPrice;
+        if (behavior.ammo > behavior.maxAmmo / 2 || PointTracker.Points < refillPrice) return;
 
-        OnRefillAmmo?.Invoke(AmmoRefillPrice);
+        OnRefillAmmo?.Invoke(refillPrice);
         behavior.ammo = behavior.maxAmmo;
     }
 }
