@@ -2,9 +2,9 @@ using UnityEngine;
 
 public class TeslaTowerBehavior : TowerBehaviorBase
 {
-    new protected void Shoot()
+    protected override void Shoot()
     {
-        var colliders = Physics.OverlapSphere(_transform.position, range, (int)Layers.Enemy);
+        var colliders = Physics.OverlapSphere(_transform.position, range, Layers.Enemy);
 
         int enemiesShot = 0;
 
@@ -19,7 +19,7 @@ public class TeslaTowerBehavior : TowerBehaviorBase
             projectile.Transform.position = BulletOrigin;
             var dirToEnemy = enemy.LineOfSightPosition - BulletOrigin;
 
-            projectile.SetValues(dirToEnemy.normalized, DamageType.Normal, Time.time + lifeTime, bulletSpeed, damage, pierce);
+            projectile.SetValues(dirToEnemy.normalized, DamageType.Elemental, Time.time + lifeTime, bulletSpeed, damage, pierce);
             enemiesShot++;
         }
     }
