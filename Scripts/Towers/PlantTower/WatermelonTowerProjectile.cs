@@ -5,11 +5,33 @@ public class WatermelonTowerProjectile : Projectile
     private Vector3 xzSpeed;
     private float gravity = .03f;
     private float vSpeed;
+    [SerializeField] protected GameObject explosionObject;
+    [SerializeField] protected float explosionRadius;
+    [SerializeField] protected int explosionDamage;
 
+    protected void OnCollisionEnter(Collision collision)
+    {
+        print("collision");
+        int layer = collision.collider.gameObject.layer;
+        if (layer == Layers.UnplaceableRaw || layer == Layers.GroundRaw)
+        {
+            var explosionTransform = Instantiate(explosionObject).transform;
+            explosionTransform.position = _transform.position;
+            Destroy(explosionTransform.gameObject, 0.2f);
+
+            var colliders = Physics.OverlapSphere(_transform.position, explosionRadius, Layers.Enemy);
+            foreach (var collider in colliders)
+            {
+                if (collider.TryGetComponent(out Enemy enemy))
+                {
+                    enemy.TakeDamage(explosionDamage, DamageType.Explosive);
+                }
+            }
+            Destroy(gameObject);
+        }
+    }    
     new private void FixedUpdate()
     {
-        // _transform.position += direction;
-        // direction = new Vector3(direction.x, direction.y - 30 * .002f, direction.z);
         vSpeed -= 2*gravity;
         _transform.position += new Vector3(xzSpeed.x, vSpeed, xzSpeed.z);
     }
@@ -25,16 +47,8 @@ public class WatermelonTowerProjectile : Projectile
         var distToDestination = Vector3.Distance(xzPostion, xzDestination);
         var dirToDestination = xzDestination - _transform.position;
 
-        // var vSpeed = 15 * distToDestination *speed;
-        // vSpeed += (destination.y - _transform.position.y) * 15/vSpeed;
-        // direction = new Vector3(dirToDestination.x, vSpeed, dirToDestination.z).normalized * speed;
-
         gravity *= speed * speed;
         vSpeed = speed;
         xzSpeed = dirToDestination.normalized * distToDestination * gravity / vSpeed;
-        //print('1');
-        //print(vSpeed);
-        //vSpeed = ((destination.y - _transform.position.y) + distToDestination * distToDestination * gravity) / distToDestination;
-        //print(vSpeed);
     }
 }

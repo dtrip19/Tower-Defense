@@ -13,9 +13,9 @@ GameObject:
   - component: {fileID: 1564849948281754652}
   - component: {fileID: 1564849948281754653}
   - component: {fileID: 1564849948281754648}
-  - component: {fileID: -361092427038423259}
+  - component: {fileID: -7260419099453969030}
   m_Layer: 12
-  m_Name: WatermelonTowerProjectile
+  m_Name: FreezeMelonTowerProjectile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -113,7 +113,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &-361092427038423259
+--- !u!114 &-7260419099453969030
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -122,7 +122,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1564849948281754654}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fc153e7b9339f8f49a6d41be8bda9a77, type: 3}
+  m_Script: {fileID: 11500000, guid: 511f58073d9ad3448b7e5800492d1014, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   direction: {x: 0, y: 0, z: 0}
@@ -135,4 +135,4 @@ MonoBehaviour:
   collidesWithSurfaces: 1
   explosionObject: {fileID: 5680165515432504426, guid: 2442d5f97d1c0fc44ae851aae6de695c, type: 3}
   explosionRadius: 2
-  explosionDamage: 5
+  explosionDamage: 6
