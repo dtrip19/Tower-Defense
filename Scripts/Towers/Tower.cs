@@ -8,8 +8,22 @@ public class Tower : MonoBehaviour
 
     private Describable describable;
     private Transform _transform;
+    private TowerBehaviorBase behavior;
+
+    private int AmmoRefillPrice
+    {
+        get
+        {
+            float percentAmmoRemaining = (float)behavior.ammo / behavior.maxAmmo;
+            float halfTowerPrice = towerSO.price / 2;
+            return (int)(halfTowerPrice * (1 - percentAmmoRemaining));
+        }
+    }
 
     public static event Action<Tower> OnSelect;
+    public static event Action<int> OnMouseEnter;
+    public static event Action OnMouseExit;
+    public static event Action<int> OnRefillAmmo;
 
     private void Awake()
     {
@@ -130,6 +144,7 @@ public class Tower : MonoBehaviour
 
             var towerData = UI.GetTowerDataFromSO(towerSO);
             behavior.SetTowerInfo(towerData);
+            this.behavior = behavior;
 
             if (hasBehavior)
                 behavior.canShoot = true;
@@ -139,11 +154,15 @@ public class Tower : MonoBehaviour
     public void MouseEnter()
     {
         describable.Inspect(UI.GetTowerDataFromSO(towerSO));
+
+        if (behavior.ammo <= behavior.maxAmmo / 2)
+            OnMouseEnter?.Invoke(AmmoRefillPrice);
     }
 
     public void MouseExit()
     {
         describable.Uninspect();
+        OnMouseExit?.Invoke();
     }
 
     public void MouseDown()
@@ -153,7 +172,9 @@ public class Tower : MonoBehaviour
 
     public void RightMouseDown()
     {
-        print("Right mouse down on tower");
-        //Refill ammo, spend points
+        if (behavior.ammo > behavior.maxAmmo / 2) return;
+
+        OnRefillAmmo?.Invoke(AmmoRefillPrice);
+        behavior.ammo = behavior.maxAmmo;
     }
 }

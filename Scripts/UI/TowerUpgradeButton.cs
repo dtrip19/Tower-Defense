@@ -11,7 +11,7 @@ public class TowerUpgradeButton : MonoBehaviour, IPointerEnterHandler, IPointerD
     private Tower selectedTower;
     private Image image;
 
-    public static event Action<TowerScriptableObject> OnUpgrade;
+    public static event Action<int> OnUpgrade;
 
     private void Awake()
     {
@@ -51,7 +51,7 @@ public class TowerUpgradeButton : MonoBehaviour, IPointerEnterHandler, IPointerD
         if (selectedTower == null || selectedTower.Equals(null) || PointTracker.Points < selectedTower.towerSO.price) return;
 
         selectedTower.Upgrade(upgradeIndex);
-        OnUpgrade?.Invoke(selectedTower.towerSO);
+        OnUpgrade?.Invoke(selectedTower.towerSO.price);
     }
 
     public void OnPointerExit(PointerEventData eventData)

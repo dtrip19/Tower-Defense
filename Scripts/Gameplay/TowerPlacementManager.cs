@@ -13,7 +13,7 @@ public class TowerPlacementManager : MonoBehaviour
     private float ghostTowerSize;
     private bool towerCreatedLastFrame;
 
-    public static event Action<TowerScriptableObject> OnPlace;
+    public static event Action<int> OnPlace;
 
     private void Start()
     {
@@ -46,7 +46,7 @@ public class TowerPlacementManager : MonoBehaviour
 
         if (Input.GetMouseButtonDown(0) && !towerCreatedLastFrame && PointTracker.Points >= ghostTower.towerSO.price)
         {
-            OnPlace?.Invoke(ghostTower.towerSO);
+            OnPlace?.Invoke(ghostTower.towerSO.price);
 
             var mapColliderTransform = ghostTowerTransform.GetChild(0);
             mapColliderTransform.gameObject.layer = 10;

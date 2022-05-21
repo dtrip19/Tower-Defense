@@ -22,16 +22,17 @@ public class PointTracker : MonoBehaviour
     {
         TowerPlacementManager.OnPlace += SpendPoints;
         TowerUpgradeButton.OnUpgrade += SpendPoints;
+        Tower.OnRefillAmmo += SpendPoints;
         Enemy.OnDeath += GainPoints;
         textMesh = GetComponent<TextMeshProUGUI>();
         textMesh.text = Points.ToString();
     }
 
-    private void SpendPoints(TowerScriptableObject towerScriptableObject)
+    private void SpendPoints(int pointsToSpend)
     {
         if (!usePoints) return;
 
-        Points -= towerScriptableObject.price;
+        Points -= pointsToSpend;
         textMesh.text = Points.ToString();
     }
 
@@ -45,5 +46,7 @@ public class PointTracker : MonoBehaviour
     {
         TowerPlacementManager.OnPlace -= SpendPoints;
         TowerUpgradeButton.OnUpgrade -= SpendPoints;
+        Tower.OnRefillAmmo -= SpendPoints;
+        Enemy.OnDeath -= GainPoints;
     }
 }
