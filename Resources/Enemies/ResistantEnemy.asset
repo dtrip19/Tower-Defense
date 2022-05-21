@@ -10,16 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e07927ee50024ae408562e7de0756171, type: 3}
-  m_Name: FlyingEnemy
+  m_Name: ResistantEnemy
   m_EditorClassIdentifier: 
   modelPrefab: {fileID: 0}
-  material: {fileID: 2100000, guid: ed0b8b048c36de54cab01f27b2cda635, type: 2}
-  attributes: 00000000
+  material: {fileID: 2100000, guid: 5185c15564b28694a97cafd9f23a4c1e, type: 2}
+  attributes: 04000000
   capsuleDirection: 1
   capsuleRadius: 0.5
   capsuleHeight: 2
-  health: 300
-  moveSpeed: 0.5
-  points: 3
-  height: 7
-  deathLocation: {x: 24.476, y: 15.34231, z: 6.1755586}
+  health: 200
+  moveSpeed: 0.8
+  points: 2
+  height: 0
+  deathLocation: {x: 2.3975449, y: 0.049999665, z: -0.25281462}

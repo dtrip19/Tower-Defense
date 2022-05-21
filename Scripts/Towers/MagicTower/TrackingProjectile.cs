@@ -7,6 +7,7 @@ public class TrackingProjectile : Projectile
     new private void Awake()
     {
         base.Awake();
+        collidesWithSurfaces = false;
     }
 
     public override void SetValues(Vector3 direction, DamageType damageType, float timeDestroy, float speed, int damage, int pierce)
@@ -31,6 +32,4 @@ public class TrackingProjectile : Projectile
         if (dot >= 0.85f)
             direction = Vector3.Slerp(direction, dirToTarget, 0.2f);
     }
-
-    new private void OnCollisionEnter(Collision collision) { }
 }
