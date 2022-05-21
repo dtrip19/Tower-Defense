@@ -140,6 +140,9 @@ public class Tower : MonoBehaviour
                 case 26:
                     behavior = gameObject.AddComponent<RootTowerBehavior>();
                     break;
+                case 27:
+                    behavior = gameObject.AddComponent<FreezeMelonTowerBehavior>();
+                    break;
             }
 
             var towerData = UI.GetTowerDataFromSO(towerSO);

@@ -2,34 +2,37 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class AmmoBar : MonoBehaviour
+namespace Battle.UI
 {
-    private Slider slider;
-    private RectTransform rect;
-    private TowerBehaviorBase followTarget;
-    private Camera mainCam;
-
-    public void SetFollowTarget(TowerBehaviorBase behavior, Camera mainCam)
+    public class AmmoBar : MonoBehaviour
     {
-        slider = GetComponent<Slider>();
-        rect = GetComponent<RectTransform>();
+        private Slider slider;
+        private RectTransform rect;
+        private TowerBehaviorBase followTarget;
+        private Camera mainCam;
 
-        followTarget = behavior;
-        this.mainCam = mainCam;
-        slider.maxValue = behavior.maxAmmo;
-        slider.value = behavior.maxAmmo;
-        StartCoroutine(FollowTargetCoroutine());
-    }
-
-    private IEnumerator FollowTargetCoroutine()
-    {
-        while (followTarget != null && !followTarget.Equals(null))
+        public void SetFollowTarget(TowerBehaviorBase behavior, Camera mainCam)
         {
-            slider.value = followTarget.ammo;
-            rect.anchoredPosition = mainCam.WorldToScreenPoint(followTarget.BulletOrigin) + new Vector3(-Screen.width / 2, -Screen.height / 2 + 35);
-            yield return null;
+            slider = GetComponent<Slider>();
+            rect = GetComponent<RectTransform>();
+
+            followTarget = behavior;
+            this.mainCam = mainCam;
+            slider.maxValue = behavior.maxAmmo;
+            slider.value = behavior.maxAmmo;
+            StartCoroutine(FollowTargetCoroutine());
         }
 
-        Destroy(gameObject);
+        private IEnumerator FollowTargetCoroutine()
+        {
+            while (followTarget != null && !followTarget.Equals(null))
+            {
+                slider.value = followTarget.ammo;
+                rect.anchoredPosition = mainCam.WorldToScreenPoint(followTarget.BulletOrigin) + new Vector3(-Screen.width / 2, -Screen.height / 2 + 35);
+                yield return null;
+            }
+
+            Destroy(gameObject);
+        }
     }
 }
