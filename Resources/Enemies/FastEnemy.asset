@@ -12,10 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e07927ee50024ae408562e7de0756171, type: 3}
   m_Name: FastEnemy
   m_EditorClassIdentifier: 
+  modelPrefab: {fileID: 0}
   material: {fileID: 2100000, guid: ed0b8b048c36de54cab01f27b2cda635, type: 2}
   attributes: 
+  capsuleDirection: 1
+  capsuleRadius: 0.5
+  capsuleHeight: 2
   health: 50
   moveSpeed: 1
-  points: 1
+  points: 2
   height: 0
-  deathLocation: {x: -2.795827, y: 0.050000153, z: 18.18943}
+  deathLocation: {x: -8.204616, y: 0.05000034, z: 0.40238172}

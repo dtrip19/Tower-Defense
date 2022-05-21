@@ -17,6 +17,7 @@ public class HurricaneTowerBehavior : TowerBehaviorBase
 
     new private void Update()
     {
+        orbitTransform.Rotate(Vector3.up, 60 * Time.deltaTime);
         var colliders = Physics.OverlapSphere(_transform.position, range, Layers.Projectile);
         foreach (var collider in colliders)
         {
@@ -39,18 +40,8 @@ public class HurricaneTowerBehavior : TowerBehaviorBase
             else
                 projectilesToSlow[i].speed = newSpeed;
         }
-    }
 
-    new private void FixedUpdate()
-    {
-        orbitTransform.Rotate(Vector3.up, 3);
-
-        timer++;
-        if (timer >= attackDelay && canShoot)
-        {
-            timer = 0;
-            Shoot();
-        }
+        base.Update();
     }
 
     protected override void Shoot()

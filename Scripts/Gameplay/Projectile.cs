@@ -11,6 +11,8 @@ public class Projectile : MonoBehaviour
     [HideInInspector] public float timeDestroy;
     [HideInInspector] public int damage;
     [HideInInspector] public int pierce = 1;
+    [HideInInspector] public bool collidesWithSurfaces = true;
+
     protected Transform _transform;
 
     public Transform Transform => _transform;
@@ -45,6 +47,16 @@ public class Projectile : MonoBehaviour
 
     protected void OnTriggerEnter(Collider other)
     {
+        if (collidesWithSurfaces)
+        {
+            int layer = other.gameObject.layer;
+            if (layer == Layers.UnplaceableRaw || layer == Layers.GroundRaw)
+            {
+                Destroy(gameObject);
+                return;
+            }
+        }
+
         if (other.TryGetComponent(out Enemy enemy))
         {
             if (pierce <= 0)
@@ -61,14 +73,6 @@ public class Projectile : MonoBehaviour
         }
     }
 
-    protected void OnCollisionEnter(Collision collision)
-    {
-        int layer = collision.collider.gameObject.layer;
-        if (layer == Layers.UnplaceableRaw || layer == Layers.GroundRaw)
-        {
-            Destroy(gameObject);
-        }
-    }
     protected virtual Projectile Shoot(GameObject bullet, DamageType damageType, float timeDestroy, float bulletSpeed, int pierce, Enemy target)
     {
         var projectile = Instantiate(bullet).GetComponent<Projectile>();

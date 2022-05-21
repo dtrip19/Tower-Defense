@@ -66,9 +66,9 @@ public class Enemy : MonoBehaviour
     public void TakeDamage(int damage, DamageType damageType)
     {
         float damageToTake = damage;
-        if (attributes.Contains(EnemyAttribute.Armored) && damageType != DamageType.Piercing && damageType != DamageType.Explosive)
+        if (attributes.Contains(EnemyAttribute.Armored) && (damageType == DamageType.Normal || damageType == DamageType.Explosive))
             damageToTake /= 2;
-        if (attributes.Contains(EnemyAttribute.Resistant) && damageType != DamageType.Elemental)
+        if (attributes.Contains(EnemyAttribute.Resistant) && (damageType == DamageType.Elemental || damageType == DamageType.Explosive))
             damageToTake /= 2;
 
         health -= (int)damageToTake;
@@ -96,7 +96,16 @@ public class Enemy : MonoBehaviour
         {
             attributes.Add(attribute);
         }
+        if (enemySO.modelPrefab != null)
+            Instantiate(enemySO.modelPrefab, _transform);
+        else
+            Instantiate(Resources.Load<GameObject>("Enemies/EnemyCapsule"), _transform);
+        modelRootTransform = _transform.GetChild(0);
         GetComponentInChildren<MeshRenderer>().material = enemySO.material;
+        var capsule = GetComponent<CapsuleCollider>();
+        capsule.direction = (int)enemySO.capsuleDirection;
+        capsule.radius = enemySO.capsuleRadius;
+        capsule.height = enemySO.capsuleHeight;
         OnSpawn?.Invoke(this);
     }
 }

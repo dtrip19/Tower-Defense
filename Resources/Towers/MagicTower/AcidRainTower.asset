@@ -20,8 +20,9 @@ MonoBehaviour:
   description: Enemies hit by rain projectiles take damage over time for 4 seconds
   damage: 30
   attackDelay: 5
-  price: 75
+  price: 200
   pierce: 1
+  ammo: 1000
   bulletSpeed: 0.5
   lifeTime: 4
   range: 10

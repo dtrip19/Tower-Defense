@@ -1,12 +1,11 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class WatermelonTowerProjectile : Projectile
 {
-    float gravity = .03f;
-    float vSpeed;
-    Vector3 xzSpeed;
+    private Vector3 xzSpeed;
+    private float gravity = .03f;
+    private float vSpeed;
+
     new private void FixedUpdate()
     {
         // _transform.position += direction;
@@ -14,6 +13,7 @@ public class WatermelonTowerProjectile : Projectile
         vSpeed -= 2*gravity;
         _transform.position += new Vector3(xzSpeed.x, vSpeed, xzSpeed.z);
     }
+
     public override void SetValues(Vector3 destination, DamageType damageType, float timeDestroy, float speed, int damage, int pierce)
     {
         this.damageType = damageType;
@@ -32,9 +32,9 @@ public class WatermelonTowerProjectile : Projectile
         gravity *= speed * speed;
         vSpeed = speed;
         xzSpeed = dirToDestination.normalized * distToDestination * gravity / vSpeed;
-        print('1');
-        print(vSpeed);
-        // vSpeed = ((destination.y - _transform.position.y) + distToDestination * distToDestination * gravity) / distToDestination;
-        print(vSpeed);
+        //print('1');
+        //print(vSpeed);
+        //vSpeed = ((destination.y - _transform.position.y) + distToDestination * distToDestination * gravity) / distToDestination;
+        //print(vSpeed);
     }
 }

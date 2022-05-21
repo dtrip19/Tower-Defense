@@ -20,10 +20,11 @@ MonoBehaviour:
   icon: {fileID: 21300000, guid: 627141b9c053fb0468874b9126291413, type: 3}
   towerName: Heavy Bullet Tower
   description: Projectiles are affected by gravity
-  damage: 20
+  damage: 75
   attackDelay: 5
   price: 200
   pierce: 1
+  ammo: 1000
   bulletSpeed: 4
   lifeTime: 5
   range: 8
