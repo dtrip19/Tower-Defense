@@ -155,7 +155,7 @@ public class Tower : MonoBehaviour
     {
         describable.Inspect(UI.GetTowerDataFromSO(towerSO));
 
-        if (behavior.ammo <= behavior.maxAmmo / 2)
+        if (behavior.maxAmmo != 0 && behavior.ammo <= behavior.maxAmmo / 2)
             OnMouseEnter?.Invoke(AmmoRefillPrice);
     }
 
@@ -173,7 +173,7 @@ public class Tower : MonoBehaviour
     public void RightMouseDown()
     {
         int refillPrice = AmmoRefillPrice;
-        if (behavior.ammo > behavior.maxAmmo / 2 || PointTracker.Points < refillPrice) return;
+        if (behavior.maxAmmo == 0 || behavior.ammo > behavior.maxAmmo / 2 || PointTracker.Points < refillPrice) return;
 
         OnRefillAmmo?.Invoke(refillPrice);
         behavior.ammo = behavior.maxAmmo;
