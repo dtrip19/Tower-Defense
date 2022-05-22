@@ -48,7 +48,7 @@ public class TowerUpgradeButton : MonoBehaviour, IPointerEnterHandler, IPointerD
 
     public void OnPointerDown(PointerEventData eventData)
     {
-        if (selectedTower == null || selectedTower.Equals(null) || PointTracker.Points < selectedTower.towerSO.price) return;
+        if (selectedTower == null || selectedTower.Equals(null) || PointTracker.Points < selectedTower.towerSO.upgrades[upgradeIndex].price) return;
 
         selectedTower.Upgrade(upgradeIndex);
         OnUpgrade?.Invoke(selectedTower.towerSO.price);
