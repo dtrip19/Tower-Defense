@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e07927ee50024ae408562e7de0756171, type: 3}
+  m_Name: BeegEnemy
+  m_EditorClassIdentifier: 
+  modelPrefab: {fileID: 7030515866296806615, guid: 7db8c79f2f6117c4783d5144ba74f9a8,
+    type: 3}
+  material: {fileID: 2100000, guid: ed0b8b048c36de54cab01f27b2cda635, type: 2}
+  attributes: 
+  capsuleDirection: 1
+  capsuleRadius: 1.5
+  capsuleHeight: 6
+  health: 1250
+  moveSpeed: 0.5
+  points: 15
+  height: 0
+  deathLocation: {x: -9.495997, y: 0.05000064, z: -4.3125577}

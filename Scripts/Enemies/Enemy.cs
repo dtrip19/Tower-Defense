@@ -80,6 +80,11 @@ public class Enemy : MonoBehaviour
         }
     }
 
+    public void Heal(int healing)
+    {
+        health = Mathf.Clamp(0, health + healing, maxHealth);
+    }
+
     public void ReduceHeight(int value)
     {
         height -= value;
@@ -90,7 +95,8 @@ public class Enemy : MonoBehaviour
     public void InitEnemy(EnemyScriptableObject enemySO)
     {
         this.enemySO = enemySO;
-        health = maxHealth = enemySO.health;
+        maxHealth = enemySO.health;
+        health = enemySO.health;
         height = enemySO.height;
         foreach (var attribute in enemySO.attributes)
         {
@@ -106,6 +112,10 @@ public class Enemy : MonoBehaviour
         capsule.direction = (int)enemySO.capsuleDirection;
         capsule.radius = enemySO.capsuleRadius;
         capsule.height = enemySO.capsuleHeight;
+        if (capsule.direction == (int)CapsuleDirection.Y)
+            capsule.center = new Vector3(0, Mathf.RoundToInt(capsule.height) / 2, 0);
+        if (enemySO.attributes.Contains(EnemyAttribute.Healing))
+            gameObject.AddComponent<HealingEnemy>();
         OnSpawn?.Invoke(this);
     }
 }

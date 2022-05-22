@@ -5,5 +5,6 @@ public enum EnemyAttribute
     Burrowing,
     Armored,
     Persistent,
-    Resistant
+    Resistant,
+    Healing
 }
