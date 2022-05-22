@@ -23,7 +23,7 @@ MonoBehaviour:
   attackDelay: 20
   price: 75
   pierce: 4
-  ammo: 200
+  ammo: 500
   bulletSpeed: 0.5
   lifeTime: 4
   range: 10

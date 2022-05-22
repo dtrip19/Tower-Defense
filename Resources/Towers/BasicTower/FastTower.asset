@@ -22,9 +22,9 @@ MonoBehaviour:
   description: This is a fast tower
   damage: 30
   attackDelay: 20
-  price: 100
+  price: 85
   pierce: 1
-  ammo: 200
+  ammo: 150
   bulletSpeed: 7
   lifeTime: 1
   range: 7
