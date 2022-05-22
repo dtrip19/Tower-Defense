@@ -29,5 +29,10 @@ namespace Battle.UI
         {
             SceneManager.LoadScene(0);
         }
+
+        private void OnDestroy()
+        {
+            LifeTracker.OnPlayerLose -= Appear;
+        }
     }
 }

@@ -9,7 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8a164af55c332af4298538301b8f7e55, type: 3}
+  m_Script: {fileID: 11500000, guid: 254abb89f3686224fa5af9bf149a0250, type: 3}
   m_Name: EmojiMapSpawns
   m_EditorClassIdentifier: 
   waves:
@@ -17,6 +17,10 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 2b30c5ecb293c43418bcea01c13def97, type: 2}
   - {fileID: 11400000, guid: cf5e41db14defa446a2d4ce980d1193b, type: 2}
   - {fileID: 11400000, guid: 50de0dabf09ff6447b3d75ecd36a4c1d, type: 2}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}

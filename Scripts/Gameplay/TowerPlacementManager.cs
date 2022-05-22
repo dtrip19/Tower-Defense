@@ -93,5 +93,6 @@ public class TowerPlacementManager : MonoBehaviour
     private void OnDestroy()
     {
         TowerSlot.OnSelect -= CreateGhostTower;
+        Tower.OnSelect -= ShowRangeIndicator;
     }
 }

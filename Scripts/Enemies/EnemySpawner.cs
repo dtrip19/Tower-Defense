@@ -6,12 +6,12 @@ using System.Collections.Generic;
 public class EnemySpawner : MonoBehaviour
 {
     [SerializeField] GameObject enemyObject;
-    [SerializeField] MapSpawns mapSpawns;
+    [SerializeField] MapSpawnsScriptableObject mapSpawns;
 
+    public Vector3[] positions;
     private int waveIndex;
     private bool playing;
     private float timeStartedWave;
-    public Vector3[] positions;
 
     private float TimeSinceWaveStart => Time.time - timeStartedWave;
 
@@ -36,7 +36,6 @@ public class EnemySpawner : MonoBehaviour
 
         while (Array.Exists(finishedPacks, b => b == false))
         {
-            //print("Iterating");
             for (int i = 0; i < numPacks; i++)
             {
                 if (!finishedPacks[i] && TimeSinceWaveStart >= wave.enemyPacks[i].spawnStartTime && !activePacks.Contains(wave.enemyPacks[i]))
@@ -48,10 +47,8 @@ public class EnemySpawner : MonoBehaviour
             {
                 var pack = activePacks[i];
                 int packIndex = wave.enemyPacks.IndexOf(pack);
-                //print($"{pack.enemySO.name}: {pack.spawnStartTime + pack.spawnInterval * pack.numEnemies}");
                 if (TimeSinceWaveStart > pack.spawnStartTime + pack.spawnInterval * pack.numEnemies)
                 {
-                    //print(pack.enemySO.name + " finished");
                     activePacks.Remove(pack);
                     finishedPacks[packIndex] = true;
                 }
