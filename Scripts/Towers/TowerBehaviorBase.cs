@@ -18,7 +18,7 @@ public abstract class TowerBehaviorBase : MonoBehaviour
     protected Enemy target;
     protected int timer;
 
-    public Vector3 BulletOrigin => new Vector3(_transform.position.x, _transform.position.y + bulletOriginHeight, _transform.position.z);
+    public virtual Vector3 BulletOrigin => new Vector3(_transform.position.x, _transform.position.y + bulletOriginHeight, _transform.position.z);
     protected virtual DamageType DamageType => DamageType.Normal;
 
     public static event Action<TowerBehaviorBase> OnSpawn;
@@ -57,7 +57,7 @@ public abstract class TowerBehaviorBase : MonoBehaviour
             OnSpawn?.Invoke(this);
     }
 
-    protected Enemy FindFurthestTarget()
+    public virtual Enemy FindFurthestTarget()
     {
         var colliders = Physics.OverlapSphere(_transform.position, range, Layers.Enemy);
 
@@ -97,7 +97,7 @@ public abstract class TowerBehaviorBase : MonoBehaviour
         projectile.SetValues(dirToEnemy.normalized, DamageType, Time.time + lifeTime, bulletSpeed, damage, pierce);
     }
 
-    protected virtual bool IsTargetVisible(Enemy enemy)
+    public virtual bool IsTargetVisible(Enemy enemy)
     {
         Vector3 bulletOrigin = new Vector3(_transform.position.x, _transform.position.y + bulletOriginHeight, _transform.position.z);
         Vector3 dirToTarget = (enemy.LineOfSightPosition - bulletOrigin).normalized;
