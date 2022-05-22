@@ -21,10 +21,11 @@ public class Enemy : MonoBehaviour
     {
         get
         {
+            float percentHealth = (float)health / maxHealth;
             if (enemySO.attributes.Contains(EnemyAttribute.Persistent))
                 return enemySO.moveSpeed / 10;
             else
-                return (enemySO.moveSpeed + enemySO.moveSpeed * health / maxHealth) / 20;
+                return (enemySO.moveSpeed + enemySO.moveSpeed * percentHealth) / 20;
         }
     }
     public Transform Transform => _transform;
@@ -82,7 +83,7 @@ public class Enemy : MonoBehaviour
 
     public void Heal(int healing)
     {
-        health = Mathf.Clamp(0, health + healing, maxHealth);
+        health = Mathf.Min(health + healing, maxHealth);
     }
 
     public void ReduceHeight(int value)

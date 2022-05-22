@@ -18,7 +18,7 @@ MonoBehaviour:
   icon: {fileID: 21300000, guid: d7bed5f50c4df9e4cbdf89d852b9ed92, type: 3}
   towerName: Lightning Wave Tower
   description: Fires a wave of lightning bolts towards its target
-  damage: 75
+  damage: 60
   attackDelay: 50
   price: 75
   pierce: 1
