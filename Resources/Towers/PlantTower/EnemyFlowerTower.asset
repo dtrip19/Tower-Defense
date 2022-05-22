@@ -10,25 +10,23 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6a5288cbf4bfffe4abb449af8bd02ab9, type: 3}
-  m_Name: WatermelonTower
+  m_Name: EnemyFlowerTower
   m_EditorClassIdentifier: 
-  upgrades:
-  - {fileID: 11400000, guid: 15f3a20cd8b61174cbb39877f4652354, type: 2}
-  - {fileID: 11400000, guid: e65a3f5b563ecd2408f4f4ec4800ce9e, type: 2}
-  model: {fileID: 0}
-  bullet: {fileID: 1564849948281754654, guid: b26a52fb457bed04c970af14c6fa464e, type: 3}
+  upgrades: []
+  model: {fileID: 4542255474808705555, guid: b182b7d4a40c9024ba665257525c7a0c, type: 3}
+  bullet: {fileID: 1317444465190966354, guid: f24bf52a85f00db4eb83b362cf43f268, type: 3}
   icon: {fileID: 21300000, guid: 18e9813db746b87418be75675f473e7b, type: 3}
-  towerName: Watermelon Tower
-  description: Lobs watermelons at enemies. Can shoot at enemies in range as long
-    as any of your towers can see it
+  towerName: EnemyFlowerTower
+  description: Flower can use the range of nearby towers to grow and loom in front
+    of them and throw projectiles.
   damage: 50
   attackDelay: 50
   price: 100
   pierce: 25
   ammo: 150
-  bulletSpeed: 0.5
+  bulletSpeed: 4
   lifeTime: 5
   range: 12
   colliderSize: 1
   bulletOriginHeight: 2
-  towerId: 24
+  towerId: 28
