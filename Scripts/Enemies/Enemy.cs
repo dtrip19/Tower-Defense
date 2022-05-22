@@ -41,7 +41,7 @@ public class Enemy : MonoBehaviour
 
     private void Awake()
     {
-        _transform = GetComponent<Transform>();
+        _transform = transform;
     }
 
     private void FixedUpdate()

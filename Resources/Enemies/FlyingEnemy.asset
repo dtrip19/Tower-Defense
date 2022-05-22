@@ -18,7 +18,7 @@ MonoBehaviour:
   capsuleDirection: 1
   capsuleRadius: 0.5
   capsuleHeight: 2
-  health: 300
+  health: 250
   moveSpeed: 0.5
   points: 3
   height: 7
