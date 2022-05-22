@@ -15,8 +15,8 @@ public class Tower : MonoBehaviour
         get
         {
             float percentAmmoRemaining = (float)behavior.ammo / behavior.maxAmmo;
-            float halfTowerPrice = towerSO.price / 2;
-            return (int)(halfTowerPrice * (1 - percentAmmoRemaining));
+            float quarterTowerPrice = towerSO.price / 4;
+            return (int)(quarterTowerPrice * (1 - percentAmmoRemaining));
         }
     }
 
