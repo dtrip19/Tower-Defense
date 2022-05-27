@@ -15,6 +15,7 @@ public class EnemySpawner : MonoBehaviour
 
     private float TimeSinceWaveStart => Time.time - timeStartedWave;
 
+    public static event Action<int> OnSkipWave;
     public event Action OnEndWave;
 
     public void StartWave()
@@ -29,7 +30,7 @@ public class EnemySpawner : MonoBehaviour
     private IEnumerator StartWaveCoroutine()
     {
         List<EnemyPackScriptableObject> activePacks = new List<EnemyPackScriptableObject>();
-        EnemyWaveScriptableObject wave = mapSpawns.waves[waveIndex];
+        var wave = mapSpawns.waves[waveIndex];
         int numPacks = wave.enemyPacks.Count;
         bool[] finishedPacks = new bool[numPacks];
         float[] timesLastSpawned = new float[numPacks];
@@ -75,5 +76,17 @@ public class EnemySpawner : MonoBehaviour
         enemy.GetComponent<Collider>().isTrigger = true;
         enemy.positions = positions;
         enemy.InitEnemy(enemySO);
+    }
+
+    public void SkipWave()
+    {
+        var wave = mapSpawns.waves[waveIndex];
+        int wavePointValue = 0;
+        foreach (var pack in wave.enemyPacks)
+        {
+            wavePointValue += pack.enemySO.points * pack.numEnemies;
+        }
+        OnSkipWave?.Invoke(wavePointValue);
+        waveIndex++;
     }
 }

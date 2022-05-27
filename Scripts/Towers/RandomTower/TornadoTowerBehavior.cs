@@ -4,9 +4,13 @@ public class TornadoTowerBehavior : TowerBehaviorBase
 {
     protected override void Shoot()
     {
+        int enemiesHit = 0;
+
         var colliders = Physics.OverlapSphere(_transform.position, range, Layers.Enemy);
         foreach (var collider in colliders)
         {
+            if (enemiesHit++ > pierce) return;
+
             if (collider.TryGetComponent(out Enemy enemy))
             {
                 int damage = this.damage;

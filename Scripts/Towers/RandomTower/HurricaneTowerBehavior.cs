@@ -5,6 +5,7 @@ public class HurricaneTowerBehavior : TowerBehaviorBase
 {
     private Transform orbitTransform;
     private List<Projectile> projectilesToSlow = new List<Projectile>();
+    private int projectilesOrbiting;
 
     new private void Awake()
     {
@@ -17,22 +18,29 @@ public class HurricaneTowerBehavior : TowerBehaviorBase
 
     new private void Update()
     {
-        orbitTransform.Rotate(Vector3.up, 60 * Time.deltaTime);
-        var colliders = Physics.OverlapSphere(_transform.position, range, Layers.Projectile);
-        foreach (var collider in colliders)
+        orbitTransform.Rotate(Vector3.up, 90 * Time.deltaTime);
+
+        if (projectilesOrbiting < pierce)
         {
-            if (collider.TryGetComponent(out Projectile proj) && proj.projectileType != ProjectileType.Heavy)
+            var colliders = Physics.OverlapSphere(_transform.position, range, Layers.Projectile);
+            foreach (var collider in colliders)
             {
-                projectilesToSlow.Add(proj);
-                proj.transform.SetParent(orbitTransform);
-                //proj.timeDestroy += 3;
+                if (collider.TryGetComponent(out Projectile proj) && proj.projectileType != ProjectileType.Heavy)
+                {
+                    projectilesToSlow.Add(proj);
+                    projectilesOrbiting++;
+                    proj.OnDestroyed += DecrementProjectilesOribting;
+                    proj.gameObject.layer = 4;
+                    proj.transform.SetParent(orbitTransform);
+                }
             }
         }
 
+        float deltaTime = Time.deltaTime;
         for (int i = projectilesToSlow.Count - 1; i >= 0; i--)
         {
-            float newSpeed = projectilesToSlow[i].speed - Time.deltaTime * 3;
-            if (newSpeed < 0.25f)
+            float newSpeed = projectilesToSlow[i].speed - deltaTime * 13;
+            if (newSpeed < 0.1f)
             {
                 projectilesToSlow[i].speed = 0;
                 projectilesToSlow.Remove(projectilesToSlow[i]);
@@ -51,9 +59,12 @@ public class HurricaneTowerBehavior : TowerBehaviorBase
         proj.transform.position = spawnPosition;
         proj.SetValues(Vector3.zero, DamageType.Normal, Time.time + lifeTime, 0, damage, pierce);
 
+        int enemiesHit = 0;
         var colliders = Physics.OverlapSphere(_transform.position, range, Layers.Enemy);
         foreach (var collider in colliders)
         {
+            if (enemiesHit++ > pierce) return;
+
             if (collider.TryGetComponent(out Enemy enemy))
             {
                 int damage = this.damage;
@@ -62,6 +73,11 @@ public class HurricaneTowerBehavior : TowerBehaviorBase
                 enemy.TakeDamage(damage, DamageType.Normal);
             }
         }
+    }
+
+    private void DecrementProjectilesOribting()
+    {
+        projectilesOrbiting--;
     }
 
     private void OnDestroy()

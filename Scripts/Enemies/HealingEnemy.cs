@@ -20,7 +20,7 @@ public class HealingEnemy : MonoBehaviour
             {
                 if (!collider.TryGetComponent(out Enemy enemy)) continue;
 
-                enemy.Heal(10);
+                enemy.Heal(5);
             }
 
             ticks = 0;

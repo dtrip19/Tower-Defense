@@ -7,7 +7,7 @@ public class PointTracker : MonoBehaviour
 
     private TextMeshProUGUI textMesh;
 
-    public static int Points { get; private set; } = 125;
+    public static int Points { get; private set; }
 
     private void Update()
     {
@@ -24,7 +24,9 @@ public class PointTracker : MonoBehaviour
         TowerUpgradeButton.OnUpgrade += SpendPoints;
         Tower.OnRefillAmmo += SpendPoints;
         Enemy.OnDeath += GainPoints;
+        EnemySpawner.OnSkipWave += GainAmountPoints;
         textMesh = GetComponent<TextMeshProUGUI>();
+        Points = 125;
         textMesh.text = Points.ToString();
     }
 
@@ -42,11 +44,18 @@ public class PointTracker : MonoBehaviour
         textMesh.text = Points.ToString();
     }
 
+    private void GainAmountPoints(int amount)
+    {
+        Points += amount;
+        textMesh.text = Points.ToString();
+    }
+
     private void OnDestroy()
     {
         TowerPlacementManager.OnPlace -= SpendPoints;
         TowerUpgradeButton.OnUpgrade -= SpendPoints;
         Tower.OnRefillAmmo -= SpendPoints;
         Enemy.OnDeath -= GainPoints;
+        EnemySpawner.OnSkipWave -= GainAmountPoints;
     }
 }

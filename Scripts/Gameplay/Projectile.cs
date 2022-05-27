@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using System;
 
 public enum ProjectileType { Normal, Heavy }
 
@@ -16,6 +17,8 @@ public class Projectile : MonoBehaviour
     protected Transform _transform;
 
     public Transform Transform => _transform;
+
+    public event Action OnDestroyed;
     
     protected void Awake()
     {
@@ -108,5 +111,10 @@ public class Projectile : MonoBehaviour
             }
         }
         return newTarget;
+    }
+
+    private void OnDestroy()
+    {
+        OnDestroyed?.Invoke();
     }
 }

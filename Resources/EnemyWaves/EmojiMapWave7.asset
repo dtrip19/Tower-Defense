@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c985c7eb4d24dbd4fb6cd55fde4fb6a9, type: 3}
+  m_Name: EmojiMapWave7
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyWaveScriptableObject
+  enemyPacks:
+  - {fileID: 11400000, guid: bbd6031ca71138b48a604c06dd2dce43, type: 2}
+  - {fileID: 11400000, guid: bd87c465c045b164bafde564e79927fa, type: 2}
+  - {fileID: 11400000, guid: b61182a8abca338498ab89d72523d3ae, type: 2}
+  - {fileID: 11400000, guid: 8c94df90673616e4496b0a340d291c88, type: 2}
+  - {fileID: 11400000, guid: c1ca7d72476740c4d883fa2c1cc79550, type: 2}
+  - {fileID: 11400000, guid: e68eaac5406be7747ad095c0d63bf025, type: 2}
+  - {fileID: 11400000, guid: 3b92403d19f5c5e479226cbf9c8dc2e4, type: 2}
+  - {fileID: 11400000, guid: 6d3b1da9d62a99b489d23a297738001f, type: 2}
+  - {fileID: 11400000, guid: a26e5ab0c06250643a551f6d1e5f65dd, type: 2}

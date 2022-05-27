@@ -22,11 +22,11 @@ MonoBehaviour:
   damage: 10
   attackDelay: 75
   price: 200
-  pierce: 1
+  pierce: 30
   ammo: 100
   bulletSpeed: 0
-  lifeTime: 5
-  range: 8
+  lifeTime: 7
+  range: 10
   colliderSize: 1
   bulletOriginHeight: 2
   towerId: 13
