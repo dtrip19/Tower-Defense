@@ -90,7 +90,7 @@ SphereCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7871653369370538987}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.5
@@ -124,10 +124,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   direction: {x: 0, y: 0, z: 0}
+  projectileType: 0
   damageType: 0
   speed: 0
+  timeDestroy: 0
   damage: 0
   pierce: 1
+  collidesWithSurfaces: 1
   bullet: {fileID: 7871653369370538987}
   attackDelay: 40
   lifeTime: 4

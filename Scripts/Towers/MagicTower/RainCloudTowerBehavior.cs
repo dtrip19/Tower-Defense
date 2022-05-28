@@ -5,7 +5,8 @@ public class RainCloudTowerBehavior : TowerBehaviorBase
     protected Transform rainCloudTransform;
     protected const int rainCloudHeight = 15;
 
-    protected float Variance => Random.Range(-1.5f, 1.5f);
+    protected override DamageType DamageType => DamageType.Elemental;
+    protected float ProjectileSpawnLocationRandomOffset => Random.Range(-1.5f, 1.5f);
 
     new protected void Awake()
     {
@@ -19,8 +20,9 @@ public class RainCloudTowerBehavior : TowerBehaviorBase
         if (target != null && !target.Equals(null))
         {
             var cloudPosition = rainCloudTransform.position;
-            var targetPosition = new Vector3(target.Transform.position.x,rainCloudHeight, target.Transform.position.z);
-            rainCloudTransform.position = Vector3.Lerp(cloudPosition, targetPosition,.01f);
+            var expectedPosition = target.positions[target.PathPositionIndex + 5];
+            var targetPosition = new Vector3(expectedPosition.x, rainCloudHeight, expectedPosition.z);
+            rainCloudTransform.position = Vector3.Lerp(cloudPosition, targetPosition, .01f);
         }
         
         base.FixedUpdate();
@@ -31,9 +33,9 @@ public class RainCloudTowerBehavior : TowerBehaviorBase
         var projectile = Instantiate(bullet).GetComponent<Projectile>();
         projectile.Transform.position = new Vector3
         {
-            x = rainCloudTransform.position.x + Variance,
+            x = rainCloudTransform.position.x + ProjectileSpawnLocationRandomOffset,
             y = rainCloudTransform.position.y,
-            z = rainCloudTransform.position.z + Variance
+            z = rainCloudTransform.position.z + ProjectileSpawnLocationRandomOffset
         };
         projectile.SetValues(Vector3.down, DamageType, Time.time + lifeTime, bulletSpeed, damage, pierce);
     }

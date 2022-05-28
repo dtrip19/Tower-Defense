@@ -21,7 +21,7 @@ MonoBehaviour:
     pulls flying enemies toward the ground
   damage: 25
   attackDelay: 20
-  price: 75
+  price: 300
   pierce: 4
   ammo: 500
   bulletSpeed: 0.5

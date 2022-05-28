@@ -67,10 +67,10 @@ public class Enemy : MonoBehaviour
     public void TakeDamage(int damage, DamageType damageType)
     {
         float damageToTake = damage;
-        if (attributes.Contains(EnemyAttribute.Armored) && (damageType == DamageType.Normal || damageType == DamageType.Explosive))
-            damageToTake /= 2;
+        if (attributes.Contains(EnemyAttribute.Armored) && (damageType == DamageType.Normal))
+            damageToTake /= 4;
         if (attributes.Contains(EnemyAttribute.Resistant) && (damageType == DamageType.Elemental || damageType == DamageType.Explosive))
-            damageToTake /= 2;
+            damageToTake /= 4;
 
         health -= (int)damageToTake;
         if (health <= 0)

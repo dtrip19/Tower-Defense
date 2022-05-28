@@ -20,8 +20,8 @@ MonoBehaviour:
   description: Fires fast projectiles that jump between enemies they hit
   damage: 30
   attackDelay: 25
-  price: 75
-  pierce: 100
+  price: 250
+  pierce: 12
   ammo: 80
   bulletSpeed: 5
   lifeTime: 4

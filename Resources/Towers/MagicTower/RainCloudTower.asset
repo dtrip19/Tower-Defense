@@ -20,7 +20,7 @@ MonoBehaviour:
   icon: {fileID: 21300000, guid: c086cf6b96cab954e881a4a6fbd24f50, type: 3}
   towerName: Rain Cloud
   description: Creates a cloud that rains projectiles from up high
-  damage: 25
+  damage: 30
   attackDelay: 5
   price: 100
   pierce: 1
