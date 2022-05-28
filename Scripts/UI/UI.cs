@@ -36,7 +36,8 @@ public static class UI
             lifeTime = towerSO.lifeTime,
             range = towerSO.range,
             size = towerSO.colliderSize,
-            ammo = towerSO.ammo
+            ammo = towerSO.ammo,
+            towerID = towerSO.towerId
         };
 
         return towerData;

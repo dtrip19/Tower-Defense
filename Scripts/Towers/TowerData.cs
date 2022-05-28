@@ -13,6 +13,7 @@ public struct TowerData
     public int attackDelay;
     public int pierce;
     public int ammo;
+    public int towerID;
     public float bulletOriginHeight;
     public float bulletSpeed;
     public float lifeTime;

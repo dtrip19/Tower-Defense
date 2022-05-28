@@ -10,6 +10,7 @@ public abstract class TowerBehaviorBase : MonoBehaviour
     public int pierce;
     public int ammo;
     public int maxAmmo;
+    public int towerID;
     public float bulletSpeed;
     public float lifeTime;
     public float bulletOriginHeight;
@@ -53,6 +54,7 @@ public abstract class TowerBehaviorBase : MonoBehaviour
         pierce = towerData.pierce;
         maxAmmo = towerData.ammo;
         ammo = maxAmmo;
+        towerID = towerData.towerID;
         if (maxAmmo != 0)
             OnSpawn?.Invoke(this);
     }
@@ -99,8 +101,8 @@ public abstract class TowerBehaviorBase : MonoBehaviour
 
     public virtual bool IsTargetVisible(Enemy enemy)
     {
-        Vector3 bulletOrigin = new Vector3(_transform.position.x, _transform.position.y + bulletOriginHeight, _transform.position.z);
-        Vector3 dirToTarget = (enemy.LineOfSightPosition - bulletOrigin).normalized;
-        return !Physics.Raycast(bulletOrigin, dirToTarget, out RaycastHit hit, range, Layers.Unplaceable);
+        var lineOfSightPosition = new Vector3(_transform.position.x, _transform.position.y + bulletOriginHeight, _transform.position.z);
+        Vector3 dirToTarget = (enemy.LineOfSightPosition - lineOfSightPosition).normalized;
+        return !Physics.Raycast(lineOfSightPosition, dirToTarget, out RaycastHit hit, range, Layers.Unplaceable);
     }
 }

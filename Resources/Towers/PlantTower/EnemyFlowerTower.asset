@@ -21,12 +21,12 @@ MonoBehaviour:
     of them and throw projectiles.
   damage: 50
   attackDelay: 50
-  price: 100
+  price: 350
   pierce: 25
   ammo: 150
+  towerId: 28
   bulletSpeed: 4
   lifeTime: 5
   range: 12
   colliderSize: 1
   bulletOriginHeight: 2
-  towerId: 28
