@@ -17,7 +17,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 7cba7b8056241ac43b829c4ce6a7f6e4, type: 2}
   model: {fileID: 2684329544316879834, guid: cf8e56c56570303408852dafc5f21bc4, type: 3}
   bullet: {fileID: 1564849948281754654, guid: ee9fce8766a0ac94bbfd13b8eb7c3057, type: 3}
-  icon: {fileID: 21300000, guid: 18e9813db746b87418be75675f473e7b, type: 3}
+  icon: {fileID: 21300000, guid: 3948a06494d719d4883141093c1a3110, type: 3}
   towerName: Stump Tower
   description: Fires sticky sap that slows enemies. Other towers can be placed on
     top of it
@@ -26,9 +26,9 @@ MonoBehaviour:
   price: 100
   pierce: 1
   ammo: 100
+  towerId: 23
   bulletSpeed: 10
   lifeTime: 0.5
   range: 8
   colliderSize: 1
   bulletOriginHeight: 2
-  towerId: 23

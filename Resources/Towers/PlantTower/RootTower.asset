@@ -15,7 +15,7 @@ MonoBehaviour:
   upgrades: []
   model: {fileID: 2684329544316879834, guid: cf8e56c56570303408852dafc5f21bc4, type: 3}
   bullet: {fileID: 1564849948281754654, guid: ee9fce8766a0ac94bbfd13b8eb7c3057, type: 3}
-  icon: {fileID: 21300000, guid: 18e9813db746b87418be75675f473e7b, type: 3}
+  icon: {fileID: 21300000, guid: 0002385a00287cf4f9aebcdf2a5fa44c, type: 3}
   towerName: Root Tower
   description: Grows roots in the ground that damage burrowing enemies. Spawns roots
     above ground that slam on enemies.
@@ -23,9 +23,10 @@ MonoBehaviour:
   attackDelay: 50
   price: 100
   pierce: 1
+  ammo: 0
+  towerId: 26
   bulletSpeed: 10
   lifeTime: 7
   range: 8
   colliderSize: 1
   bulletOriginHeight: 2
-  towerId: 26

@@ -15,7 +15,7 @@ MonoBehaviour:
   upgrades: []
   model: {fileID: 4542255474808705555, guid: b182b7d4a40c9024ba665257525c7a0c, type: 3}
   bullet: {fileID: 1317444465190966354, guid: f24bf52a85f00db4eb83b362cf43f268, type: 3}
-  icon: {fileID: 21300000, guid: 18e9813db746b87418be75675f473e7b, type: 3}
+  icon: {fileID: 21300000, guid: b14eb60550c32ac4ea58bfa3068127b1, type: 3}
   towerName: EnemyFlowerTower
   description: Flower can use the range of nearby towers to grow and loom in front
     of them and throw projectiles.
