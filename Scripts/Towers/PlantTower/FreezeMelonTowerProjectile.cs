@@ -1,13 +1,9 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class FreezeMelonTowerProjectile : WatermelonTowerProjectile
 {
-
     new protected void OnCollisionEnter(Collision collision)
     {
-        print("collision");
         int layer = collision.collider.gameObject.layer;
         if (layer == Layers.UnplaceableRaw || layer == Layers.GroundRaw)
         {

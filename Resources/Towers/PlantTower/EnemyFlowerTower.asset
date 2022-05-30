@@ -22,7 +22,7 @@ MonoBehaviour:
   damage: 50
   attackDelay: 50
   price: 350
-  pierce: 25
+  pierce: 4
   ammo: 150
   towerId: 28
   bulletSpeed: 4

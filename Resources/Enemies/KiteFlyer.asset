@@ -10,17 +10,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e07927ee50024ae408562e7de0756171, type: 3}
-  m_Name: BossEnemy
+  m_Name: KiteFlyer
   m_EditorClassIdentifier: 
-  modelPrefab: {fileID: 2880462350315932328, guid: edd02bcf17f08c24eb4207e20948eb36,
+  modelPrefab: {fileID: 1254592304487904073, guid: b06bff86fce0ba948b6f1eb23a30e0c2,
     type: 3}
-  material: {fileID: 2100000, guid: 81adfa0294eea784abe81d010c9d47a7, type: 2}
-  attributes: 03000000
+  material: {fileID: 2100000, guid: ed0b8b048c36de54cab01f27b2cda635, type: 2}
+  attributes: 06000000
   capsuleDirection: 1
-  capsuleRadius: 1.5
-  capsuleHeight: 6
-  health: 10000
-  moveSpeed: 0.3
-  points: 200
+  capsuleRadius: 0.5
+  capsuleHeight: 2
+  health: 150
+  moveSpeed: 0.8
+  points: 2
   height: 0
-  deathLocation: {x: -2.577487, y: 0.050000515, z: 0.07047251}
+  deathLocation: {x: -11.27552, y: 0.050000027, z: 17.608496}

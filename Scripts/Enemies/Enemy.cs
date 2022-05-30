@@ -10,6 +10,7 @@ public class Enemy : MonoBehaviour
     public List<EnemyAttribute> attributes = new List<EnemyAttribute>();
     public bool canMove = true;
     public float moveSpeedMultiplier = 1;
+
     private EnemyScriptableObject enemySO;
     private Transform _transform;
     private int height;
@@ -36,8 +37,8 @@ public class Enemy : MonoBehaviour
 
     public static event Action<int> OnReachEndPath;
     public static event Action<Enemy> OnSpawn;
-
     public static event Action<EnemyScriptableObject> OnDeath;
+    public event Action OnDestroyed;
 
     private void Awake()
     {
@@ -99,6 +100,7 @@ public class Enemy : MonoBehaviour
         maxHealth = enemySO.health;
         health = enemySO.health;
         height = enemySO.height;
+
         foreach (var attribute in enemySO.attributes)
         {
             attributes.Add(attribute);
@@ -109,14 +111,38 @@ public class Enemy : MonoBehaviour
             Instantiate(Resources.Load<GameObject>("Enemies/EnemyCapsule"), _transform);
         modelRootTransform = _transform.GetChild(0);
         GetComponentInChildren<MeshRenderer>().material = enemySO.material;
-        var capsule = GetComponent<CapsuleCollider>();
-        capsule.direction = (int)enemySO.capsuleDirection;
-        capsule.radius = enemySO.capsuleRadius;
-        capsule.height = enemySO.capsuleHeight;
-        if (capsule.direction == (int)CapsuleDirection.Y)
-            capsule.center = new Vector3(0, Mathf.RoundToInt(capsule.height) / 2, 0);
+
+        if (TryGetComponent(out CapsuleCollider capsule))
+        {
+            capsule.direction = (int)enemySO.capsuleDirection;
+            capsule.radius = enemySO.capsuleRadius;
+            capsule.height = enemySO.capsuleHeight;
+            if (capsule.direction == (int)CapsuleDirection.Y)
+                capsule.center = new Vector3(0, Mathf.RoundToInt(capsule.height) / 2, 0);
+        }
+
         if (enemySO.attributes.Contains(EnemyAttribute.Healing))
             gameObject.AddComponent<HealingEnemy>();
+        if (enemySO.attributes.Contains(EnemyAttribute.KiteFlyer))
+            gameObject.AddComponent<KiteFlyerEnemy>();
+
         OnSpawn?.Invoke(this);
+    }
+
+    public void SetPathPositionIndex(int index)
+    {
+        pathPositionIndex = index;
+    }
+
+    private bool isQuitting = false; // This is some whacky bullshit you have to do so unity doesn't try to spawn enemies when the game is closed
+    private void OnApplicationQuit()
+    {
+        isQuitting = true;
+    }
+                                     
+    private void OnDestroy() // This is for the kite/kite flyer interaction
+    {
+        if (!isQuitting && health <= 0)
+            OnDestroyed?.Invoke();
     }
 }

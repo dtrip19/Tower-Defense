@@ -11,7 +11,6 @@ public class WatermelonTowerProjectile : Projectile
 
     protected void OnCollisionEnter(Collision collision)
     {
-        print("collision");
         int layer = collision.collider.gameObject.layer;
         if (layer == Layers.UnplaceableRaw || layer == Layers.GroundRaw)
         {
@@ -30,6 +29,7 @@ public class WatermelonTowerProjectile : Projectile
             Destroy(gameObject);
         }
     }    
+
     new private void FixedUpdate()
     {
         vSpeed -= 2*gravity;

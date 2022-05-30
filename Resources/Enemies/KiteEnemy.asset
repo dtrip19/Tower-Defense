@@ -10,17 +10,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e07927ee50024ae408562e7de0756171, type: 3}
-  m_Name: BossEnemy
+  m_Name: KiteEnemy
   m_EditorClassIdentifier: 
-  modelPrefab: {fileID: 2880462350315932328, guid: edd02bcf17f08c24eb4207e20948eb36,
+  modelPrefab: {fileID: 9148160566750045197, guid: d8a2becb4f4df7b46a328b9fe80a6434,
     type: 3}
-  material: {fileID: 2100000, guid: 81adfa0294eea784abe81d010c9d47a7, type: 2}
-  attributes: 03000000
+  material: {fileID: 2100000, guid: ed0b8b048c36de54cab01f27b2cda635, type: 2}
+  attributes: 
   capsuleDirection: 1
-  capsuleRadius: 1.5
-  capsuleHeight: 6
-  health: 10000
-  moveSpeed: 0.3
-  points: 200
+  capsuleRadius: 0.5
+  capsuleHeight: 0.5
+  health: 50
+  moveSpeed: 0
+  points: 2
   height: 0
-  deathLocation: {x: -2.577487, y: 0.050000515, z: 0.07047251}
+  deathLocation: {x: 2.3975449, y: 0.049999665, z: -0.25281462}

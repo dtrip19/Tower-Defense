@@ -18,6 +18,11 @@ public class EnemySpawner : MonoBehaviour
     public static event Action<int> OnSkipWave;
     public event Action OnEndWave;
 
+    private void Awake()
+    {
+        KiteFlyerEnemy.OnKiteDestroyed += SpawnEnragedKiteFlyer;
+    }
+
     public void StartWave()
     {
         if (playing) return;
@@ -78,6 +83,19 @@ public class EnemySpawner : MonoBehaviour
         enemy.InitEnemy(enemySO);
     }
 
+    private void SpawnEnragedKiteFlyer(Enemy enemy)
+    {
+        int pathIndex = enemy.PathPositionIndex;
+        Destroy(enemy.gameObject);
+
+        var newEnemy = Instantiate(enemyObject).GetComponent<Enemy>();
+        newEnemy.Transform.position = positions[pathIndex];
+        newEnemy.GetComponent<Collider>().isTrigger = true;
+        newEnemy.positions = positions;
+        newEnemy.InitEnemy(Resources.Load<EnemyScriptableObject>("Enemies/EnragedKiteFlyer"));
+        newEnemy.SetPathPositionIndex(pathIndex);
+    }
+
     public void SkipWave()
     {
         var wave = mapSpawns.waves[waveIndex];
@@ -88,5 +106,10 @@ public class EnemySpawner : MonoBehaviour
         }
         OnSkipWave?.Invoke(wavePointValue);
         waveIndex++;
+    }
+
+    private void OnDestroy()
+    {
+        KiteFlyerEnemy.OnKiteDestroyed -= SpawnEnragedKiteFlyer;
     }
 }

@@ -10,17 +10,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e07927ee50024ae408562e7de0756171, type: 3}
-  m_Name: BossEnemy
+  m_Name: EnragedKiteFlyer
   m_EditorClassIdentifier: 
-  modelPrefab: {fileID: 2880462350315932328, guid: edd02bcf17f08c24eb4207e20948eb36,
+  modelPrefab: {fileID: 7030515866296806615, guid: 7db8c79f2f6117c4783d5144ba74f9a8,
     type: 3}
   material: {fileID: 2100000, guid: 81adfa0294eea784abe81d010c9d47a7, type: 2}
   attributes: 03000000
   capsuleDirection: 1
   capsuleRadius: 1.5
   capsuleHeight: 6
-  health: 10000
-  moveSpeed: 0.3
-  points: 200
+  health: 500
+  moveSpeed: 1.2
+  points: 2
   height: 0
-  deathLocation: {x: -2.577487, y: 0.050000515, z: 0.07047251}
+  deathLocation: {x: 2.3975449, y: 0.049999665, z: -0.25281462}

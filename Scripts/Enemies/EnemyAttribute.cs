@@ -6,5 +6,6 @@ public enum EnemyAttribute
     Armored,
     Persistent,
     Resistant,
-    Healing
+    Healing,
+    KiteFlyer
 }

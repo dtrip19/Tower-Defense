@@ -19,14 +19,14 @@ MonoBehaviour:
   towerName: Gravity Tower
   description: Creates a gravity field beneath it that deals persistent damage and
     pulls flying enemies toward the ground
-  damage: 25
-  attackDelay: 20
+  damage: 40
+  attackDelay: 50
   price: 300
-  pierce: 4
+  pierce: 2
   ammo: 500
+  towerId: 21
   bulletSpeed: 0.5
   lifeTime: 4
   range: 10
   colliderSize: 1
   bulletOriginHeight: 2
-  towerId: 21
