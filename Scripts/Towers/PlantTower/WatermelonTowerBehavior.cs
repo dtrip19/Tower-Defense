@@ -21,5 +21,6 @@ public class WatermelonTowerBehavior : TowerBehaviorBase
             destination = new Vector3(expectedLocation.x, expectedLocation.y + target.Height, expectedLocation.z);
         }
         projectile.SetValues(destination, DamageType, Time.time + lifeTime, bulletSpeed, damage, pierce);
+        projectile.projectileType = ProjectileType.Heavy;
     }
 }

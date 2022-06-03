@@ -19,7 +19,7 @@ MonoBehaviour:
   towerName: FreezeMelon Tower
   description: Lobs watermelons at enemies. Can shoot at enemies in range as long
     as any of your towers can see it. Melons slow enemies
-  damage: 50
+  damage: 100
   attackDelay: 50
   price: 100
   pierce: 25

@@ -125,6 +125,8 @@ public class Enemy : MonoBehaviour
             gameObject.AddComponent<HealingEnemy>();
         if (enemySO.attributes.Contains(EnemyAttribute.KiteFlyer))
             gameObject.AddComponent<KiteFlyerEnemy>();
+        if (enemySO.attributes.Contains(EnemyAttribute.Parasite))
+            gameObject.AddComponent<ParasiteEnemy>();
 
         OnSpawn?.Invoke(this);
     }

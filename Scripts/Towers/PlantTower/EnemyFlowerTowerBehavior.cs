@@ -56,7 +56,10 @@ public class EnemyFlowerTowerBehavior : TowerBehaviorBase
             if(target == null || target.Equals(null)) goto endofloop;
 
             float time = Time.deltaTime * 20;
-            var expectedPosition = target.positions[target.PathPositionIndex+8];
+            var pathIndex = target.PathPositionIndex + 8;
+            if (pathIndex >= target.positions.Length)
+                pathIndex = target.positions.Length - 1;
+            var expectedPosition = target.positions[pathIndex];
             expectedPosition += new Vector3(0, target.Height + 2, 0);
             // headTransform.position = Vector3.Lerp(headTransform.position, expectedPosition, time);
             var newPosition = Vector3.Lerp(headTransform.position, expectedPosition, time);

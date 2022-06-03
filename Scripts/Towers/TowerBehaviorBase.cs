@@ -21,6 +21,7 @@ public abstract class TowerBehaviorBase : MonoBehaviour
 
     public virtual Vector3 BulletOrigin => new Vector3(_transform.position.x, _transform.position.y + bulletOriginHeight, _transform.position.z);
     protected virtual DamageType DamageType => DamageType.Normal;
+    protected virtual ProjectileType ProjectileType => ProjectileType.Normal;
 
     public static event Action<TowerBehaviorBase> OnSpawn;
 
@@ -97,6 +98,7 @@ public abstract class TowerBehaviorBase : MonoBehaviour
         var dirToEnemy = target.LineOfSightPosition - BulletOrigin;
 
         projectile.SetValues(dirToEnemy.normalized, DamageType, Time.time + lifeTime, bulletSpeed, damage, pierce);
+        projectile.projectileType = ProjectileType;
     }
 
     public virtual bool IsTargetVisible(Enemy enemy)

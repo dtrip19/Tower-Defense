@@ -7,5 +7,6 @@ public enum EnemyAttribute
     Persistent,
     Resistant,
     Healing,
-    KiteFlyer
+    KiteFlyer,
+    Parasite
 }

@@ -10,16 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e07927ee50024ae408562e7de0756171, type: 3}
-  m_Name: FastEnemy
+  m_Name: GoldEnemies
   m_EditorClassIdentifier: 
   modelPrefab: {fileID: 0}
-  material: {fileID: 2100000, guid: ed0b8b048c36de54cab01f27b2cda635, type: 2}
-  attributes: 
+  material: {fileID: 2100000, guid: 32beead6641a7bf4992e119e4ef94569, type: 2}
+  attributes: 02000000
   capsuleDirection: 1
   capsuleRadius: 0.5
   capsuleHeight: 2
-  health: 50
-  moveSpeed: 1
-  points: 1
+  health: 200
+  moveSpeed: 2
+  points: 50
   height: 0
-  deathLocation: {x: 8.119335, y: 0.049999967, z: -6.431942}
+  deathLocation: {x: -1.9874445, y: 0.05000007, z: -0.0950736}

@@ -1,8 +1,5 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
+﻿
 public class BounceTowerBehavior : HeavyTowerBehavior
 {
-    
+    protected override DamageType DamageType => DamageType.Piercing;
 }

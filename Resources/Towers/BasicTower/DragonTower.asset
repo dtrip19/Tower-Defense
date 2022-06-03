@@ -18,14 +18,14 @@ MonoBehaviour:
   icon: {fileID: 21300000, guid: a48321ce18cadf74596bd7677d1678d5, type: 3}
   towerName: Dragon Tower
   description: Rains down bullets from above
-  damage: 10
+  damage: 15
   attackDelay: 3
   price: 250
   pierce: 1
-  ammo: 750
+  ammo: 1000
+  towerId: 4
   bulletSpeed: 7
   lifeTime: 1
   range: 12
   colliderSize: 1
   bulletOriginHeight: 2
-  towerId: 4

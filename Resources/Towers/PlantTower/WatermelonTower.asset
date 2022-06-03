@@ -21,7 +21,7 @@ MonoBehaviour:
   towerName: Watermelon Tower
   description: Lobs watermelons at enemies. Can shoot at enemies in range as long
     as any of your towers can see it
-  damage: 50
+  damage: 75
   attackDelay: 50
   price: 100
   pierce: 25

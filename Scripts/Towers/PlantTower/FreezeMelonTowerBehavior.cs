@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class FreezeMelonTowerBehavior : TowerBehaviorBase
@@ -21,5 +19,6 @@ public class FreezeMelonTowerBehavior : TowerBehaviorBase
             destination = new Vector3(expectedLocation.x, expectedLocation.y + target.Height, expectedLocation.z);
         }
         projectile.SetValues(destination, DamageType, Time.time + lifeTime, bulletSpeed, damage, pierce);
+        projectile.projectileType = ProjectileType.Heavy;
     }
 }
