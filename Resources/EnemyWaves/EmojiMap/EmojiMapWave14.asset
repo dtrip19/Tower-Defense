@@ -13,7 +13,10 @@ MonoBehaviour:
   m_Name: EmojiMapWave14
   m_EditorClassIdentifier: Assembly-CSharp::EnemyWaveScriptableObject
   enemyPacks:
-  - {fileID: 11400000, guid: 08533d4ee2043ef43912fb0a6bdcdb3e, type: 2}
   - {fileID: 11400000, guid: f5a1dc6bd4cafb948bcf3a9fd32d2c92, type: 2}
+  - {fileID: 11400000, guid: 08533d4ee2043ef43912fb0a6bdcdb3e, type: 2}
   - {fileID: 11400000, guid: 3ed773340bce25c4988cc03152426e78, type: 2}
   - {fileID: 11400000, guid: fa9642129e2ddc94bbac92c2ae99d3f3, type: 2}
+  - {fileID: 11400000, guid: 646608429e9991146ba1931c803b2bbe, type: 2}
+  - {fileID: 11400000, guid: 1a88c98397bc6604cb576102679a9278, type: 2}
+  - {fileID: 11400000, guid: 5ab044fec8da23149a6c4beca1d61b32, type: 2}
