@@ -1,8 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
 
 public class ChainLightningTowerBehavior : TowerBehaviorBase
 {
-
+    protected override DamageType DamageType => DamageType.Elemental;
 }

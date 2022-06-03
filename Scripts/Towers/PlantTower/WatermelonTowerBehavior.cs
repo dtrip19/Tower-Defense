@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class WatermelonTowerBehavior : TowerBehaviorBase
 {
@@ -11,7 +9,7 @@ public class WatermelonTowerBehavior : TowerBehaviorBase
         
         Vector3 destination;
         const int aimAssist = 4;
-        if(target.positions.Length - target.PathPositionIndex < aimAssist)
+        if(target.positions.Length - target.PathPositionIndex < aimAssist || !target.canMove)
         {
             destination = target.transform.position;
         }

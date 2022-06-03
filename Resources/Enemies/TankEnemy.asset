@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e07927ee50024ae408562e7de0756171, type: 3}
+  m_Name: TankEnemy
+  m_EditorClassIdentifier: 
+  modelPrefab: {fileID: 185785687060928240, guid: eb0b2c310b1c04046b78f0e4233aa390,
+    type: 3}
+  material: {fileID: 2100000, guid: d62fa4a419e5a914c85b0650556412c1, type: 2}
+  attributes: 02000000
+  capsuleDirection: 2
+  capsuleRadius: 2
+  capsuleHeight: 0
+  health: 800
+  moveSpeed: 0.5
+  points: 12
+  height: 0
+  deathLocation: {x: -2.9910235, y: 0.049999952, z: -5.2435517}
