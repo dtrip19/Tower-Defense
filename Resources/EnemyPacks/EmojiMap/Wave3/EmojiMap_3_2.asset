@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: EmojiMap_3_2
   m_EditorClassIdentifier: Assembly-CSharp::EnemyPackSciptableObject
   enemySO: {fileID: 11400000, guid: 5ac99dd7ed7054e499a45e68f9b684a4, type: 2}
-  numEnemies: 6
+  numEnemies: 5
   spawnStartTime: 6
   spawnInterval: 1

@@ -20,7 +20,10 @@ public class RainCloudTowerBehavior : TowerBehaviorBase
         if (target != null && !target.Equals(null))
         {
             var cloudPosition = rainCloudTransform.position;
-            var expectedPosition = target.positions[target.PathPositionIndex + 5];
+            var pathIndex = target.PathPositionIndex + 6;
+            if (pathIndex >= target.positions.Length)
+                pathIndex = target.positions.Length - 1;
+            var expectedPosition = target.positions[pathIndex];
             var targetPosition = new Vector3(expectedPosition.x, rainCloudHeight, expectedPosition.z);
             rainCloudTransform.position = Vector3.Lerp(cloudPosition, targetPosition, .01f);
         }

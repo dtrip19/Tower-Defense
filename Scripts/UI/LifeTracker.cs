@@ -5,12 +5,13 @@ using TMPro;
 public class LifeTracker : MonoBehaviour
 {
     private TextMeshProUGUI textMesh;
-    private int life = 500;
+    private int life;
 
     public static Action OnPlayerLose;
 
     private void Start()
     {
+        life = 500;
         Enemy.OnReachEndPath += LoseLife;
         textMesh = GetComponent<TextMeshProUGUI>();
         textMesh.text = life.ToString();

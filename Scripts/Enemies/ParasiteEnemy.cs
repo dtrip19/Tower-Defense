@@ -63,7 +63,7 @@ public class ParasiteEnemy : MonoBehaviour
         while (behavior.ammo > 0)
         {
             behavior.ammo -= Mathf.Clamp(behavior.maxAmmo / 10, 0, behavior.ammo);
-            enemy.Heal(100);
+            enemy.Heal(50);
 
             yield return new WaitForSeconds(1);
         }

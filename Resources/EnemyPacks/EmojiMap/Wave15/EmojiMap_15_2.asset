@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5ef1d82063f277340bcaada7278ddcff, type: 3}
-  m_Name: EmojiMap_4_3
+  m_Name: EmojiMap_15_2
   m_EditorClassIdentifier: Assembly-CSharp::EnemyPackSciptableObject
-  enemySO: {fileID: 11400000, guid: 652ca59319f6cef469c06963d1d75fba, type: 2}
-  numEnemies: 3
-  spawnStartTime: 6.5
+  enemySO: {fileID: 11400000, guid: 1f58131c13d47c64d9c2e3dfca62e15b, type: 2}
+  numEnemies: 30
+  spawnStartTime: 0.5
   spawnInterval: 1

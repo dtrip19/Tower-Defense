@@ -22,5 +22,5 @@ MonoBehaviour:
   health: 500
   moveSpeed: 0.5
   points: 5
-  height: 7
-  deathLocation: {x: -21.459875, y: 14.049999, z: 1.0315255}
+  height: 6
+  deathLocation: {x: -3.1655982, y: 14.05, z: 0.18946674}

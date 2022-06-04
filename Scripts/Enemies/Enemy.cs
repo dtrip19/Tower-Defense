@@ -13,6 +13,7 @@ public class Enemy : MonoBehaviour
 
     private EnemyScriptableObject enemySO;
     private Transform _transform;
+    private float halfCapsuleHeight;
     private int height;
     private int pathPositionIndex = 1;
     private int maxHealth;
@@ -32,7 +33,7 @@ public class Enemy : MonoBehaviour
     public Transform Transform => _transform;
     public int Health => health;
     public int Height => height;
-    public Vector3 LineOfSightPosition => _transform.position + new Vector3(0, 1, 0);
+    public Vector3 LineOfSightPosition => _transform.position + new Vector3(0, halfCapsuleHeight, 0);
     public int PathPositionIndex => pathPositionIndex;
 
     public static event Action<int> OnReachEndPath;
@@ -69,9 +70,9 @@ public class Enemy : MonoBehaviour
     {
         float damageToTake = damage;
         if (attributes.Contains(EnemyAttribute.Armored) && (damageType == DamageType.Normal))
-            damageToTake /= 4;
+            damageToTake /= 3;
         if (attributes.Contains(EnemyAttribute.Resistant) && (damageType == DamageType.Elemental || damageType == DamageType.Explosive))
-            damageToTake /= 4;
+            damageToTake /= 3;
 
         health -= (int)damageToTake;
         if (health <= 0)
@@ -119,6 +120,7 @@ public class Enemy : MonoBehaviour
             capsule.height = enemySO.capsuleHeight;
             if (capsule.direction == (int)CapsuleDirection.Y)
                 capsule.center = new Vector3(0, Mathf.RoundToInt(capsule.height) / 2, 0);
+            halfCapsuleHeight = capsule.height / 2;
         }
 
         if (enemySO.attributes.Contains(EnemyAttribute.Healing))

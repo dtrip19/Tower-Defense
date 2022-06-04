@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ef1d82063f277340bcaada7278ddcff, type: 3}
   m_Name: EmojiMap_15_1
   m_EditorClassIdentifier: Assembly-CSharp::EnemyPackSciptableObject
-  enemySO: {fileID: 11400000, guid: 9a7320c1b7fc52c4ab0e86f15e0cf14c, type: 2}
-  numEnemies: 20
+  enemySO: {fileID: 11400000, guid: 761e133bc713bbf4db53d4f33d849f19, type: 2}
+  numEnemies: 30
   spawnStartTime: 0
   spawnInterval: 1
