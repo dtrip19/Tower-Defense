@@ -20,13 +20,13 @@ MonoBehaviour:
   description: Low range, stupid damage. Spends 1 ammo for each point of damage dealt
     to an enemy, max 10,000
   damage: 10000
-  attackDelay: 50
+  attackDelay: 25
   price: 300
   pierce: 1
   ammo: 10000
   towerId: 7
   bulletSpeed: 0
   lifeTime: 0
-  range: 5
+  range: 3
   colliderSize: 1
   bulletOriginHeight: 2

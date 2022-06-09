@@ -15,3 +15,5 @@ MonoBehaviour:
   enemyPacks:
   - {fileID: 11400000, guid: 82b9a255ebc61bf4ca3964f0243bc0d7, type: 2}
   - {fileID: 11400000, guid: 558ab9b134fc5224580902f766b011b1, type: 2}
+  - {fileID: 11400000, guid: 92f646cdebbb5844aa677dbbf4c571d9, type: 2}
+  - {fileID: 11400000, guid: 6c79ea4126a315a42aa860eee8734fea, type: 2}
