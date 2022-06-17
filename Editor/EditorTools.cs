@@ -59,4 +59,16 @@ public class EditorTools : EditorWindow
         Debug.Log("Point Value to Total Enemy Health Ratio: " + (float)pointValue / enemyHealthTotal);
         Debug.Log("Estimated Difficulty: " + enemyHealthTotal / duration);
     }
+
+    [MenuItem("Tools/EnemyDifficulty")]
+    public static void EnemyDifficulty()
+    {
+        var enemies = Resources.LoadAll<EnemyScriptableObject>("Enemies");
+        foreach(var enemy in enemies)
+        {
+            int attributeDifficulty = 1;
+            enemy.difficulty = enemy.health * enemy.moveSpeed * attributeDifficulty;
+        }
+
+    }
 }

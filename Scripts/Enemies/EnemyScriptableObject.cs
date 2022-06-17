@@ -14,8 +14,12 @@ public class EnemyScriptableObject : ScriptableObject
     public float moveSpeed;
     public int points;
     public int height = 1;
+    // public int attributeDifficulty = GetDifficulty();
+    public float difficulty;
 
     public Vector3 deathLocation; //set by enemy on death
+
+
 }
 
 public enum CapsuleDirection { X, Y, Z }
