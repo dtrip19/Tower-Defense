@@ -12,4 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c985c7eb4d24dbd4fb6cd55fde4fb6a9, type: 3}
   m_Name: EmojiMapWave19
   m_EditorClassIdentifier: Assembly-CSharp::EnemyWaveScriptableObject
-  enemyPacks: []
+  enemyPacks:
+  - {fileID: 11400000, guid: cfacefd217e28b8418762c63c0c481ac, type: 2}

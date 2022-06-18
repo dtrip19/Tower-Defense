@@ -12,4 +12,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c985c7eb4d24dbd4fb6cd55fde4fb6a9, type: 3}
   m_Name: EmojiMapWave20
   m_EditorClassIdentifier: Assembly-CSharp::EnemyWaveScriptableObject
-  enemyPacks: []
+  enemyPacks:
+  - {fileID: 11400000, guid: 3dcce9b5013f1c240ae9ed3b961d5f69, type: 2}
+  - {fileID: 11400000, guid: b68747f9d7087d4439af18e1396f172e, type: 2}
+  - {fileID: 11400000, guid: 4064968f4f964e14fa356cf412d23853, type: 2}
+  - {fileID: 11400000, guid: 60e65f2c45f44e0498f8625dbff41888, type: 2}
+  - {fileID: 11400000, guid: 3a1d182c9b0ee28499c8b403acceb16a, type: 2}
+  - {fileID: 11400000, guid: d10b7aee0d60ba547a29d45bff9c34ec, type: 2}
+  - {fileID: 11400000, guid: 14d408354d2d0af4ca7711cec8bdad6b, type: 2}
+  - {fileID: 11400000, guid: 5225f7d041debc54da30ca6cc42cc339, type: 2}
+  - {fileID: 11400000, guid: 97aff3b8b254ab3458c927d163c3cdfd, type: 2}
+  - {fileID: 11400000, guid: 985323b87dec9ae45aaf4b1d205569e2, type: 2}
+  - {fileID: 11400000, guid: cb5e878d1f80b734bb3708f0491a81b1, type: 2}
+  - {fileID: 11400000, guid: bc7fe51a5c5b0e848b049bd3022f3177, type: 2}
+  - {fileID: 11400000, guid: f80f3848cb8817841a778069d7e55169, type: 2}
