@@ -26,7 +26,7 @@ MonoBehaviour:
   pierce: 1
   ammo: 75
   towerId: 1
-  bulletSpeed: 5
+  bulletSpeed: 8
   lifeTime: 1
   range: 7
   colliderSize: 1

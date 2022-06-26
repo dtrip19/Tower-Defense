@@ -47,6 +47,7 @@ public abstract class TowerBehaviorBase : MonoBehaviour
     private void FaceTarget(){
         if(target != null){
             this._transform.LookAt(target.transform);
+            Console.WriteLine(this._transform.rotation.x);
         }
     }
 
