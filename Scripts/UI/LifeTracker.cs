@@ -17,6 +17,13 @@ public class LifeTracker : MonoBehaviour
         textMesh.text = life.ToString();
     }
 
+    private void Update()
+    {
+        if (!Input.GetKeyDown(KeyCode.L)) return;
+
+        LoseLife(-100);
+    }
+
     private void LoseLife(int enemyHealth)
     {
         life -= enemyHealth;
