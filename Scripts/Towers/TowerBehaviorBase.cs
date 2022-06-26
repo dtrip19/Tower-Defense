@@ -32,6 +32,7 @@ public abstract class TowerBehaviorBase : MonoBehaviour
 
     protected void Update()
     {
+        FaceTarget();
         if (target != null && !target.Equals(null))
         {
             if (Vector3.Distance(target.Transform.position, _transform.position) > range || !IsTargetVisible(target))
@@ -41,6 +42,12 @@ public abstract class TowerBehaviorBase : MonoBehaviour
         }
 
         target = FindFurthestTarget();
+    }
+
+    private void FaceTarget(){
+        if(target != null){
+            this._transform.LookAt(target.transform);
+        }
     }
 
     public void SetTowerInfo(TowerData towerData)

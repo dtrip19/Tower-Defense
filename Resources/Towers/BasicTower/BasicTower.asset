@@ -15,7 +15,7 @@ MonoBehaviour:
   upgrades:
   - {fileID: 11400000, guid: b31dfaf9038e11f48b82e04ceb1fa9fe, type: 2}
   - {fileID: 11400000, guid: 4be2721f7b8cf704ea5528abd76be4e4, type: 2}
-  model: {fileID: 0}
+  model: {fileID: 7106196807050903093, guid: 114c580688f28a7429bbbb371883d8b2, type: 3}
   bullet: {fileID: 1317444465190966354, guid: f24bf52a85f00db4eb83b362cf43f268, type: 3}
   icon: {fileID: 21300000, guid: d934ee580ae3a064cbfd783869390749, type: 3}
   towerName: Basic Tower
@@ -25,9 +25,9 @@ MonoBehaviour:
   price: 50
   pierce: 1
   ammo: 75
+  towerId: 1
   bulletSpeed: 5
   lifeTime: 1
   range: 7
   colliderSize: 1
   bulletOriginHeight: 2
-  towerId: 1

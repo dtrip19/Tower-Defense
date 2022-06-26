@@ -9,6 +9,7 @@ public class Tower : MonoBehaviour
     private Describable describable;
     private Transform _transform;
     private TowerBehaviorBase behavior;
+    private GameObject model = null;
 
     private int AmmoRefillPrice
     {
@@ -48,10 +49,13 @@ public class Tower : MonoBehaviour
             if (child.gameObject.tag == "TowerModel")
                 Destroy(child.gameObject);
         }
-        if (towerSO.model != null)
-            Instantiate(towerSO.model, _transform);
-        else
+        if (towerSO.model != null){
+            if(model != null){Destroy(model);}
+            model = Instantiate(towerSO.model, _transform);
+        }
+        else{
             Instantiate(Resources.Load<GameObject>("Towers/DefaultTowerModel"), _transform);
+        }
         AttachBehaviorComponent();
 
         void AttachBehaviorComponent()
