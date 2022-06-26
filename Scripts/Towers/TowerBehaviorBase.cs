@@ -15,6 +15,7 @@ public abstract class TowerBehaviorBase : MonoBehaviour
     public float lifeTime;
     public float bulletOriginHeight;
     public bool canShoot;
+    public GameObject turret
     protected Transform _transform;
     protected Enemy target;
     protected int timer;
