@@ -45,7 +45,10 @@ public abstract class TowerBehaviorBase : MonoBehaviour
         target = FindFurthestTarget();
     }
 
-    public virtual void FaceTarget(){
+    public void FaceTarget(){
+        if(towerHeadTransform != null){
+            towerHeadTransform.LookAt(target.transform);
+        }
     }
 
     public void SetTowerInfo(TowerData towerData)

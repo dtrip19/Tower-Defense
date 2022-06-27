@@ -43,6 +43,8 @@ public class Tower : MonoBehaviour
         this.towerSO = towerSO;
         var collider = _transform.GetChild(0);
         collider.GetComponent<SphereCollider>().radius = towerSO.colliderSize;
+        
+        if(model != null){Destroy(model);}
 
         foreach (Transform child in _transform)
         {
@@ -50,7 +52,6 @@ public class Tower : MonoBehaviour
                 Destroy(child.gameObject);
         }
         if (towerSO.model != null){
-            if(model != null){Destroy(model);}
             model = Instantiate(towerSO.model, _transform);
         }
         else{

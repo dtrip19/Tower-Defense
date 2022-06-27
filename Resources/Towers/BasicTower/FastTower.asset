@@ -15,7 +15,7 @@ MonoBehaviour:
   upgrades:
   - {fileID: 11400000, guid: c160b55ec2ddbd34db3052937d9f4f4f, type: 2}
   - {fileID: 11400000, guid: effa96d8edd33714f9d4d160b73cfdf9, type: 2}
-  model: {fileID: 1268727436683625815, guid: 0eaa4f3118ff429418fb0f4494df99ab, type: 3}
+  model: {fileID: 6355299352399791516, guid: aa120e4646b27514fb321a448a368884, type: 3}
   bullet: {fileID: 1317444465190966354, guid: f24bf52a85f00db4eb83b362cf43f268, type: 3}
   icon: {fileID: 21300000, guid: 1037958cd0e3ed843959c9d903942b1a, type: 3}
   towerName: Fast Tower
