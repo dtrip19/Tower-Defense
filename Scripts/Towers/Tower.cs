@@ -154,6 +154,7 @@ public class Tower : MonoBehaviour
 
             var towerData = UI.GetTowerDataFromSO(towerSO);
             behavior.SetTowerInfo(towerData);
+            behavior.model = model;
             this.behavior = behavior;
 
             if (hasBehavior)

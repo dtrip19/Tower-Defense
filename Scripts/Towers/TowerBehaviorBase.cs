@@ -4,6 +4,8 @@ using System;
 public abstract class TowerBehaviorBase : MonoBehaviour
 {
     public GameObject bullet;
+    public GameObject model;
+    public Transform towerHeadTransform;
     public float range;
     public int attackDelay;
     public int damage;
@@ -15,7 +17,6 @@ public abstract class TowerBehaviorBase : MonoBehaviour
     public float lifeTime;
     public float bulletOriginHeight;
     public bool canShoot;
-    public GameObject turret
     protected Transform _transform;
     protected Enemy target;
     protected int timer;
@@ -23,7 +24,6 @@ public abstract class TowerBehaviorBase : MonoBehaviour
     public virtual Vector3 BulletOrigin => new Vector3(_transform.position.x, _transform.position.y + bulletOriginHeight, _transform.position.z);
     protected virtual DamageType DamageType => DamageType.Normal;
     protected virtual ProjectileType ProjectileType => ProjectileType.Normal;
-
     public static event Action<TowerBehaviorBase> OnSpawn;
 
     protected virtual void Awake()
@@ -33,9 +33,9 @@ public abstract class TowerBehaviorBase : MonoBehaviour
 
     protected void Update()
     {
-        FaceTarget();
         if (target != null && !target.Equals(null))
         {
+            FaceTarget();
             if (Vector3.Distance(target.Transform.position, _transform.position) > range || !IsTargetVisible(target))
                 target = null;
             else
@@ -45,11 +45,7 @@ public abstract class TowerBehaviorBase : MonoBehaviour
         target = FindFurthestTarget();
     }
 
-    private void FaceTarget(){
-        if(target != null){
-            this._transform.LookAt(target.transform);
-            Console.WriteLine(this._transform.rotation.x);
-        }
+    public virtual void FaceTarget(){
     }
 
     public void SetTowerInfo(TowerData towerData)
