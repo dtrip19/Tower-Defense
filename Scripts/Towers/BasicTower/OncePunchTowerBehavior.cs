@@ -4,7 +4,6 @@ public class OncePunchTowerBehavior : TowerBehaviorBase
 {
     protected override DamageType DamageType => DamageType.Piercing;
 
-
     public void Start(){
         towerHeadTransform = _transform;
     }
