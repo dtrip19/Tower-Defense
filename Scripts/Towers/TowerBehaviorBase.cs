@@ -46,7 +46,7 @@ public abstract class TowerBehaviorBase : MonoBehaviour
     }
 
     public void FaceTarget(){
-        if(towerHeadTransform != null){
+        if(towerHeadTransform != null && ammo > 0){
             towerHeadTransform.LookAt(target.transform);
         }
     }
