@@ -2,6 +2,9 @@
 
 public class DragonTowerBehavior : TowerBehaviorBase
 {
+    public void Start(){
+        towerHeadTransform = _transform;
+    }   
     new protected void Awake()
     {
         base.Awake();
