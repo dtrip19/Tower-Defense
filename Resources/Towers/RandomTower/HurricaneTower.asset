@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: HurricaneTower
   m_EditorClassIdentifier: 
   upgrades: []
-  model: {fileID: 0}
+  model: {fileID: 3546301861732062184, guid: 2aeb7abe17ba0224c84e1cbe4fd740f7, type: 3}
   bullet: {fileID: 1317444465190966354, guid: f24bf52a85f00db4eb83b362cf43f268, type: 3}
   icon: {fileID: 21300000, guid: 999a85e78e6269649b0d1e7dca33eaf3, type: 3}
   towerName: Hurricane Tower
@@ -24,9 +24,9 @@ MonoBehaviour:
   price: 200
   pierce: 30
   ammo: 100
+  towerId: 13
   bulletSpeed: 0
   lifeTime: 7
   range: 10
   colliderSize: 1
   bulletOriginHeight: 2
-  towerId: 13

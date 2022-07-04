@@ -15,7 +15,7 @@ MonoBehaviour:
   upgrades:
   - {fileID: 11400000, guid: c8624c1d89665684396e672e06a4d517, type: 2}
   - {fileID: 11400000, guid: f2ceb084d3da074459fb9f8bcc17356c, type: 2}
-  model: {fileID: 0}
+  model: {fileID: 4542366127746786262, guid: ec8313fff0ef51e479ecd29fe5c5bb35, type: 3}
   bullet: {fileID: 6171550589090853087, guid: 37203595066035146bf27e91ec9d4687, type: 3}
   icon: {fileID: 21300000, guid: 627141b9c053fb0468874b9126291413, type: 3}
   towerName: Heavy Bullet Tower
@@ -25,9 +25,9 @@ MonoBehaviour:
   price: 200
   pierce: 1
   ammo: 1000
+  towerId: 9
   bulletSpeed: 4
   lifeTime: 5
   range: 8
   colliderSize: 1
   bulletOriginHeight: 2.5
-  towerId: 9

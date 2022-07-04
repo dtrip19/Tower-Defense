@@ -49,6 +49,7 @@ public class HurricaneTowerBehavior : TowerBehaviorBase
                 projectilesToSlow[i].speed = newSpeed;
         }
 
+        _transform.Rotate(0,3,0);
         base.Update();
     }
 

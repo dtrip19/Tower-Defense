@@ -20,4 +20,9 @@ public class TornadoTowerBehavior : TowerBehaviorBase
             }
         }
     }
+
+    new protected void Update(){
+        base.Update();
+        _transform.Rotate(0,1.5f,0);
+    }
 }
