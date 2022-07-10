@@ -7,7 +7,9 @@ public class EnemyFlowerTowerBehavior : TowerBehaviorBase
     private Transform headTransform;
 
     public override Vector3 BulletOrigin => headTransform.position;
-
+    public void Start(){
+        towerHeadTransform = headTransform;
+    }   
     new private void Awake()
     {
         base.Awake();

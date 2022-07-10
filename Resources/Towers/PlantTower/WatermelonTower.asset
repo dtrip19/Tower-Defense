@@ -15,7 +15,7 @@ MonoBehaviour:
   upgrades:
   - {fileID: 11400000, guid: 15f3a20cd8b61174cbb39877f4652354, type: 2}
   - {fileID: 11400000, guid: e65a3f5b563ecd2408f4f4ec4800ce9e, type: 2}
-  model: {fileID: 0}
+  model: {fileID: 3052896212911765593, guid: 72bdd7fe207e7794599b35f7f1dacbc9, type: 3}
   bullet: {fileID: 1564849948281754654, guid: b26a52fb457bed04c970af14c6fa464e, type: 3}
   icon: {fileID: 21300000, guid: 4aed306b127242147a690bb166317e38, type: 3}
   towerName: Watermelon Tower

@@ -15,7 +15,7 @@ MonoBehaviour:
   upgrades:
   - {fileID: 11400000, guid: df2b5b0764561e245bc73bd45d13945a, type: 2}
   - {fileID: 11400000, guid: 8cf8c2a79dc372d449008a7ef9f47bec, type: 2}
-  model: {fileID: 0}
+  model: {fileID: 3052896212911765593, guid: 72bdd7fe207e7794599b35f7f1dacbc9, type: 3}
   bullet: {fileID: 0}
   icon: {fileID: 21300000, guid: 2010f75c37b4e6449a196f2d86de8cb5, type: 3}
   towerName: Plant Tower
@@ -24,9 +24,10 @@ MonoBehaviour:
   attackDelay: 0
   price: 0
   pierce: 0
+  ammo: 0
+  towerId: 22
   bulletSpeed: 0
   lifeTime: 0
   range: 0
   colliderSize: 1
   bulletOriginHeight: 0
-  towerId: 22

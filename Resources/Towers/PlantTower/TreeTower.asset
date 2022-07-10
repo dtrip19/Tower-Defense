@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: TreeTower
   m_EditorClassIdentifier: 
   upgrades: []
-  model: {fileID: 1349009588003086675, guid: 78681846f2ba1294abdac475754dc2b5, type: 3}
+  model: {fileID: 6482798275136252265, guid: 78681846f2ba1294abdac475754dc2b5, type: 3}
   bullet: {fileID: 1564849948281754654, guid: ee9fce8766a0ac94bbfd13b8eb7c3057, type: 3}
   icon: {fileID: 21300000, guid: a0460ccc6b539994ca42857eb6b3c002, type: 3}
   towerName: Tree Tower
