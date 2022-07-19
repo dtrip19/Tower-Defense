@@ -132,6 +132,6 @@ MonoBehaviour:
   pierce: 1
   collidesWithSurfaces: 1
   bullet: {fileID: 7871653369370538987}
-  attackDelay: 40
+  attackDelay: 25
   lifeTime: 4
   generation: 1
