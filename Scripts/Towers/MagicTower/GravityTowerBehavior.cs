@@ -21,11 +21,18 @@ public class GravityTowerBehavior : RainCloudTowerBehavior
         var indicator = Instantiate(gravityIndicatorObject);
         indicator.transform.position = new Vector3(cloudPosition.x, 7.5f, cloudPosition.z);
         Destroy(indicator, 0.5f);
-        
+
+        float heightCollidedUnplaceableObject = -100;
         foreach (var collider in colliders)
         {
+            if (collider.gameObject.layer == Layers.UnplaceableRaw)
+            {
+                if (Physics.Raycast(rainCloudTransform.position, Vector3.down, out var hitInfo, 50, Layers.Unplaceable) && hitInfo.point.y > heightCollidedUnplaceableObject)
+                    heightCollidedUnplaceableObject = hitInfo.point.y;
+            }
+
             int enemiesHit = 0;
-            if (!collider.TryGetComponent(out Enemy enemy)) continue;
+            if (!collider.TryGetComponent(out Enemy enemy) || enemy.Transform.position.y < heightCollidedUnplaceableObject) continue;
 
             enemy.TakeDamage(damage, DamageType.Elemental);
             enemy.ReduceHeight(2);
